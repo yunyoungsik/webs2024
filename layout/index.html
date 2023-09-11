@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>레이아웃 연습</title>
+
+    <link href="https://webfontworld.github.io/PyeongChang/PyeongChang.css" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            color: #000;
+            font-family: 'PyeongChang';
+        }
+        li {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        #wrap {
+            display: flex;
+        }
+        #nav {
+            width: 300px;
+            padding: 20px;
+        }
+        #nav li a {
+            border: 1px solid brown;
+            display: block;
+            padding: 10px;
+            margin-bottom: 5px;
+        }
+        #nav li a:hover {
+            background-color: #000;
+            color: #fff;
+        }
+        #nav .webd {
+            margin-top: 50px;
+        }
+        #nav .webd li {
+            width: 55px;
+            display: inline-block;
+            text-align: center;
+        }
+        #main {
+            width: 100%;
+            min-height: 100vh;
+        }
+        #main iframe{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <nav id="nav">
+            <ul>
+                <li><a href="layout01.html">레이아웃 01</a></li>
+                <li><a href="layout02.html">레이아웃 02</a></li>
+                <li><a href="layout03.html">레이아웃 03</a></li>
+                <li><a href="layout03-float.html">레이아웃 03 - float</a></li>
+                <li><a href="layout04.html">레이아웃 04</a></li>
+                <li><a href="layout05.html">레이아웃 05</a></li>
+                <li><a href="layout05-grid.html">레이아웃 05 - grid</a></li>
+            </ul>
+            <ul class="webd">
+                <li><a href="A1.html">A-1</a></li>
+                <li><a href="A2.html">A-2</a></li>
+                <li><a href="A3.html">A-3</a></li>
+                <li><a href="A4.html">A-4</a></li>
+                <li><a href="B1.html">B-1</a></li>
+                <li><a href="B2.html">B-2</a></li>
+                <li><a href="B3.html">B-3</a></li>
+                <li><a href="B4.html">B-4</a></li>
+                <li><a href="C1.html">C-1</a></li>
+                <li><a href="C2.html">C-2</a></li>
+                <li><a href="C3.html">C-3</a></li>
+                <li><a href="C4.html">C-4</a></li>
+                <li><a href="D1.html">D-1</a></li>
+                <li><a href="D2.html">D-2</a></li>
+                <li><a href="D3.html">D-3</a></li>
+                <li><a href="D4.html">D-4</a></li>
+                
+            </ul>
+        </nav>
+        <main id="main">
+            <iframe src="layout01.html" frameborder="0"></iframe>
+        </main>
+    </div>
+
+    <script>
+        document.querySelectorAll("#nav ul li").forEach((li) => {
+            li.addEventListener("click", (event) => {
+                event.preventDefault();
+
+                const href = li.querySelector("a").getAttribute("href");
+
+                document.querySelector("#main iframe").src = href;
+            });
+        })
+    </script>
+</body>
+</html>

@@ -8,90 +8,39 @@
 <body>
     <script>
         {
-            // 1부터 100까지 출력
-            for(let i = 0; i < 100; i++){
-                // console.log(i+1);
-            }
+            const aaa = [10, 20, 30, 40, 50, 60, 70, 80, 90];
 
-            // 2부터 55까지 출력(초기값0)
-            for(let i = 0; i < 54; i++){
-                // console.log(i+2);
-            }
-
-            // 1부터 100까지 짝수만 출력
-            for(let i = 2; i <= 100; i+=2){
-                // console.log(i);
-            }
-
-            // 1부터 100까지 짝수만 출력(while문)
-            // let i = 2;
-            // while (i <= 100){
-            //     // console.log(i);
-            //     i += 2;
+            let sum = 0;
+            let sum2 = 0;
+            // for(let i=0; i<aaa.length; i++){
+            //     sum += aaa[i];
             // }
+            // console.log(sum);
+            // aaa.forEach((el) => {
+            //     sum += el;
+            // })
+            // console.log(sum);
 
-            // 1부터 100까지 짝수만 출력(if문 for문)
-            for(let i = 1; i <= 100; i++){
-                if(i % 2 == 0){
-                    // console.log(i);
-                }
-            }
-
-            // 1부터 100까지 홀수만 출력
-            for(let i = 1; i <= 100; i+=2){
-                // console.log(i);
-            }
-            // 1부터 100까지 짝수만 출력(while문)
-            // // let i = 1;
-            // while(i <= 100){
-            //     // console.log(i);
-            //     i += 2;
+            // for(let el in aaa){
+            //     sum += aaa[el];
             // }
+            // console.log(sum);
 
-
-            // 1부터 100까지 짝수만 출력(if문 for문)
-            for(let i = 1; i<=100; i++){
-                if(i % 2 == 1){
-                    // console.log(i);
-                }
-            }
-
-            // 1부터 100까지 5의 배수만 출력
-            for(let i = 5; i <= 100; i+=5){
-                    // console.log(i);
-            }
-
-            for(let i = 5; i <= 100; i++){
-                if(i % 5 ==0){
-                    // console.log(i);
-                }
-            }
-
-            let i = 5;
-            while(i <= 100){
-                console.log(i);
-                i += 5;
-            }
-
-            // 1부터 100까지 출력
-            // for(let i = 1; i <= 100; i++){
-            //     if(i % 2 == 1){
-            //         document.write("<span style='color:red;''>", i, "</span><br>");
-            //     } else {
-            //         if(i % 2 == 0){
-            //             document.write("<span style='color:blue;'>", i, "</span><br>");
-            //         }
-            //     } 
+            // for(let index of aaa){
+            //     sum2 += index;
             // }
+            // console.log(sum2);
+            aaa.map((el) => {
+                sum += el;
+            })
+            console.log(sum);
 
-            const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
-            for(let i=0; i<=arr.length; i++){
-                if(arr[i] % 2 == 0){
-                    document.write(arr[i]+"<br>");
-                }
-            }
+            aaa.filter((el) => {
+                sum2 += el;
+            })
+            console.log(sum2);
         }
+        
     </script>
 </body>
 </html>

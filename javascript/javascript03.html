@@ -522,7 +522,98 @@
                         </script>
                     </details>
                 </div>
-                <!-- //sample12 -->
+                <!-- //sample13 -->
+
+                <div id="sample14" class="sample">
+                    <h3>14. 함수 유형 : 함수와 객체를 이용한 형태</h3>
+                    <p>JavaScript에서 함수와 객체를 사용하는 예제입니다.</p>
+<pre class="line-numbers"><code class="language-js">{
+    const info = {
+        num: 14,
+        str: "함수가 실행되었습니다.",
+    };
+
+    function func(num, str){
+        console.log(`${num}. ${str}`);
+    }
+    func(info.num, info.str);
+}
+</code></pre>
+                    <div class="desc">
+                        먼저, const info = { num: 14, str: "함수가 실행되었습니다." }; 코드는 info라는 객체를 정의합니다. 이 객체는 num이라는 속성에 14를, str이라는 속성에 "함수가 실행되었습니다." 문자열을 가지고 있습니다.<br><br>
+                        다음으로 function func(num, str){} 코드는 함수를 정의하는 부분입니다. func이라는 함수 이름을 가지고 있으며, 매개변수 num과 str을 받습니다.<br><br>
+                        함수 내부에서는 템플릿 리터럴을 사용하여 ${num}. ${str}를 출력하고 있습니다. 이 부분은 매개변수 num과 str을 조합하여 출력하는 역할을 합니다.<br><br>
+                        마지막으로, func(info.num, info.str); 코드에서 함수 func를 호출하고 있습니다. 이 호출은 함수를 실행하며, 객체 info의 속성인 num과 str을 함수의 매개변수로 전달하여 "14. 함수가 실행되었습니다."라는 문자열을 출력합니다.<br><br>
+                        이 코드의 전체적인 흐름은 다음과 같습니다:<br>
+                        1. info 객체가 초기화됩니다.<br>
+                        2. func 함수가 정의되고, num과 str을 인자로 받습니다.<br>
+                        3. 함수 내부에서 num과 str을 조합하여 출력합니다.<br>
+                        4. 함수가 호출되어 실행됩니다. 호출 시에는 info 객체의 속성값이 함수에 전달됩니다.
+                    </div>
+                    <details class="result">
+                        <summary>결과 확인하기</summary>
+                        <script>
+                            {
+                                const info = {
+                                    num: 14,
+                                    str: "함수가 실행되었습니다.",
+                                };
+
+                                function func(num, str){
+                                    document.write(`${num}. ${str}`);
+                                }
+                                func(info.num, info.str);
+                            }
+                        </script>
+                    </details>
+                </div>
+                <!-- //sample14 -->
+
+                <div id="sample15" class="sample">
+                    <h3>15. 함수 유형 : 함수와 객체 및 배열을 이용한 형태</h3>
+                    <p>JavaScript에서 함수와 객체를 사용하는 예제입니다.</p>
+<pre class="line-numbers"><code class="language-js">{
+    const info = [
+        {num: 15, str: "함수가 실행되었습니다."},
+        {num: "15-1", str: "함수가 실행되었습니다."},
+    ];
+
+    function func(num, str){
+        console.log(`${num}. ${str}`);
+    }
+    func(info[0].num, info[0].str);
+      func(info[1].num, info[1].str);
+}
+</code></pre>
+                    <div class="desc">
+                        먼저, const info = { num: 14, str: "함수가 실행되었습니다." }; 코드는 info라는 객체를 정의합니다. 이 객체는 num이라는 속성에 14를, str이라는 속성에 "함수가 실행되었습니다." 문자열을 가지고 있습니다.<br><br>
+                        다음으로 function func(num, str){} 코드는 함수를 정의하는 부분입니다. func이라는 함수 이름을 가지고 있으며, 매개변수 num과 str을 받습니다.<br><br>
+                        함수 내부에서는 템플릿 리터럴을 사용하여 ${num}. ${str}를 출력하고 있습니다. 이 부분은 매개변수 num과 str을 조합하여 출력하는 역할을 합니다.<br><br>
+                        마지막으로, func(info.num, info.str); 코드에서 함수 func를 호출하고 있습니다. 이 호출은 함수를 실행하며, 객체 info의 속성인 num과 str을 함수의 매개변수로 전달하여 "14. 함수가 실행되었습니다."라는 문자열을 출력합니다.<br><br>
+                        이 코드의 전체적인 흐름은 다음과 같습니다:<br>
+                        1. info 객체가 초기화됩니다.<br>
+                        2. func 함수가 정의되고, num과 str을 인자로 받습니다.<br>
+                        3. 함수 내부에서 num과 str을 조합하여 출력합니다.<br>
+                        4. 함수가 호출되어 실행됩니다. 호출 시에는 info 객체의 속성값이 함수에 전달됩니다.
+                    </div>
+                    <details class="result">
+                        <summary>결과 확인하기</summary>
+                        <script>
+                            {
+                                const info = {
+                                    num: 14,
+                                    str: "함수가 실행되었습니다.",
+                                };
+
+                                function func(num, str){
+                                    document.write(`${num}. ${str}`);
+                                }
+                                func(info.num, info.str);
+                            }
+                        </script>
+                    </details>
+                </div>
+                <!-- //sample14 -->
 
             </div>
             <!-- //main__sample -->

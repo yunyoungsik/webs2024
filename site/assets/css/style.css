@@ -66,6 +66,23 @@
     left: 0;
     top: 7px;
 }
+@media(max-width: 1200px){
+    .header__inner nav {
+        display: none;
+    }
+    .header__ham {
+        display: block;
+    }
+}
+@media(max-width: 600px){
+    .header__inner {
+        height: 60px;
+    }
+    .header__logo img {
+        width: 110px;
+    }
+}
+
 
 /* slider */
 .slider__inner {
@@ -135,13 +152,4 @@
 }
 .slider__dot a.stop {
     background-position: -60px -70px;
-}
-
-@media(max-width: 1200px){
-    .header__nav {
-        display: none;
-    }
-    .header__ham {
-        display: block;
-    }
 }

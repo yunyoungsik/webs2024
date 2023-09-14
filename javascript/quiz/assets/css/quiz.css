@@ -215,6 +215,7 @@ body::after {
     z-index: 100;
 }
 .quiz__header {
+    font-size: 14px;
     margin-bottom: 20px;
     color: #696969;
 }
@@ -409,7 +410,7 @@ body::after {
     background-color: #412E91;
     color: #fff;
     text-align: center;
-    padding: 20px;
+    padding: 13px;
     display: block;
     border: 0;
     border-radius: 3px;
@@ -521,7 +522,7 @@ body::after {
         padding: 7px;
     }
     .quiz__wrap {
-        padding: 0 16px;
+        padding: 0;
         margin-top: 0;
     }
     .quiz__wrap > .quiz {

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>퀴즈 이펙트 04</title>
+    <title>퀴즈 이펙트 05</title>
     <link rel="stylesheet" href="assets/css/quiz.css">
     <style>
         .quiz__score {
@@ -157,8 +157,9 @@
         const checkAnswer = () => {
             const selectedChoice = quizWrap.querySelector("input[name='choice']:checked");
 
-            if(selectedChoice === null){
+            if(!selectedChoice){
                 alert("보기를 선택해주세요!");
+                return;
             }
 
             const userAnswer = selectedChoice.value; // 사용자가 클릭한 정답

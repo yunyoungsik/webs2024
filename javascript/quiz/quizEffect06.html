@@ -42,52 +42,24 @@
     <main id="main">
         <div class="quiz__wrap">
             <div class="quiz">
-                <div class="quiz__header">
-                    2023년 10월 정보처리기능사 필기
-                </div>
+                <div class="quiz__header"></div>
                 <!-- //quiz__header -->
                 <div class="quiz__main">
-                    <div class="quiz__question">
-                        01. 입출력 조작의 시간과 중앙처리장치의 처리시간과의 불균형을 보완하는 것은?</span>
-                    </div>
+                    <div class="quiz__question"></div>
+                    <div class="quiz__img"></div>
                     <div class="quiz__choice">
-                        <div id="choice1" class="choice correct">채널장치</div>
-                        <div id="choice2" class="choice incorrect">제어장치</div>
-                        <div id="choice3" class="choice">터미널장치</div>
-                        <div id="choice4" class="choice">콘솔장치</div>
+                        <div id="choice1" class="choice"></div>
+                        <div id="choice2" class="choice"></div>
+                        <div id="choice3" class="choice"></div>
+                        <div id="choice4" class="choice"></div>
                     </div>
-                    <div class="quiz__answer none">
-                        1
-                    </div>
-                    <div class="quiz__desc none">
-                        채널장치는 입출력 장치와 중앙처리장치 사이에서 데이터 전송을 담당하는 장치입니다. 채널장치는 입출력 장치와 직접 통신하여 입출력 작업을 처리하므로 중앙처리장치의 처리시간과 입출력 조작의 시간과의 불균형을 보완할 수 있습니다. 따라서 채널장치가 입출력 작업을 처리함으로써 시스템의 전체 처리 속도를 향상시킬 수 있습니다.
-                    </div>
+
+                    <div class="quiz__answer"></div>
+                    <div class="quiz__desc"></div>
                 </div>
                 <!-- //quiz__main -->
                 <div class="quiz__footer">
-                    <div class="quiz__indicator">
-                        <span class="correct"></span>
-                        <span class="incorrect"></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
+                    <div class="quiz__indicator"></div>
                     <button class="quiz__next">다음 문제</button>
                 </div>
                 <!-- //quiz__footer -->
@@ -102,10 +74,53 @@
     <!-- //footer -->
 
 
-
-
     <script>
+        // 선택자
+        const quizWrap = document.querySelector(".quiz__wrap");
+
+        // 문제 데이터
+        const quizInfo = [];
+        // 설명 데이터
+        const quizDesc = [];
+
+        // 문제 가져오기
+        const fetchQuiz = () => {
+            fetch("https://yunyoungsik.github.io/webs2024/json/gineungsaJC2011_01.json")
+                .then(res => res.json())
+                .then(items => {
+                    console.log(items[0].question);
+                    quizInfo[0] = [items[0].question];
+                    console.log(quizInfo);
+
+                    console.log(items[0].desc);
+                    quizDesc[0] = [items[0].desc];
+                    console.log(quizDesc)
+
+                    updateQuiz();
+                })
+
+                .catch((error) => console.log(error));
+        }
+
         
+
+        // 문제 출력하기
+        const updateQuiz = () => {
+            let quizWrapTag = `
+                <div class="quiz">
+                    <div class="quiz__header">정보처리 기능사</div>
+                    <div class="quiz__main">
+                        <div class="quiz__question">${quizInfo}</div>
+                    </div>
+                </div>
+            `;
+            quizWrap.innerHTML = quizWrapTag;
+        }
+        
+        // 페이지가 로드된 후 실행
+        document.addEventListener("DOMContentLoaded",() => {
+            fetchQuiz();
+        });
     </script>
 </body>
 </html>

@@ -514,9 +514,10 @@
                                 const str = ["함수가 실행되었습니다.", "함수가 실행되었습니다."];
 
                                 function func(num, str){
-                                    console.log(`${num}. ${str}`);
+                                    document.write(`${num}. ${str}`);
                                 }
                                 func(num[0], str[0]);
+                                document.write("<br>");
                                 func(num[1], str[1]);
                             }
                         </script>
@@ -571,7 +572,7 @@
 
                 <div id="sample15" class="sample">
                     <h3>15. 함수 유형 : 함수와 객체 및 배열을 이용한 형태</h3>
-                    <p>JavaScript에서 함수와 객체를 사용하는 예제입니다.</p>
+                    <p>JavaScript에서 함수와 객체 배열을 사용하는 예제입니다.</p>
 <pre class="line-numbers"><code class="language-js">{
     const info = [
         {num: 15, str: "함수가 실행되었습니다."},
@@ -586,34 +587,258 @@
 }
 </code></pre>
                     <div class="desc">
-                        먼저, const info = { num: 14, str: "함수가 실행되었습니다." }; 코드는 info라는 객체를 정의합니다. 이 객체는 num이라는 속성에 14를, str이라는 속성에 "함수가 실행되었습니다." 문자열을 가지고 있습니다.<br><br>
+                        먼저, const info = [ {num: 15, str: "함수가 실행되었습니다."}, {num: "15-1", str: "함수가 실행되었습니다."}, ]; 코드는 info라는 배열을 정의합니다. 이 배열은 두 개의 객체를 요소로 가지고 있습니다. 각 객체는 num과 str이라는 속성을 가지고 있습니다.<br><br>
                         다음으로 function func(num, str){} 코드는 함수를 정의하는 부분입니다. func이라는 함수 이름을 가지고 있으며, 매개변수 num과 str을 받습니다.<br><br>
                         함수 내부에서는 템플릿 리터럴을 사용하여 ${num}. ${str}를 출력하고 있습니다. 이 부분은 매개변수 num과 str을 조합하여 출력하는 역할을 합니다.<br><br>
-                        마지막으로, func(info.num, info.str); 코드에서 함수 func를 호출하고 있습니다. 이 호출은 함수를 실행하며, 객체 info의 속성인 num과 str을 함수의 매개변수로 전달하여 "14. 함수가 실행되었습니다."라는 문자열을 출력합니다.<br><br>
+                        마지막으로, func(info[0].num, info[0].str);와 func(info[1].num, info[1].str); 코드에서 함수 func를 호출하고 있습니다. 이 호출은 함수를 실행하며, info 배열의 첫 번째 객체와 두 번째 객체의 속성값을 함수의 매개변수로 전달하여 각각의 결과를 출력합니다.<br><br>
                         이 코드의 전체적인 흐름은 다음과 같습니다:<br>
-                        1. info 객체가 초기화됩니다.<br>
+                        1. info 배열이 초기화됩니다.<br>
                         2. func 함수가 정의되고, num과 str을 인자로 받습니다.<br>
                         3. 함수 내부에서 num과 str을 조합하여 출력합니다.<br>
-                        4. 함수가 호출되어 실행됩니다. 호출 시에는 info 객체의 속성값이 함수에 전달됩니다.
+                        4. 함수가 호출되어 실행됩니다. 호출 시에는 info 배열의 객체들의 속성값이 함수에 전달됩니다.
+
+                    </div>
+                    <details class="result">
+                        <summary>결과 확인하기</summary>
+                        <script>
+                            {
+                                const info = [
+                                    {num: 15, str: "함수가 실행되었습니다."},
+                                    {num: "15-1", str: "함수가 실행되었습니다."},
+                                ];
+
+                                function func(num, str){
+                                    document.write(`${num}. ${str}`);
+                                }
+                                func(info[0].num, info[0].str);
+                                document.write("<br>");
+                                func(info[1].num, info[1].str);
+                            }
+                        </script>
+                    </details>
+                </div>
+                <!-- //sample15 -->
+
+                <div id="sample16" class="sample">
+                    <h3>16. 함수 유형 : 함수와 객체 안에 함수를 이용한 형태</h3>
+                    <p>JavaScript에서 함수와 객체 내부에 함수를 정의하고 호출하는 예제입니다.</p>
+<pre class="line-numbers"><code class="language-js">{
+    const info = {
+        num: 16,
+        str: "함수가 실행되었습니다.",
+        result: () => {
+            console.log(`${info.num}. ${info.str}`); 
+        },
+        // 약식 result: () => console.log(`${info.num}. ${info.str}`),
+    }
+    info.result();
+}
+</code></pre>
+                    <div class="desc">
+                        먼저, const info = {...} 코드는 info라는 객체를 정의합니다. 이 객체는 num이라는 속성에 16을, str이라는 속성에 "함수가 실행되었습니다." 문자열을 가지고 있습니다. 또한, result라는 속성에는 화살표 함수가 정의되어 있습니다.<br><br>
+                        이 화살표 함수는 console.log(${info.num}. ${info.str});을 실행합니다. 여기서 info.num과 info.str은 객체 info의 속성에 접근하여 값을 가져오는 역할을 합니다.<br><br>
+                        마지막으로, info.result(); 코드에서 객체 info의 result 함수를 호출하고 있습니다. 이 호출은 함수를 실행하며, 결과적으로 "16. 함수가 실행되었습니다."가 콘솔에 출력됩니다.<br><br>
+                        이 코드의 전체적인 흐름은 다음과 같습니다:<br>
+                        1. info 객체가 초기화됩니다.<br>
+                        2. result 함수는 객체 info에 속성으로 정의됩니다. 이 함수는 객체 내부의 속성 num과 str을 활용하여 결과를 출력합니다.<br>
+                        3. info.result() 코드에서 객체 info의 result 함수가 호출되어 실행됩니다. 함수 실행 시 결과가 콘솔에 출력됩니다.
+
                     </div>
                     <details class="result">
                         <summary>결과 확인하기</summary>
                         <script>
                             {
                                 const info = {
-                                    num: 14,
+                                    num: 16,
                                     str: "함수가 실행되었습니다.",
-                                };
-
-                                function func(num, str){
-                                    document.write(`${num}. ${str}`);
+                                    result: () => {
+                                        document.write(`${info.num}. ${info.str}`); 
+                                    },
                                 }
-                                func(info.num, info.str);
+                                info.result();
                             }
                         </script>
                     </details>
                 </div>
-                <!-- //sample14 -->
+                <!-- //sample16 -->
+
+                <div id="sample17" class="sample">
+                    <h3>17. 함수 유형 : 객체 생성자 함수</h3>
+                    <p>JavaScript에서 객체 생성자 함수를 사용하여 객체를 생성하고 메서드를 포함시키는 예제입니다.</p>
+<pre class="line-numbers"><code class="language-js">{
+    function Func(num, str){
+        this.num = num;
+        this.str = str;
+        this.result = () => {
+            console.log(`${num}. ${str}`); 
+        }
+    }
+    // 인스턴스 생성
+    const info1 = new Func(17, "함수가 실행되었습니다.");
+    const info2 = new Func("17-1", "함수가 실행되었습니다.");
+    //호출
+    info1.result();
+    info2.result();
+}
+</code></pre>
+                    <div class="desc">
+                        1. function Func(num, str)은 객체 생성자 함수를 정의합니다. 이 함수는 두 개의 매개변수 num과 str을 받습니다.<br>
+                        2. this.num = num;과 this.str = str;은 생성된 객체의 속성을 초기화합니다. 각 객체는 num과 str이라는 속성을 가지며, 이 값은 함수를 호출할 때 전달된 인자에 따라 결정됩니다.<br>
+                        3. this.result = () => { console.log(${num}. ${str}); }은 객체에 result라는 메서드를 추가합니다. 이 메서드는 화살표 함수로 정의되어 있습니다. 이 함수는 num과 str을 활용하여 결과를 콘솔에 출력합니다.<br>
+                        4. const info1 = new Func(17, "함수가 실행되었습니다.");과 const info2 = new Func("17-1", "함수가 실행되었습니다."); 코드는 Func 객체 생성자 함수를 사용하여 info1과 info2라는 두 개의 객체를 생성합니다. 각각의 객체는 num과 str 속성을 가지며, result 메서드를 호출할 수 있습니다.<br>
+                        5. info1.result();과 info2.result(); 코드는 각 객체의 result 메서드를 호출합니다. 이는 객체의 num과 str 속성을 활용하여 결과를 콘솔에 출력합니다.<br><br>
+                        이와 같이 객체 생성자 함수를 사용하면, 여러 개의 객체를 생성하고 각 객체마다 고유한 속성과 메서드를 가질 수 있습니다.
+                    </div>
+                    <details class="result">
+                        <summary>결과 확인하기</summary>
+                        <script>
+                            {
+                                function Func(num, str){
+                                    this.num = num;
+                                    this.str = str;
+                                    this.result = () => {
+                                        document.write(`${num}. ${str}`); 
+                                    }
+                                }
+                                // 인스턴스 생성
+                                const info1 = new Func(17, "함수가 실행되었습니다.");
+                                const info2 = new Func("17-1", "함수가 실행되었습니다.");
+                                //호출
+                                info1.result();
+                                document.write("<br>");
+                                info2.result();
+                            }
+                        </script>
+                    </details>
+                </div>
+                <!-- //sample17 -->
+
+                <div id="sample18" class="sample">
+                    <h3>18. 함수 유형 : 프로토타입 함수</h3>
+                    <p>JavaScript에서 프로토타입 함수를 사용하여 객체를 생성하는 예제입니다.</p>
+<pre class="line-numbers"><code class="language-js">{
+    function Func(num, str){
+        this.num = num;
+        this.str = str;
+    }
+
+    Func.prototype.result = function(){
+        console.log(`${this.num}. ${this.str}`); 
+    }
+
+    // Func.prototype.result = () => {
+    //     console.log(`${this.num}. ${this.str}`); 
+    // }
+    // 여기서 문제는 Func.prototype.result에 화살표 함수(arrow function)를 사용한 부분입니다.
+    // 화살표 함수는 자신만의 this 컨텍스트를 가지지 않고, 주변 스코프의 this 값을 가져옵니다. 따라서 this.num과 this.str은 undefined가 될 것입니다.
+    
+    const info1 = new Func(18, "함수가 실행되었습니다.");
+    const info2 = new Func("18-1", "함수가 실행되었습니다.");
+
+    info1.result();
+    info2.result();
+}
+</code></pre>
+                    <div class="desc">
+                        1. function Func(num, str)은 객체 생성자 함수를 정의합니다. 이 함수는 두 개의 매개변수 num과 str을 받습니다.<br>
+                        2. this.num = num;과 this.str = str;은 생성된 객체의 속성을 초기화합니다. 각 객체는 num과 str이라는 속성을 가지며, 이 값은 함수를 호출할 때 전달된 인자에 따라 결정됩니다.<br>
+                        3. Func.prototype.result = function(){ ... }은 Func 생성자 함수의 프로토타입에 result 메서드를 추가합니다. 이 메서드는 함수로써 정의되어 있습니다.<br>
+                        4. const info1 = new Func(18, "함수가 실행되었습니다.");과 const info2 = new Func("18-1", "함수가 실행되었습니다."); 코드는 Func 객체 생성자 함수를 사용하여 info1과 info2라는 두 개의 객체를 생성합니다. 각각의 객체는 num과 str 속성을 가지며, result 메서드를 호출할 수 있습니다.<br>
+                        5. info1.result();과 info2.result(); 코드는 각 객체의 result 메서드를 호출합니다. 이는 객체의 num과 str 속성을 활용하여 결과를 콘솔에 출력합니다.<br><br>
+                        프로토타입은 JavaScript에서 객체지향 프로그래밍을 할 때 중요한 개념 중 하나입니다. 프로토타입을 사용하면 객체의 메서드와 속성을 공유할 수 있어 메모리를 절약하고 코드의 효율성을 높일 수 있습니다.
+                    </div>
+                    <details class="result">
+                        <summary>결과 확인하기</summary>
+                        <script>
+                            {
+                                function Func(num, str){
+                                    this.num = num;
+                                    this.str = str;
+                                }
+
+                                Func.prototype.result = function(){
+                                    document.write(`${this.num}. ${this.str}`); 
+                                }
+                                
+                                const info1 = new Func(18, "함수가 실행되었습니다.");
+                                const info2 = new Func("18-1", "함수가 실행되었습니다.");
+
+                                info1.result();
+                                document.write("<br>");
+                                info2.result();
+                            }
+                        </script>
+                    </details>
+                </div>
+                <!-- //sample18 -->
+
+                <div id="sample19" class="sample">
+                    <h3>19. 함수 유형 : 객체 리터럴 함수</h3>
+                    <p>JavaScript에서 객체 리터럴을 사용하여 프로토타입에 메서드를 정의하는 예제입니다.</p>
+<pre class="line-numbers"><code class="language-js">{
+    function Func(num, str){
+        this.num = num;
+        this.str = str;
+    }
+
+    Func.prototype = {
+        result1 : function(){
+            console.log(`${this.num}. ${this.str}`);
+        },
+        result2 : function(){
+            console.log(`${this.num}. ${this.str}`);
+        },
+    }
+
+    const info1 = new Func(19, "함수가 실행되었습니다.");
+    const info2 = new Func("19-1", "함수가 실행되었습니다.");
+
+    info1.result1();
+    info2.result2();
+}
+</code></pre>
+                    <div class="desc">
+                        1. function Func(num, str)은 객체 생성자 함수를 정의합니다. 이 함수는 두 개의 매개변수 num과 str을 받습니다.<br>
+                        2. this.num = num;과 this.str = str;는 생성된 객체의 속성을 초기화합니다. 각 객체는 num과 str이라는 속성을 가지며, 이 값은 함수를 호출할 때 전달된 인자에 따라 결정됩니다.<br>
+                        3. Func.prototype = { ... }은 Func 생성자 함수의 프로토타입을 객체 리터럴로 덮어씁니다. 이 객체 리터럴은 result1과 result2라는 두 개의 메서드를 가지고 있습니다.<br>
+                        4. result1 : function(){ ... }과 result2 : function(){ ... }는 메서드를 정의합니다. 각각의 메서드는 console.log를 사용하여 객체의 num과 str 속성을 활용하여 결과를 출력합니다.<br>
+                        5. const info1 = new Func(19, "함수가 실행되었습니다.");과 const info2 = new Func("19-1", "함수가 실행되었습니다."); 코드는 Func 객체 생성자 함수를 사용하여 info1과 info2라는 두 개의 객체를 생성합니다. 각각의 객체는 num과 str 속성을 가지며, result1과 result2 메서드를 호출할 수 있습니다.<br>
+                        6. info1.result1();과 info2.result2(); 코드는 각 객체의 메서드를 호출합니다. 이는 객체의 num과 str 속성을 활용하여 결과를 콘솔에 출력합니다.<br><br>
+                        이 코드의 전체적인 흐름은 다음과 같습니다:<br>
+                        1. Func 객체 생성자 함수가 정의됩니다.<br>
+                        2. 객체 생성자 함수의 프로토타입이 객체 리터럴로 덮어씌워집니다.<br>
+                        3. 객체를 생성하면서 초기값을 전달합니다.<br>
+                        4. 객체의 메서드를 호출하여 결과를 출력합니다.
+                    </div>
+                    <details class="result">
+                        <summary>결과 확인하기</summary>
+                        <script>
+                            {
+                                function Func(num, str){
+                                    this.num = num;
+                                    this.str = str;
+                                }
+
+                                Func.prototype = {
+                                    result1 : function(){
+                                        document.write(`${this.num}. ${this.str}`);
+                                    },
+                                    result2 : function(){
+                                        document.write(`${this.num}. ${this.str}`);
+                                    },
+                                }
+
+                                const info1 = new Func(19, "함수가 실행되었습니다.");
+                                const info2 = new Func("19-1", "함수가 실행되었습니다.");
+
+                                info1.result1();
+                                document.write("<br>");
+                                info2.result2();
+                            }
+                        </script>
+                    </details>
+                </div>
+                <!-- //sample19 -->
 
             </div>
             <!-- //main__sample -->
@@ -628,8 +853,6 @@
 
     <!-- script -->
     <script src="../assets/js/prism.js"></script>
-    <!-- <script src="../assets/js/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script> -->
     <script>
                     //01. 함수 : 선언적 함수
                     {

@@ -8,39 +8,17 @@
 <body>
     <script>
         {
-            const aaa = [10, 20, 30, 40, 50, 60, 70, 80, 90];
+            const obj2 = {
+        d: 300,
+        e: 400,
+        f: "jquery",
+    };
 
-            let sum = 0;
-            let sum2 = 0;
-            // for(let i=0; i<aaa.length; i++){
-            //     sum += aaa[i];
-            // }
-            // console.log(sum);
-            // aaa.forEach((el) => {
-            //     sum += el;
-            // })
-            // console.log(sum);
+    const {d, e, f, g = "SQL"} = obj2;
 
-            // for(let el in aaa){
-            //     sum += aaa[el];
-            // }
-            // console.log(sum);
-
-            // for(let index of aaa){
-            //     sum2 += index;
-            // }
-            // console.log(sum2);
-            aaa.map((el) => {
-                sum += el;
-            })
-            console.log(sum);
-
-            aaa.filter((el) => {
-                sum2 += el;
-            })
-            console.log(sum2);
+    console.log(obj2);
+    console.log(g);
         }
-        
     </script>
 </body>
 </html>

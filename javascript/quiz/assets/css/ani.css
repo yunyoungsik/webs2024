@@ -25,12 +25,13 @@
 
 .card-container {
     position: relative;
-    width: 360px;
+    /* width: 360px; */
     margin: auto;
     padding-top: 125px;
     border-radius: 3%;
     z-index: 0;
 }
+
 
 .card-container::before,
 .card-container::after {

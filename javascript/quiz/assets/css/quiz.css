@@ -228,9 +228,8 @@ body::after {
 }
 .quiz__question {
     margin-bottom: 20px;
-    font-size: 24px;
-    font-weight: 400;
     line-height: 1.5;
+    font-size: 20px;
 }
 .quiz__question em {
     font-size: 24px;
@@ -239,7 +238,7 @@ body::after {
 }
 .quiz__question span {
     font-size: 24px;
-    line-height: 1.5;
+    line-height: 1.4;
     font-weight: 400;
 }
 .quiz__choice {
@@ -263,7 +262,7 @@ body::after {
     display: flex;
     align-items: center;
     border: 1px solid #eee;
-    padding: 17px;
+    padding: 13px;
     margin-bottom: 10px;
     border-radius: 3px;
     font-size: 16px;
@@ -506,8 +505,15 @@ body::after {
 }
 
 @media(max-width: 600px){
+    #header {
+        flex-direction: column;
+    }
     #header h1 {
         padding: 15px;
+    }
+    #header nav {
+        padding-right: 0;
+        margin-bottom: 20px;
     }
     #header nav li a {
         width: 30px;

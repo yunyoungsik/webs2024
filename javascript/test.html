@@ -8,16 +8,44 @@
 <body>
     <script>
         {
+            const obj1 = {
+                a:100,
+                b:200,
+                c:"javascript"
+            }
+            const {a,b,c} = obj1;
+
+            console.log(a);
+            console.log(b);
+            console.log(c);
+
+            const {a:x, b:y, c:z} = obj1
+            
+            console.log(x);
+            console.log(y);
+            console.log(z);
+
             const obj2 = {
-        d: 300,
-        e: 400,
-        f: "jquery",
-    };
+                d:100,
+                e:200,
+                f:"javascripty"
+            }
 
-    const {d, e, f, g = "SQL"} = obj2;
+            const {d, e, f, g = "jqury"} = obj2;
 
-    console.log(obj2);
-    console.log(g);
+            console.log(g);
+
+            const obj3 = {
+                x1:100,
+                y1:{a1:100, b1:200},
+                z1:"javascript"
+            }
+            const{x1, y1:{a1,b1},z1} = obj3;
+
+            console.log(x1);
+            console.log(a1);
+            console.log(b1);
+            console.log(z1);
         }
     </script>
 </body>

@@ -289,14 +289,40 @@ INSERT INTO members(youEmail, youName, youPass, youAge, regTime) VALUES("hee0318
                     <div class="bs-callout- bs-callout-info">
                         SELECT 필드이름 FROM WHERE 조건
                     </div>
-                    <h5>멤버 아이디가 1번인 회원의 모든 데이터 불러오기</h5>
+                    <h5>memberID가 1번인 회원의 모든 데이터 불러오기</h5>
 <pre><code class="language-js">SELECT * FROM members WHERE memberID = 1;</code></pre>
-                    <h5>멤버 아이디가 10번인 회원의 이름과 이메일 불러오기</h5>
+                    <h5>memberID가 10번인 회원의 이름과 이메일 불러오기</h5>
 <pre><code class="language-js">SELECT youName, youEmail FROM members WHERE memberID = 10;</code></pre>
-                    <h5>멤버 나이가 30이상인 회원의 모든 데이터 불러오기</h5>
+                    <h5>youAge가 30이상인 회원의 모든 데이터 불러오기</h5>
 <pre><code class="language-js">SELECT * FROM members WHERE youAge >= 30;</code></pre>
-                    <h5>멤버 나이가 30인 회원을 제외하고 모든 데이터 불러오기</h5>
+                    <h5>youAge가 30인 회원을 제외하고 모든 데이터 불러오기</h5>
 <pre><code class="language-js">SELECT * FROM members WHERE youAge &lt;&gt; 30;</code></pre>
+                    <h5>memberID가 5~10인 경우 데이터 불러오기(AND)</h5>
+<pre><code class="language-js">SELECT * FROM members WHERE memberID &lt; 5 AND memberID &lt; 10;</code></pre>
+                    <h5>youAge가 30~40인 경우 데이터 불러오기(BETWEEN)</h5>
+<pre><code class="language-js">SELECT * FROM members WHERE youAge BETWEEN 30 AND 40;</code></pre>
+                    <h5>youAge가 30~40이 아닌 경우 데이터 불러오기(NOT BETWEEN)</h5>
+<pre><code class="language-js">SELECT * FROM members WHERE youAge NOT BETWEEN 30 AND 40;</code></pre>
+                    <h5>memberID가 1, 5, 10, 15인 경우 데이터 불러오기(IN)</h5>
+<pre><code class="language-js">SELECT * FROM members WHERE memberID IN(1,5,10,15);</code></pre>
+                    <h5>데이터 없는 것 불러오기(IS NULL)</h5>
+<pre><code class="language-js">SELECT * FROM members WHERE youName IS NULL;</code></pre>
+                    <h5>데이터 있는 것 불러오기(IS NOT NULL)</h5>
+<pre><code class="language-js">SELECT * FROM members WHERE youName IS NOT NULL;</code></pre>
+                    <h5>youName중에 "연"이라는 텍스트가 포함된 데이터 불러오기(LIKE,'%')</h5>
+<pre><code class="language-js">SELECT * FROM members WHERE youName LIKE '%연%';</code></pre>
+                    <h5>youName중에 "김"으로 시작하는 텍스트가 포함된 데이터 불러오기</h5>
+<pre><code class="language-js">SELECT * FROM members WHERE youName LIKE '김%';</code></pre>
+                    <h5>youName중에 "연"으로 끝나는 텍스트가 포함된 데이터 불러오기</h5>
+<pre><code class="language-js">SELECT * FROM members WHERE youName LIKE '%연';</code></pre>
+                    <h5>youName중에 "성"으로 끝나는 텍스트가 포함된 데이터 불러오기(LIKE, '_')</h5>
+<pre><code class="language-js">SELECT * FROM members WHERE youName LIKE '__성';</code></pre>
+                    <h5>youName중에 "김","이"으로 시작하는 텍스트가 포함된 데이터 불러오기(OR)</h5>
+<pre><code class="language-js">SELECT * FROM members WHERE youName LIKE '김%' OR youName LIKE '이%';</code></pre>
+                    <h5>youAge가 25 이상이고 memberID가 2또는 9인 경우 데이터 불러오기</h5>
+<pre><code class="language-js">SELECT * FROM members WHERE youAge >=25 AND memberID IN(2, 9);</code></pre>
+<pre><code class="language-js">SELECT * FROM members WHERE (memberID = 2 OR memberID = 9) AND youAge >= 25;</code></pre>
+<pre><code class="language-js">SELECT * FROM members WHERE memberID = 2 AND youAge >= 25 OR memberID = 9 AND youAge >= 25;</code></pre>
                     <h4 id="intro06-3" class="page-header">테이블 수정하기</h4>
                     <h4 id="intro06-4" class="page-header">테이블 삭제하기</h4>
                 </div>

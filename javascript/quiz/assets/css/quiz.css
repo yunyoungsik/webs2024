@@ -490,6 +490,28 @@ body::after {
     transform: rotate(45deg);
 }
 
+/* 정답 확인 */
+.quiz__check {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 100px;
+    height: 100px;
+    background-color: #412E91;
+    color: #fff;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1px dashed transparent;
+    transition: all 0.3s;
+    line-height: 100px;
+}
+.quiz__check:hover {
+    background-color: #fff;
+    border: 1px dashed #c4b7fa;
+    color: #412E91;
+}
+
 /* footer */
 #footer {
     text-align: center;

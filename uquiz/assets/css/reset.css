@@ -1,13 +1,14 @@
 /* border-box 초기화 */
 *,
-*:before,
-*:after {
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
 /* 여백 초기화 */
 body,
 div,
+dl,
 dt,
 dd,
 ul,
@@ -33,9 +34,18 @@ input,
 select,
 button,
 figure,
-figcaption {
+figcaption{
     margin: 0;
     padding: 0;
+}
+
+/* 시멘틱 태그 블럭화 */
+section,
+aside,
+article,
+header,
+nav{
+    display: block;
 }
 
 /* 폰트 초기화 */
@@ -50,10 +60,10 @@ textarea {
     line-height: 1.5;
 }
 
-/* 폰트 스타일 초기화 */
-em,
-address {
-    font-style: normal;
+/* 링크 초기화 */
+a {
+    text-decoration: none;
+    color: #000;
 }
 
 /* 제목 초기화 */
@@ -63,14 +73,8 @@ h3,
 h4,
 h5,
 h6 {
-    font-size: 16px;
     font-weight: normal;
-}
-
-/* 링크 초기화 */
-a {
-    text-decoration: none;
-    color: #000;
+    font-size: 16px;
 }
 
 /* 리스트 스타일 초기화 */
@@ -78,17 +82,21 @@ ul, ol, li {
     list-style: none;
 }
 
+/* 폰트 스타일 초기화 */
+em, 
+address {
+    font-style: normal;
+}
 /* 이미지 최적화 */
 img {
     width: 100%;
     vertical-align: top;
 }
-
 /* 이미지 대체(IR) 효과 */
 .ir {
     display: block;
     overflow: hidden;
     font-size: 0;
     line-height: 0;
-    text-indent: -9999px;
+    text-indent: -10000;
 }

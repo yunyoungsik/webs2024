@@ -1,3 +1,7 @@
+code {
+    height: 70vh;
+    text-align-last: left;
+}
 /* scroll */
 ::-webkit-scrollbar {
     width: 10px;
@@ -11,10 +15,6 @@
     border-radius: 20px;
 }
 /* modal */
-code {
-    text-align: left;
-    height: 70vh;
-}
 .modal__btn {
     color: #fff;
     border: 1px solid #fff;
@@ -90,7 +90,7 @@ code {
 .modal__box .title .taps > div {
     color: #123;
     background-color: #DDDDDD;
-    padding: 0.35rem 0.8rem 0.25rem 0.8rem;
+    padding: 0.35rem 0.8rem 0.35rem 0.8rem;
     align-items: center;
     border-radius: 0.4rem;
     text-transform: uppercase;
@@ -108,11 +108,11 @@ code {
 }
 .modal__box .title .taps > div .favicon {
     margin-right: 0.4rem;
-    margin-top: 0.2rem;
+    margin-top: 0.3rem;
 }
 .modal__box .title .taps > div .close {
     margin-left: 3rem;
-    margin-top: 0.2rem;
+    margin-top: 0.3rem;
 }
 .modal__box .cont {
     background-color: #282936;
@@ -141,7 +141,7 @@ code {
     opacity: 0;
 }
 .modal__close:hover {
-    background-color: rgba(124, 182, 240, 0.548);
+    background-color: rgba(150, 150, 150, 0.7);
 }
 @media (max-width: 1100px){
     .modal__box .title {

@@ -311,7 +311,6 @@
             setInterval(function () {
                 quizTimer.classList.add("start");
                 
-                minutes = parseInt(timer / 60, 10);
                 seconds = parseInt(timer % 60, 10);
 
                 seconds = seconds < 10 ? "0" + seconds : seconds;
@@ -321,6 +320,7 @@
                 if (--timer < 0) {
                     alert("60초가 경과하였습니다.");
                     timer = duration;
+                    quizTimer.classList.remove("start");
                 }
             }, 1000);
         }

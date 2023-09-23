@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>웹디자인기능사 레이아웃 E-1</title>
+    <title>웹디자인기능사 레이아웃 E-4</title>
     <style>
         * {
             margin: 0;
@@ -19,6 +19,7 @@
         }
         #header {
             width: 200px;
+            height: 100%;
         }
         .logo {
             width: 100%;
@@ -28,10 +29,11 @@
         .nav {
             width: 100%;
             height: 90%;
-            background-color: #d9d9d9;
+            background-color: #e3e3e3;
         }
         #contents {
             width: 400px;
+            height: 100%;
         }
         .banner {
             width: 100%;
@@ -56,19 +58,21 @@
         #slider {
             width: calc(100% - 600px);
             height: 100%;
-            background-color: #b1b1b1;
+            background-color: #b2b2b2;
         }
         #footer {
             width: 100%;
             display: flex;
+            flex-wrap: wrap;
         }
         .footer1 {
-            width: 100%;
+            width: 200px;
             height: 120px;
             background-color: #a3a3a3;
+
         }
         .footer2 {
-            width: 80%;
+            width: calc(100% - 400px);
         }
         .footer2-1 {
             width: 100%;
@@ -78,13 +82,17 @@
         .footer2-2 {
             width: 100%;
             height: 60px;
-            background-color: #808080;
+            background-color: #929292;
+        }
+        .footer3 {
+            width: 200px;
+            height: 120px;
+            background-color: #838383;
         }
     </style>
 </head>
 <body>
-        
-   <div id="wrap">
+    <div id="wrap">
         <main id="main">
             <header id="header">
                 <h1 class="logo"></h1>
@@ -111,8 +119,9 @@
                 <div class="footer2-1"></div>
                 <div class="footer2-2"></div>
             </div>
+            <div class="footer3"></div>
         </footer>
         <!-- //footer -->
-   </div>
+    </div>
 </body>
 </html>

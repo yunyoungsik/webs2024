@@ -31,11 +31,14 @@
                         <span class="dot" aria-label="true"></span>
                         <div class="taps">
                             <div class="active">
-                                정답
+                                RESULT
                             </div>
                         </div>
                     </div>
                     <div class="cont">
+                        <div class="box">
+                            <span class="modal__result"></span>
+                        </div>
                     </div>
                 </div>
                 <div class="modal__close">
@@ -358,12 +361,13 @@
                     cont.innerHTML = correct;
                     timer = duration;
                     quizTimer.classList.remove("start");
+                    quizTimer.style.display = "none";
                 }
             }, 1000);
         }
 
         window.onload = function () {
-            var duration = 10; // 타이머 시간 (초)
+            var duration = 60; // 타이머 시간 (초)
             var display = document.querySelector(".timer");
             startTimer(duration, display);
         };
@@ -374,7 +378,6 @@
             const userAnswer = quizInput.value;  
             const correctAnswer = quizInfo[currentIndex].infoAnswer; // 정답지의 정답
             const quizElement = quizWrap.querySelector(".quiz");
-            const descElement = quizWrap.querySelector(".quiz__desc");
             const answerElement = quizWrap.querySelector(".quiz__answer");
             
 

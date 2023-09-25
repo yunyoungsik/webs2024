@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>U.Quiz2</title>
+    <title>U.Quiz1</title>
 
     <link rel="stylesheet" href="assets/css/quiz.css">
 
@@ -24,14 +24,72 @@
 
     <footer id="footer">
         <div class="quiz__timer timer"></div>
+        <div class="modal__wrap">
+            <div class="modal__btn">소스보기</div>
+            <div class="modal__cont">
+                <div class="modal__box">
+                    <div class="title">
+                        <span class="dot" aria-label="true"></span>
+                        <div class="taps">
+                            <div class="active">
+                                정답
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cont">
+                    </div>
+                </div>
+                <div class="modal__close">
+                    <svg width="18" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+                        <path d="M12.5 3.5L3.5 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M12.5 12.5L3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
     </footer>
     <!-- //footer -->
     
+    <!-- <script src="assets/js/common.js"></script> -->
     <script>
+        
+        // modalBtn.addEventListener("click", () => {
+        //     modalCont.classList.add("show");
+        //     modalCont.classList.remove("hide");
+        // })
+        // modalClose.addEventListener("click", () => {
+        //     modalCont.classList.add("hide");
+        //     modalCont.classList.remove("show");
+        // })
+
+        //탭메뉴
+        // const tapBtn = document.querySelectorAll(".modal__box .taps > div");
+        // const tapCont = document.querySelectorAll(".modal__box .cont > div");
+
+        // tapBtn.forEach((Element, index) => {
+        //     Element.addEventListener("click", (e) => {
+        //         e.preventDefault();
+
+        //         tapBtn.forEach(li => {li.classList.remove("active")});
+        //         Element.classList.add("active");
+
+        //         tapCont.forEach(div => {div.style.display = "none"});
+        //         tapCont[index].style.display = "block";
+        //     })
+        // })
+
         // 선택자
         const quizWrap = document.querySelector(".quiz__wrap");
         const quizTimer = document.querySelector(".quiz__timer");
-        
+        const modal = document.querySelector(".modal__wrap");
+        const correct = 0;
+
+        //모달 선택자
+        const modalBtn = document.querySelector(".modal__btn");
+        const modalClose = document.querySelector(".modal__close");
+        const modalCont = document.querySelector(".modal__cont");
+        const cont = document.querySelector(".cont");
+
         // 문제 정보
         const quizInfo = [
             {
@@ -281,7 +339,7 @@
 
             // 선택자
             const quizConfirm = quizWrap.querySelector(".quiz__confirm");
-            const quizNext = quizWrap.querySelector(".quiz__next");  
+            const quizNext = quizWrap.querySelector(".quiz__next"); 
 
             // 정답 확인 버튼
             quizConfirm.addEventListener("click", () => {
@@ -318,7 +376,8 @@
                 display.textContent = "남은 시간: " + seconds + "초";
 
                 if (--timer < 0) {
-                    alert("60초가 경과하였습니다.");
+                    modalCont.classList.add("show");
+                    cont.innerHTML = correct;
                     timer = duration;
                     quizTimer.classList.remove("start");
                 }
@@ -326,7 +385,7 @@
         }
 
         window.onload = function () {
-            var duration = 60; // 타이머 시간 (초)
+            var duration = 10; // 타이머 시간 (초)
             var display = document.querySelector(".timer");
             startTimer(duration, display);
         };
@@ -342,6 +401,7 @@
 
             if(userAnswer === correctAnswer){
                 quizElement.classList.add("good");
+                correct++;
             } else {
                 quizElement.classList.add("bad");
                 answerElement.classList.remove("none");

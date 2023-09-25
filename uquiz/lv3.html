@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>U.Quiz2</title>
+    <title>U.Quiz3</title>
 
     <link rel="stylesheet" href="assets/css/quiz.css">
+    
 
 </head>
 <body>
@@ -24,8 +25,10 @@
 
     <footer id="footer">
         <div class="quiz__timer"></div>
+        <div class="timer"> <div class="timer-bar"></div> </div>
     </footer>
     <!-- //footer -->
+    
     
     <script>
         // 선택자
@@ -34,205 +37,202 @@
         // 문제 정보
         const quizInfo = [
             {
-                infoQuestion : 'assets/img/lv2/lv2-1.jpg',
-                infoAnswer : "서현진"
+                infoQuestion : "assets/img/lv3/lv3-1.png",
+                infoAnswer : "카리나"
             },
             {
-                infoQuestion : 'assets/img/lv2/lv2-2.jpg',
-                infoAnswer : "서장훈"
+                infoQuestion : "assets/img/lv3/lv3-2.png",
+                infoAnswer : "안재홍"
             },
             {
-                infoQuestion : 'assets/img/lv2/lv2-3.jpg',
-                infoAnswer : "다현"
+                infoQuestion : "assets/img/lv3/lv3-4.png",
+                infoAnswer : "키썸"
             },
             {
-                infoQuestion : 'assets/img/lv2/lv2-4.jpg',
-                infoAnswer : "유세윤"
+                infoQuestion : "assets/img/lv3/lv3-5.png",
+                infoAnswer : "아이린"
             },
             {
-                infoQuestion : 'assets/img/lv2/lv2-5.jpg',
-                infoAnswer : "윈터"
+                infoQuestion : "assets/img/lv3/lv3-6.png",
+                infoAnswer : "쯔위"
             },
             {
-                infoQuestion : 'assets/img/lv2/lv2-6.jpg',
-                infoAnswer : "뷔"
+                infoQuestion : "assets/img/lv3/lv3-7.png",
+                infoAnswer : "나선욱"
             },
             {
-                infoQuestion : 'assets/img/lv2/lv2-7.jpg',
-                infoAnswer : "이장우"
+                infoQuestion : "assets/img/lv3/lv3-8.png",
+                infoAnswer : "하석진"
             },
             {
-                infoQuestion : 'assets/img/lv2/lv2-8.jpg',
-                infoAnswer : "임시완"
+                infoQuestion : "assets/img/lv3/lv3-9.png",
+                infoAnswer : "인순이"
             },
             {
-                infoQuestion : 'assets/img/lv2/lv2-9.jpg',
-                infoAnswer : "케이윌"
+                infoQuestion : "assets/img/lv3/lv3-10pnpg",
+                infoAnswer : "문상훈"
             },
             {
-                infoQuestion : 'assets/img/lv2/lv2-10.jpg',
-                infoAnswer : "크러쉬"
+                infoQuestion : "assets/img/lv3/lv3-11.png",
+                infoAnswer : "이동건"
             },
             {
-                infoQuestion : 'assets/img/lv2/lv2-11.jpg',
-                infoAnswer : "티파니"
+                infoQuestion : "assets/img/lv3/lv3-12.png",
+                infoAnswer : "이정현"
             },
             {
-                infoQuestion : 'assets/img/lv2/lv2-12.jpg',
-                infoAnswer : "소지섭"
+                infoQuestion : "assets/img/lv3/lv3-13.png",
+                infoAnswer : "아리아나그란데"
             },
             {
-                infoQuestion : 'assets/img/lv2/lv2-13.jpg',
-                infoAnswer : "한효주"
+                infoQuestion : "assets/img/lv3/lv3-14.png",
+                infoAnswer : "문가영"
             },
             {
-                infoQuestion : 'assets/img/lv2/lv2-14.jpg',
-                infoAnswer : "정국"
+                infoQuestion : "assets/img/lv3/lv3-15.png",
+                infoAnswer : "이경영"
             },
             {
-                infoQuestion : 'assets/img/lv2/lv2-15.jpg',
-                infoAnswer : "이수현"
-            },
-            {
-                infoQuestion : 'assets/img/lv2/lv2-16.jpg',
-                infoAnswer : "박지성"
-            },
-            {
-                infoQuestion : 'assets/img/lv2/lv2-17.jpg',
-                infoAnswer : "김동현"
-            },
-            {
-                infoQuestion : 'assets/img/lv2/lv2-18.jpg',
-                infoAnswer : "장범준"
-            },
-            {
-                infoQuestion : 'assets/img/lv2/lv2-19.jpg',
-                infoAnswer : "신민아"
-            },
-            {
-                infoQuestion : 'assets/img/lv2/lv2-20.jpg',
+                infoQuestion : "assets/img/lv3/lv3-16.png",
                 infoAnswer : "김영철"
             },
             {
-                infoQuestion : 'assets/img/lv2/lv2-21.jpg',
-                infoAnswer : "고현정"
+                infoQuestion : "assets/img/lv3/lv3-17.png",
+                infoAnswer : "로버트 다우니 주니어"
             },
             {
-                infoQuestion : 'assets/img/lv2/lv2-22.jpg',
-                infoAnswer : "나훈아"
+                infoQuestion : "assets/img/lv3/lv3-18.png",
+                infoAnswer : "검정치마"
             },
             {
-                infoQuestion : 'assets/img/lv2/lv2-23.jpg',
-                infoAnswer : "버락오바마"
+                infoQuestion : "assets/img/lv3/lv3-19.png",
+                infoAnswer : "정유미"
             },
             {
-                infoQuestion : 'assets/img/lv2/lv2-24.jpg',
-                infoAnswer : "공효진"
+                infoQuestion : "assets/img/lv3/lv3-20.png",
+                infoAnswer : "김대명"
             },
             {
-                infoQuestion : 'assets/img/lv2/lv2-25.jpg',
-                infoAnswer : "장기하"
+                infoQuestion : "assets/img/lv3/lv3-21.png",
+                infoAnswer : "공명"
             },
             {
-                infoQuestion : 'assets/img/lv2/lv2-26.jpg',
-                infoAnswer : "효린"
+                infoQuestion : "assets/img/lv3/lv3-22.png",
+                infoAnswer : "강태오"
             },
             {
-                infoQuestion : 'assets/img/lv2/lv2-27.jpg',
-                infoAnswer : "류준열"
+                infoQuestion : "assets/img/lv3/lv3-23.png",
+                infoAnswer : "이박사"
             },
             {
-                infoQuestion : 'assets/img/lv2/lv2-28.jpg',
-                infoAnswer : "그레이"
+                infoQuestion : "assets/img/lv3/lv3-24.png",
+                infoAnswer : "홍록기"
             },
             {
-                infoQuestion : 'assets/img/lv2/lv2-29.jpg',
-                infoAnswer : "톰크루즈"
+                infoQuestion : "assets/img/lv3/lv3-25.png",
+                infoAnswer : "조진세"
             },
             {
-                infoQuestion : 'assets/img/lv2/lv2-30.jpg',
-                infoAnswer : "강다니엘"
+                infoQuestion : "assets/img/lv3/lv3-26.png",
+                infoAnswer : "표인봉"
             },
             {
-                infoQuestion : 'assets/img/lv2/lv2-31.jpg',
-                infoAnswer : "이민호"
+                infoQuestion : "assets/img/lv3/lv3-27.png",
+                infoAnswer : "조니뎁"
             },
             {
-                infoQuestion : 'assets/img/lv2/lv2-32.jpg',
-                infoAnswer : "신세경"
+                infoQuestion : "assets/img/lv3/lv3-28.png",
+                infoAnswer : "키"
             },
             {
-                infoQuestion : 'assets/img/lv2/lv2-33.jpg',
-                infoAnswer : "사이먼도미닉"
+                infoQuestion : "assets/img/lv3/lv3-29.png",
+                infoAnswer : "한석규"
             },
             {
-                infoQuestion : 'assets/img/lv2/lv2-34.jpg',
-                infoAnswer : "유연석"
+                infoQuestion : "assets/img/lv3/lv3-30.png",
+                infoAnswer : "민지"
             },
             {
-                infoQuestion : 'assets/img/lv2/lv2-35.jpg',
-                infoAnswer : "진"
+                infoQuestion : "assets/img/lv3/lv3-31.png",
+                infoAnswer : "비비"
             },
             {
-                infoQuestion : 'assets/img/lv2/lv2-36.jpg',
-                infoAnswer : "이영표"
+                infoQuestion : "assets/img/lv3/lv3-32.png",
+                infoAnswer : "황"
             },
             {
-                infoQuestion : 'assets/img/lv2/lv2-37.jpg',
-                infoAnswer : "지코"
+                infoQuestion : "assets/img/lv3/lv3-33.png",
+                infoAnswer : "문채원"
             },
             {
-                infoQuestion : 'assets/img/lv2/lv2-38.jpg',
-                infoAnswer : "조규현"
+                infoQuestion : "assets/img/lv3/lv3-34.png",
+                infoAnswer : "유진"
             },
             {
-                infoQuestion : 'assets/img/lv2/lv2-39.jpg',
-                infoAnswer : "조세호"
+                infoQuestion : "assets/img/lv3/lv3-35.png",
+                infoAnswer : "뷔"
             },
             {
-                infoQuestion : 'assets/img/lv2/lv2-40.jpg',
-                infoAnswer : "안소희"
+                infoQuestion : "assets/img/lv3/lv3-36.png",
+                infoAnswer : "이적"
             },
             {
-                infoQuestion : 'assets/img/lv2/lv2-41.jpg',
-                infoAnswer : "김태리"
+                infoQuestion : "assets/img/lv3/lv3-37.png",
+                infoAnswer : "코트쿤스트"
             },
             {
-                infoQuestion : 'assets/img/lv2/lv2-42.jpg',
-                infoAnswer : "기리보이"
+                infoQuestion : "assets/img/lv3/lv3-38.png",
+                infoAnswer : "남주혁"
             },
             {
-                infoQuestion : 'assets/img/lv2/lv2-43.jpg',
-                infoAnswer : "서강준"
+                infoQuestion : "assets/img/lv3/lv3-39.png",
+                infoAnswer : "장윤주"
             },
             {
-                infoQuestion : 'assets/img/lv2/lv2-44.jpg',
-                infoAnswer : "강남"
+                infoQuestion : "assets/img/lv3/lv3-40.png",
+                infoAnswer : "잔나비"
             },
             {
-                infoQuestion : 'assets/img/lv2/lv2-45.jpg',
-                infoAnswer : "이찬혁"
+                infoQuestion : "assets/img/lv3/lv3-41.png",
+                infoAnswer : "프라이머리"
             },
             {
-                infoQuestion : 'assets/img/lv2/lv2-46.jpg',
-                infoAnswer : "수영"
+                infoQuestion : "assets/img/lv3/lv3-42.png",
+                infoAnswer : "정해인"
             },
             {
-                infoQuestion : 'assets/img/lv2/lv2-47.jpg',
-                infoAnswer : "강민경"
+                infoQuestion : "assets/img/lv3/lv3-43.png",
+                infoAnswer : "한혜진"
             },
             {
-                infoQuestion : 'assets/img/lv2/lv2-48.jpg',
-                infoAnswer : "붐"
+                infoQuestion : "assets/img/lv3/lv3-44.png",
+                infoAnswer : "이동국"
             },
             {
-                infoQuestion : 'assets/img/lv2/lv2-49.jpg',
-                infoAnswer : "장원영"
+                infoQuestion : "assets/img/lv3/lv3-45.png",
+                infoAnswer : "조이"
             },
             {
-                infoQuestion : 'assets/img/lv2/lv2-50.jpg',
-                infoAnswer : "에릭"
+                infoQuestion : "assets/img/lv3/lv3-46.png",
+                infoAnswer : "클링턴"
             },
+            {
+                infoQuestion : "assets/img/lv3/lv3-47.png",
+                infoAnswer : "황재성"
+            },
+            {
+                infoQuestion : "assets/img/lv3/lv3-48.png",
+                infoAnswer : "차은우"
+            },
+            {
+                infoQuestion : "assets/img/lv3/lv3-49.png",
+                infoAnswer : "하현우"
+            },
+            {
+                infoQuestion : "assets/img/lv3/lv-50.png",
+                infoAnswer : "팝핀현준"
+            },
+// --------------50개
         ];
 
 
@@ -319,6 +319,7 @@
         document.addEventListener("DOMContentLoaded", () => {
             updateQuiz(currentIndex);
         });
+
     </script>   
 </body>
 </html>

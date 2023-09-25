@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        table {
+            width: 100%;
+            border-top: 1px solid #dcdcdc;
+            border-spacing: 0;
+        }
+        table td {
+            border-bottom: 1px solid #dcdcdc;
+        }
+    </style>
+</head>
+<body>
+
+    
+    <script>
+        // 50칸(1~50)
+        // {
+        //     let t = "<table class='table'>";
+        //     let num = 1;
+        //     for(let i=1; i<=10; i++){
+        //         t += "<tr>";
+        //         for(let k=1; k<=5; k++){
+        //             t += "<td>" + num++ +"</td>";
+        //         }
+        //         t += "</tr>";
+        //     }
+        //     t += "</table>";
+
+        //     document.write(t);
+        // }
+
+
+
+        // 50칸(1~50 짝수만 나오게)
+            let t = "<table class='table'>";
+            let num = 1;
+            for(let i=1; i<=10; i++){
+                t += "<tr>";
+                for(let k=1; k<=5; k++){
+                    (num % 2 == 0) ? t += "<td style='color:red'>" + num + "</td>" : t += "<td style='color:blue'>" + num + "</td>";
+                    num++;
+                }
+                t += "</tr>";
+            }
+            t += "</table>";
+
+            document.write(t);
+
+            // 50칸(1~50 짝수만 나오게)
+           
+               
+           
+    </script>
+</body>
+</html>

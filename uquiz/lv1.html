@@ -25,7 +25,6 @@
     <footer id="footer">
         <div class="quiz__timer timer"></div>
         <div class="modal__wrap">
-            <div class="modal__btn">소스보기</div>
             <div class="modal__cont">
                 <div class="modal__box">
                     <div class="title">
@@ -50,45 +49,24 @@
     </footer>
     <!-- //footer -->
     
-    <!-- <script src="assets/js/common.js"></script> -->
     <script>
-        
-        // modalBtn.addEventListener("click", () => {
-        //     modalCont.classList.add("show");
-        //     modalCont.classList.remove("hide");
-        // })
-        // modalClose.addEventListener("click", () => {
-        //     modalCont.classList.add("hide");
-        //     modalCont.classList.remove("show");
-        // })
-
-        //탭메뉴
-        // const tapBtn = document.querySelectorAll(".modal__box .taps > div");
-        // const tapCont = document.querySelectorAll(".modal__box .cont > div");
-
-        // tapBtn.forEach((Element, index) => {
-        //     Element.addEventListener("click", (e) => {
-        //         e.preventDefault();
-
-        //         tapBtn.forEach(li => {li.classList.remove("active")});
-        //         Element.classList.add("active");
-
-        //         tapCont.forEach(div => {div.style.display = "none"});
-        //         tapCont[index].style.display = "block";
-        //     })
-        // })
-
         // 선택자
         const quizWrap = document.querySelector(".quiz__wrap");
         const quizTimer = document.querySelector(".quiz__timer");
         const modal = document.querySelector(".modal__wrap");
-        const correct = 0;
+        let correct = 0;
 
         //모달 선택자
         const modalBtn = document.querySelector(".modal__btn");
         const modalClose = document.querySelector(".modal__close");
         const modalCont = document.querySelector(".modal__cont");
         const cont = document.querySelector(".cont");
+        
+        //모달 창 닫기
+        modalClose.addEventListener("click", () => {
+            modalCont.classList.add("hide");
+            modalCont.classList.remove("show");
+        })
 
         // 문제 정보
         const quizInfo = [
@@ -398,6 +376,7 @@
             const quizElement = quizWrap.querySelector(".quiz");
             const descElement = quizWrap.querySelector(".quiz__desc");
             const answerElement = quizWrap.querySelector(".quiz__answer");
+            
 
             if(userAnswer === correctAnswer){
                 quizElement.classList.add("good");

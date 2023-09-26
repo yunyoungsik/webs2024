@@ -6,7 +6,7 @@
     $sql .= "youEmail varchar(40) NOT NULL,";
     $sql .= "youName varchar(10) NOT NULL,";
     $sql .= "youPass varchar(50) NOT NULL,";
-    $sql .= "youPhone int(20) NOT NULL,";
+    $sql .= "youPhone varchar(20) NOT NULL,";
     $sql .= "regTime int(20) NOT NULL,";
     $sql .= "PRIMARY KEY(memberID)";
     $sql .= ") charset=utf8";

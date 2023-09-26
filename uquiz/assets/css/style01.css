@@ -98,7 +98,8 @@ body {
     display: block;
     width: 500px;
     height: 70px;
-    margin-bottom: 50px;
+    /* margin-bottom: 50px; */
+    margin-top: 60px;
     border-radius: 10px;
     background-color: #fff;
     box-shadow: 5px 5px 5px #00000020;

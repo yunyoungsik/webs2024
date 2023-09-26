@@ -66,6 +66,7 @@
         modalClose.addEventListener("click", () => {
             modalCont.classList.add("hide");
             modalCont.classList.remove("show");
+            window.location.href = "index.html";
         })
 
         // 문제 정보
@@ -274,6 +275,17 @@
         ];
 
 
+        // 문제 배열을 섞는 함수
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]]; // 배열 요소를 스왑
+            }
+        }
+
+        // 문제 배열 섞기
+        shuffleArray(quizInfo);
+        
         let currentIndex = 0;       // 현재 문제 변수 값 (현재 풀고 있는 문제)
 
         // 문제 출력
@@ -347,6 +359,7 @@
                     cont.innerHTML = correct;
                     timer = duration;
                     quizTimer.classList.remove("start");
+                    quizTimer.style.display = "none";
                 }
             }, 1000);
         }

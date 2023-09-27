@@ -42,13 +42,118 @@
 
         <main id="main">
             <div class="main__menu">
+                <h3>선택자</h3>
+                <ul>
+                    <li><a href="#s1-1">01. 요소 메서드 : 선택자 : <strong>document.querySelector()</strong> 요소 선택자</a></li>
+                    <li><a href="#s1-2">02. 요소 메서드 : 선택자 : <strong>document.querySelectorAll()</strong> 모든 요소 선택자</a></li>
+                    <li><a href="#s1-3">03. 요소 메서드 : 선택자 : <strong>document.getElementById()</strong> 아이디 요소 선택자</a></li>
+                    <li><a href="#s1-4">04. 요소 메서드 : 선택자 : <strong>document.getElementsByClassName()</strong> 클래스 요소 선택자</a></li>
+                    <li><a href="#s1-5">05. 요소 메서드 : 선택자 : <strong>document.getElementsByTagName()</strong> 태그 요소 선택자</a></li>
+                </ul>
+
+                <h3>텍스트</h3>
+                <ul>
+                    <li><a href="#s2-1">01. 요소 메서드 : 텍스트 : <strong>element.innerText()</strong> 요소 텍스트 설정하기</a></li>
+                    <li><a href="#s2-2">02. 요소 메서드 : 텍스트 : <strong>element.textContent()</strong> 요소 텍스트 설정하기</a></li>
+                    <li><a href="#s2-3">03. 요소 메서드 : 텍스트 : <strong>element.innerHTML()</strong> 요소 텍스트(태그포함) 설정하기</a></li>
+                    <li><a href="#s2-4">04. 요소 메서드 : 텍스트 : <strong>element.outerHTML()</strong> 요소 텍스트(태그포함, 자식포함) 설정하기</a></li>
+                </ul>
+
+                <h3>클래스</h3>
+                <ul>
+                    <li><a href="#s3-1">01. 요소 메서드 : 클래스 : <strong>element.classList.add()</strong> 클래스 추가하기</a></li>
+                    <li><a href="#s3-2">02. 요소 메서드 : 클래스 : <strong>element.classList.remove()</strong> 클래스 삭제하기</a></li>
+                    <li><a href="#s3-3">03. 요소 메서드 : 클래스 : <strong>element.classList.toggle()</strong> 클래스 추가/삭제하기</a></li>
+                    <li><a href="#s3-4">04. 요소 메서드 : 클래스 : <strong>element.classList.contains()</strong> 클래스 존재 여부 확인하기</a></li>
+                    <li><a href="#s3-5">05. 요소 메서드 : 클래스 : <strong>element.style.속성명</strong> CSS 스타일 설정하기</a></li>
+                    <li><a href="#s3-6">06. 요소 속성 : 클래스 : <strong>element.value</strong> 요소의 속성값 가져오기</a></li>
+                </ul>
+
+                <h3>크기 및 위치</h3>
+                <ul>
+                    <li><a href="#s4-1">01. 요소 속성 : 크기 및 위치 : <strong>element.clientWidth</strong> 요소의 가로값(마진/보더 미포함)</a></li>
+                    <li><a href="#s4-2">02. 요소 속성 : 크기 및 위치 : <strong>element.clientHeight</strong> 요소의 세로값(마진/보더 미포함)</a></li>
+                    <li><a href="#s4-3">03. 요소 속성 : 크기 및 위치 : <strong>element.clientTop</strong> 요소의 Y축 값(부모 기준)</a></li>
+                    <li><a href="#s4-4">04. 요소 속성 : 크기 및 위치 : <strong>element.clientLeft</strong> 요소의 X축 값(부모 기준)</a></li>
+                    <li><a href="#s4-5">05. 요소 속성 : 크기 및 위치 : <strong>element.offsetWidth</strong> 요소의 가로값(보더/패딩 포함)</a></li>
+                    <li><a href="#s4-6">06. 요소 속성 : 크기 및 위치 : <strong>element.offsetHeight</strong> 요소의 세로값(보더/패딩 포함)</a></li>
+                    <li><a href="#s4-7">07. 요소 속성 : 크기 및 위치 : <strong>element.offsetTop</strong> 요소의 Y축 값(문서 기준)</a></li>
+                    <li><a href="#s4-8">08. 요소 속성 : 크기 및 위치 : <strong>element.offsetLeft</strong> 요소의 X축 값(문서 기준)</a></li>
+                    <li><a href="#s4-9">09. 요소 속성 : 크기 및 위치 : <strong>element.getBoundingClientRect</strong> 요소의 크기 및 위치 값</a></li>
+                </ul>
                 
             </div>
             <!-- //main__menu -->
 
             <div class="main__sample">
+                <div id="#s1-1" class="sample">
+                    <h3>선택자 01. document.querySelector()</h3>
+                    <p>document.querySelector()는 JavaScript에서 사용되는 DOM(Document Object Model) 요소를 선택하는 메서드 중 하나입니다. 이 메서드를 사용하면 HTML 문서 내에서 특정한 CSS 선택자를 사용하여 요소를 선택할 수 있습니다.</p>
+<pre class="line-numbers"><code class="language-js">{
+    const element = document.querySelector(selector);
+
+    const myElementByClass = document.querySelector('.myClass'); // 클래스
+    const myElementById = document.querySelector('#myId'); // 아이디
+    const myElementByTag = document.querySelector('div'); // 태그
+}
+</code></pre>
+                    <div class="desc">
+                        여기서 selector는 CSS 스타일 시트에서 사용하는 선택자와 유사한 형태로 작성됩니다. querySelector()는 해당 선택자로 일치하는 첫 번째 요소를 반환합니다.<br>
+                        또한, querySelector()는 클래스, ID, 태그 이름 등 다양한 유형의 선택자를 사용할 수 있습니다.
+                    </div>
+                </div>
+                <!-- //S01 -->
+
+                <div id="#s1-2" class="sample">
+                    <h3>선택자 02. document.querySelectorAll()</h3>
+                    <p>document.querySelectorAll() 는 HTML 문서 내에서 특정한 CSS 선택자에 해당하는 모든 요소를 선택하는 JavaScript의 메서드입니다. 선택된 요소들은 NodeList 라는 유사 배열 형태의 객체로 반환됩니다.</p>
+<pre class="line-numbers"><code class="language-js">{
+    const elements = document.querySelectorAll(selector);
+
+    const elementsByClass = document.querySelectorAll('.myClass'); // 클래스
+    const elementsById = document.querySelectorAll('#myId'); // 아아디
+    const elementsByTag = document.querySelectorAll('div'); // 태그
+}
+</code></pre>
+                    <div class="desc">
+                        여기서 selector는 CSS 스타일 시트에서 사용하는 선택자와 유사한 형태로 작성됩니다. querySelectorAll()은 해당 선택자로 일치하는 모든 요소를 반환합니다.<br>
+                        또한, querySelectorAll()을 사용하면 클래스, ID, 태그 이름 등 다양한 유형의 선택자를 사용할 수 있습니다.
+                    </div>
+                </div>
+                <!-- //S02 -->
+
+                <div id="#4-9" class="sample">
+                    <h3>크기 및 위치 09. element.getBoundingClientRect</h3>
+                    <p>element.getBoundingClientRect() 메서드는 요소의 크기와 위치에 관한 정보를 제공합니다. 이 메서드는 DOMRect 객체를 반환합니다.</p>
+<pre class="line-numbers"><code class="language-js">{
+    const rect = element.getBoundingClientRect();
+
+    console.log(rect.width);  // 요소의 너비
+    console.log(rect.height); // 요소의 높이
+    console.log(rect.top);    // 요소의 상단 좌표
+    console.log(rect.left);   // 요소의 좌측 좌표
+}
+</code></pre>
+                    <div class="desc">
+                        DOMRect 객체는 다음과 같은 속성들을 가지고 있습니다:<br>
+                        · x: 요소의 좌상단 모퉁이의 x 좌표<br>
+                        · y: 요소의 좌상단 모퉁이의 y 좌표<br>
+                        · width: 요소의 너비<br>
+                        · height: 요소의 높이<br>
+                        · top: 요소의 상단 좌표<br>
+                        · right: 요소의 우측 좌표<br>
+                        · bottom: 요소의 하단 좌표<br>
+                        · left: 요소의 좌측 좌표<br><br>
+                        이러한 정보는 보통 요소의 화면상 위치와 크기를 계산하는 데 사용됩니다. 예를 들어, 어떤 요소가 화면에서 어디에 위치하고 있는지 확인하고 싶을 때 유용하게 사용될 수 있습니다.<br>
+                    </div>
+                </div>
+                <!-- //S4-9 -->
+
+
             </div>
             <!-- //main__sample -->
+
+            
         </main>
         <!-- //main -->
 

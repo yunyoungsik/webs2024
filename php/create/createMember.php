@@ -6,12 +6,13 @@
     $sql .= "youEmail varchar(40) NOT NULL,";
     $sql .= "youName varchar(10) NOT NULL,";
     $sql .= "youPass varchar(50) NOT NULL,";
-    $sql .= "youPhone varchar(20) NOT NULL,";
-    $sql .= "regTime int(20) NOT NULL,";
+    $sql .= "youPhon varchar(20) NOT NULL,";
+    $sql .= "regTime int(40) NOT NULL,";
     $sql .= "PRIMARY KEY(memberID)";
     $sql .= ") charset=utf8";
-    
+
     $result = $connect -> query($sql);
+
     if($result){
         echo "Create Tables Complete";
     } else {

@@ -102,6 +102,8 @@
 }
 /* quiz__confirm .active*/
 .active {
+    font-size: 0.8em;
+    font-family: var(--nanumMJ);
     background-color: var(--white);
     border-left: 3px solid var(--black250);
     color: var(--black400);

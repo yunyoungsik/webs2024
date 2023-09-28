@@ -99,6 +99,7 @@
 .quiz__confirm:hover {
     color: var(--white);
     background-color: var(--black400);
+    border-left: 0;
 }
 /* quiz__confirm .active*/
 .active {

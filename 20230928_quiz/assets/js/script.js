@@ -90,10 +90,12 @@ const updateQuiz = (index) => {
     quizLogo.addEventListener("mouseover", () => {
         // document.querySelector("h1 > a > img").classList.remove("none");
         document.querySelector("h1 > a > img").style.opacity = "1";
+        document.querySelector("h1 > a").style.color = "#fff";
     })
     quizLogo.addEventListener("mouseout", () => {
         // document.querySelector("h1 > a > img").classList.add("none");
         document.querySelector("h1 > a > img").style.opacity = "0";
+        document.querySelector("h1 > a").style.color = "var(--black600)";
     })
 }
 

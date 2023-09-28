@@ -36,17 +36,18 @@
     color: var(--black600);
     font-family: 'Rebecca';
     position: relative;
+    
 }
 #header h1 a {
     text-decoration: none;
+    transition: all 1s;
 }
 #header h1 a img {
-    width: 50px;
+    width: 115px;
     position: absolute;
-    top: -6px;
-    right: 15px;
+    top: 15px;
     opacity: 0;
-    transition: all .5s;
+    transition: all 1s;
 }
 #header p {
     font-family: var(--nanumMJ);
@@ -82,7 +83,7 @@
     align-items: center;
     overflow: auto;
     padding: 10px 5px;
-    /* box-sizing: border-box; */
+    clear: both;
 }
 .quiz__confirm {
     width: 40px;
@@ -95,6 +96,7 @@
     margin-bottom: 15px;
     cursor: pointer;
     transition: all .3s;
+    box-sizing: border-box;
 }
 .quiz__confirm:hover {
     color: var(--white);
@@ -192,6 +194,10 @@
     .quiz__question2 {
         max-height: 200px;
         text-align: left;
+        align-items: normal;
+    }
+    #header a img {
+        display: none;
     }
 }
 

@@ -42,7 +42,7 @@ const updateQuiz = (index) => {
 
         <div class="quiz__main">
             <div class="quiz__question">${index + 1}. ${quiz.infoQuestion}</div>
-            <div class="quiz__question2">${quiz.infoQuestion2}</div>
+            ${quiz.infoQuestion2 ? `<div class="quiz__question2">${quiz.infoQuestion2}</div>` : ""} 
             <button class="quiz__confirm">정답</button>
             <div class="quiz__answer none">${quiz.infoAnswer}</div>
             <div class="quiz__desc none"></div>

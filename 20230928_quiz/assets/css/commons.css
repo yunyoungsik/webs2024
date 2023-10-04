@@ -93,6 +93,7 @@
     font-family: var(--nanumMJ);
     background-color: var(--black250);
     border-left: 0;
+    
     color: var(--white);
     margin-bottom: 15px;
     cursor: pointer;
@@ -177,6 +178,7 @@
 }
 #footer a {
     text-decoration: underline;
+    text-underline-position: under;
 }
 
 /* 1280px */

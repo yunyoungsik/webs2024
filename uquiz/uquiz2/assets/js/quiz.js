@@ -1,0 +1,223 @@
+ // 선택자
+ const quizWrap = document.querySelector(".quiz__wrap");
+ const quizTimer = document.querySelector(".quiz__timer");
+ const modal = document.querySelector(".modal__wrap");
+ let correct = 0;
+
+//  //모달 선택자
+//  const modalBtn = document.querySelector(".modal__btn");
+//  const modalClose = document.querySelector(".modal__close");
+//  const modalCont = document.querySelector(".modal__cont");
+//  const cont = document.querySelector(".cont");
+ 
+//  //모달 창 닫기
+//  modalClose.addEventListener("click", () => {
+//      modalCont.classList.add("hide");
+//      modalCont.classList.remove("show");
+//      if(correct > 10){
+//          window.location.href = "lv1_5.html";
+//      } else {
+//          window.location.href = "index.html";
+//      }
+//  })
+
+// 문제 정보
+const quizInfo = [
+    {
+        infoQuestion : 'assets/img/lv1/lv1-1.jpg',
+        infoAnswer : "유재석"
+    },
+    {
+        infoQuestion : 'assets/img/lv1/lv1-2.jpg',
+        infoAnswer : "송중기"
+    },
+    {
+        infoQuestion : 'assets/img/lv1/lv1-3.jpg',
+        infoAnswer : "싸이"
+    },
+    {
+        infoQuestion : 'assets/img/lv1/lv1-4.jpg',
+        infoAnswer : "박보검"
+    },
+    {
+        infoQuestion : 'assets/img/lv1/lv1-5.jpg',
+        infoAnswer : "강호동"
+    },
+    {
+        infoQuestion : 'assets/img/lv1/lv1-6.jpg',
+        infoAnswer : "수지"
+    },
+    {
+        infoQuestion : 'assets/img/lv1/lv1-7.jpg',
+        infoAnswer : "김숙"
+    },
+    {
+        infoQuestion : 'assets/img/lv1/lv1-8.jpg',
+        infoAnswer : "마동석"
+    },
+    {
+        infoQuestion : 'assets/img/lv1/lv1-9.jpg',
+        infoAnswer : "윤아"
+    },
+    {
+        infoQuestion : 'assets/img/lv1/lv1-10.jpg',
+        infoAnswer : "손흥민"
+    },
+    
+
+
+    {
+        infoQuestion : 'assets/img/lv1/lv1-11.jpg',
+        infoAnswer : "윤도현"
+    },
+    {
+        infoQuestion : 'assets/img/lv1/lv1-12.jpg',
+        infoAnswer : "나문희"
+    },
+    {
+        infoQuestion : 'assets/img/lv1/lv1-13.jpg',
+        infoAnswer : "이강인"
+    },
+    {
+        infoQuestion : 'assets/img/lv1/lv1-14.jpg',
+        infoAnswer : "안정환"
+    },
+    {
+        infoQuestion : 'assets/img/lv1/lv1-15.jpg',
+        infoAnswer : "나영석"
+    },
+    {
+        infoQuestion : 'assets/img/lv1/lv1-16.jpg',
+        infoAnswer : "공유"
+    },
+    {
+        infoQuestion : 'assets/img/lv1/lv1-17.jpg',
+        infoAnswer : "박명수"
+    },
+    {
+        infoQuestion : 'assets/img/lv1/lv1-18.jpg',
+        infoAnswer : "노홍철"
+    },
+    {
+        infoQuestion : 'assets/img/lv1/lv1-19.jpg',
+        infoAnswer : "김구라"
+    },
+    {
+        infoQuestion : 'assets/img/lv1/lv1-20.jpg',
+        infoAnswer : "양세찬"
+    },
+];
+
+
+// 문제 배열을 섞는 함수
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]]; // 배열 요소를 스왑
+    }
+}
+
+// 문제 배열 섞기
+shuffleArray(quizInfo);
+
+let currentIndex = 0; // 현재 문제 변수 값 (현재 풀고 있는 문제)
+
+// 문제 출력
+const updateQuiz = (index) => {
+    let quizWrapTag = `
+        <div class="quiz">
+            <div class="quiz__header"></div>
+            <div class="quiz__main">
+                <div class="quiz__question">
+                    <img src="${quizInfo[index].infoQuestion}">
+                </div>
+            </div>
+            <div class="quiz__footer">
+                <div class="quiz__input">
+                <input type="text" placeholder="정답을 입력해주세요.">
+                <div class="quiz__answer none">${quizInfo[index].infoAnswer}</div>
+                <button class="quiz__confirm"><img src="assets/img/next.png" alt="next"></button>
+                <button class="quiz__next none"><img src="assets/img/next.png" alt="next"></button>
+                </div>
+            </div>
+        </div>
+    `;
+    quizWrap.innerHTML = quizWrapTag;
+
+    // 선택자
+    const quizConfirm = quizWrap.querySelector(".quiz__confirm");
+    const quizNext = quizWrap.querySelector(".quiz__next"); 
+
+    // 정답 확인 버튼
+    quizConfirm.addEventListener("click", () => {
+        checkAnswer();
+        const quizInput2 = document.querySelector(".quiz__input > input");
+        quizInput2.classList.add("none");
+        quizConfirm.classList.add("none"); // 정답 버튼 숨김
+        quizNext.classList.remove("none"); // 다음 버튼 추가
+    });
+
+    // 다음 문제 버튼
+    quizNext.addEventListener("click", () => {
+        if(currentIndex < quizInfo.length -1){
+            quizNext.classList.add("none");         // 다음 버튼 숨김
+            quizConfirm.classList.remove("none");   // 정답 버튼 추가
+            currentIndex++;                         // 퀴즈 번호 추가
+            updateQuiz(currentIndex);               // 퀴즈 반영
+        } else {
+            alert("1단계 문제가 끝났습니다.");
+        }
+    });
+}
+
+// 타이머
+function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        quizTimer.classList.add("start");
+        seconds = parseInt(timer % 60, 10);
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+        display.textContent = "남은 시간: " + seconds + "초";
+
+        if (--timer < 0) {
+            modalCont.classList.add("show");
+            if(correct > 10){
+                cont.innerHTML = `축하합니다! ${correct}개 맞추셨네요. <br>다음 단계로 가실 수 있습니다!`;
+            } else {
+                cont.innerHTML = `아쉽네요. ${correct}개 맞추셨습니다. <br>미션 실패!`;
+            }
+            timer = duration;
+            quizTimer.classList.remove("start");
+            quizTimer.style.display = "none";
+        }
+    }, 1000);
+}
+
+window.onload = function () {
+    var duration = 60; // 타이머 시간 (초)
+    var display = document.querySelector(".timer");
+    startTimer(duration, display);
+};
+
+// 정답 확인
+const checkAnswer = () => {         
+    const quizInput = document.querySelector(".quiz__input input");   
+    const userAnswer = quizInput.value;  
+    const correctAnswer = quizInfo[currentIndex].infoAnswer; // 정답지의 정답
+    const quizElement = quizWrap.querySelector(".quiz");
+    const answerElement = quizWrap.querySelector(".quiz__answer");
+
+    if(userAnswer === correctAnswer){
+        quizElement.classList.add("good");
+        answerElement.classList.remove("none");
+        correct++;
+    } else {
+        quizElement.classList.add("bad");
+        answerElement.classList.remove("none");
+    }
+}
+    
+// 페이지가 로드된 후 실행
+document.addEventListener("DOMContentLoaded", () => {
+    updateQuiz(currentIndex);
+});

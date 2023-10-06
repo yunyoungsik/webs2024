@@ -13,48 +13,6 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
-.quiz__wrap > .quiz.good {
-    position: relative;
-}
-.quiz__wrap > .quiz.good::before {
-    content: '';
-    width: 400px;
-    height: 400px;
-    border: 30px solid rgba(255, 0, 0, 1);
-    border-radius: 50%;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 100;
-}
-.quiz__wrap > .quiz.bad {
-    position: relative;
-}
-.quiz__wrap > .quiz.bad::before {
-    content: '';
-    width: 400px;
-    height: 20px;
-    background-color: rgba(255, 0, 0, 1);
-    position: absolute;
-    left: calc(50% - 200px);
-    top: 50%;
-    border-radius: 30px;
-    transform: rotate(45deg);
-    z-index: 100;
-}
-.quiz__wrap > .quiz.bad::after {
-    content: '';
-    width: 400px;
-    height: 20px;
-    background-color: rgba(255, 0, 0, 1);
-    position: absolute;
-    left: calc(50% - 200px);
-    top: 50%;
-    border-radius: 30px;
-    transform: rotate(-45deg);
-    z-index: 100;
-}
 .quiz__question {
     position: relative;
 }
@@ -114,8 +72,53 @@
     content: "정답 : ";
 }
 
+/* O, X */
+.quiz__wrap > .quiz.good {
+    position: relative;
+}
+.quiz__wrap > .quiz.good::before {
+    content: '';
+    width: 400px;
+    height: 400px;
+    border: 30px solid rgba(255, 0, 0, 1);
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+}
+.quiz__wrap > .quiz.bad {
+    position: relative;
+}
+.quiz__wrap > .quiz.bad::before {
+    content: '';
+    width: 400px;
+    height: 20px;
+    background-color: rgba(255, 0, 0, 1);
+    position: absolute;
+    left: calc(50% - 200px);
+    top: 50%;
+    border-radius: 30px;
+    transform: rotate(45deg);
+    z-index: 100;
+}
+.quiz__wrap > .quiz.bad::after {
+    content: '';
+    width: 400px;
+    height: 20px;
+    background-color: rgba(255, 0, 0, 1);
+    position: absolute;
+    left: calc(50% - 200px);
+    top: 50%;
+    border-radius: 30px;
+    transform: rotate(-45deg);
+    z-index: 100;
+}
+
 /* timer */
 .start {
+    position: absolute;
     margin-top: 50px;
     height: 25px;
     background-color: #fff;

@@ -41,7 +41,7 @@
             <div class="intro__text">
                 <h2>게시판</h2>
                 <p>
-                    웹디자이너, 웹퍼블리셔, 프론트앤드 개발자를 위한 게시판입니다.<br>관련된 문의사항은 여기서 확인하세요!
+                    웹디자이너, 웹퍼블리셔, 프론트앤드 개발자를 위한 게시판입니다.<br>게시글은 여기서 확인하세요!
                 </p>
             </div>
         </div>
@@ -117,7 +117,7 @@
 
                                         echo "<tr>";
                                         echo "<td>".$info['boardID']."</td>";
-                                        echo "<td>".$info['boardTitle']."</td>";
+                                        echo "<td><a href='boardView.php?boardID={$info['boardID']}'>".$info['boardTitle']."</a></td>";
                                         echo "<td>".$info['youName']."</td>";
                                         echo "<td>".date('Y-m-d', $info['regTime'])."</td>";
                                         echo "<td>".$info['boardView']."</td>";
@@ -153,6 +153,11 @@
                             echo "<li class='first'><a href='board.php?page=1'>처음으로</a></li>";
                             echo "<li class='prev'><a href='board.php?page=".($page-1)."'>이전</a></li>";
                         }
+                        // if($page != 1){
+                        //     $prevPage = $page - 1;
+                        //     echo "<li class='first'><a href='board.php?page=1'>처음으로</a></li>";
+                        //     echo "<li class='prev'><a href='board.php?page={$prevPage}'>이전</a></li>";
+                        // }
                         
                         // 페이지
                         // for($i=$startPage; $i<=$endPage; $i++){
@@ -164,11 +169,17 @@
                             if($i == $page) $active = "active";
                             echo " <li class='{$active}'><a href='board.php?page={$i}'>${i}</a></li>";
                         }
+
                         // 다음 페이지 링크
                         if($page < $boardTotalCount){
                             echo "<li class='next'><a href='board.php?page=".($page+1)."'>다음</a></li>";
                             echo "<li class='last'><a href='board.php?page={$boardTotalCount}'>마지막으로</a></li>";
                         }
+                        // if($page != 1){
+                        //     $nextPage = $page + 1;
+                        //     echo "<li class='next'><a href='board.php?page={nextPage}'>다음</a></li>";
+                        //     echo "<li class='last'><a href='board.php?page={$boardTotalCount}'>마지막으로</a></li>";
+                        // }
                     ?>
                     <!-- <li class="first"><a href="#">처음으로</a></li>
                     <li class="prev"><a href="#">이전</a></li>

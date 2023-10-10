@@ -19,7 +19,7 @@
         // echo"</pre>";
         
         // 게시글 소유자 확인
-        $sql = "SELECT memberID FROM board WHERE ={$boardID}";
+        $sql = "SELECT memberID FROM board WHERE boardID={$boardID}";
         $result = $connect -> query($sql);
 
         if($result){

@@ -70,6 +70,7 @@
                     <li><a href="#sample19">19. 객체 : 데이터 저장(키와값 || 속성과메서드) : 표현방법8</a></li>
                     <li><a href="#sample20">20. 객체 : 데이터 저장(키와값 || 속성과메서드) : 객체 구조 분해 할당</a></li>
                     <li><a href="#sample21">21. 객체 : 데이터 저장(키와값 || 속성과메서드) : 객체 펼침연산자</a></li>
+                    <li><a href="#sample22">22. 파일 : 데이터 교환 : JSON</a></li>
                 </ul>
                 <ul>
                     <li><a href="#++a">++ 연산자</a></li>
@@ -832,6 +833,50 @@
                 <!-- //sample21 -->
                 <!-- //객체 -->
 
+                <div id="sample22" class="sample">
+                    <h3>21. 파일 : 데이터 교환 : JSON</h3>
+                    <p>JavaScript에서 JSON (JavaScript Object Notation) 데이터를 다루는 예제입니다.</p>
+<pre><code class="language-js">// Json 데이터를 객체로 변환
+const jsonString = '{"name": "webs", "age": "30"}'
+const jsonObject = JSON.parse(jsonString);
+console.log(jsonObject.name);
+// webs
+
+// 객체를 Json 데이터로 변환
+const person = {name: "webs", age: 30}
+const jsonPerson = JSON.stringify(person);
+console.log(jsonPerson);
+// '{"name": "webs", "age": "30"}'
+</code></pre>
+                    <div class="desc">
+                        첫번째 부분 :<br>
+                        · jsonString은 문자열 형태로 JSON 데이터를 나타냅니다. 이 데이터는 name이 "webs"이고 age가 "30"인 객체를 나타냅니다.<br>
+                        · JSON.parse()는 JSON 문자열을 JavaScript 객체로 변환하는 함수입니다. 따라서 jsonString을 파싱하여 jsonObject에 저장합니다.<br>
+                        · jsonObject.name은 jsonObject 객체의 name 속성에 접근하며 "webs"를 출력합니다.<br><br>
+                        두번째 부분 :<br>
+                        · person은 JavaScript 객체로, name이 "webs"이고 age가 30인 객체입니다.<br>
+                        · JSON.stringify()는 JavaScript 객체를 JSON 문자열로 변환하는 함수입니다. 따라서 person 객체를 JSON 문자열로 변환하여 jsonPerson에 저장합니다.<br>
+                        · console.log(jsonPerson)은 JSON 문자열을 콘솔에 출력합니다. 결과적으로 jsonPerson은 {"name": "webs", "age": "30"}입니다. 주의할 점은, age가 숫자로 저장되어 있음에도 불구하고 JSON 문자열로 변환될 때는 문자열 형태로 변환됩니다.
+                    </div>
+                    <details class="result">
+                        <summary>결과 확인하기</summary>
+                        <div>
+                            <script>
+                                {
+                                    const jsonString = '{"name": "webs", "age": "30"}'
+                                    const jsonObject = JSON.parse(jsonString);
+                                    document.write(jsonObject.name + "<br>");
+
+                                    const person = {name: "webs", age: 30}
+                                    const jsonPerson = JSON.stringify(person);
+                                    document.write(jsonPerson);
+                                }
+                            </script>
+                        </div>
+                    </details>
+                </div>
+                <!-- //sample22 -->
+
                 <div id="++a" class="sample">
                     <h3>산술 연산자</h3>
                     <p>자바스크립트에서 산술 연산자는 숫자 값을 사용하여 다양한 수학적 연산을 수행하는 데 사용됩니다. 다양한 산술 연산자를 통해 숫자를 더하거나 빼는 등의 연산을 수행할 수
@@ -1278,7 +1323,7 @@
         <script src="../assets/js/highlight.min.js"></script>
         <script>hljs.highlightAll();</script>
         <script>
-            
+
         </script>
     </div>
 </body>

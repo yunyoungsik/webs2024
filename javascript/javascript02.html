@@ -65,8 +65,9 @@
                     <li><a href="#sample19">19. 객체 : 데이터 불러오기 : for in</a></li>
                     <li><a href="#sample20">20. 객체 : 데이터 불러오기 : 객체 펼침 연산자</a></li>
                     <li><a href="#sample21">21. 객체 : 데이터 불러오기 : 객체 구조 분해 할당</a></li>
+                    <li><a href="#sample22">22. 파일 : 서버 데이터 불러오기 : XMLHttpRequest</a></li>
+                    <li><a href="#sample23">23. 파일 : 서버 데이터 불러오기 : fetch API</a></li>
                 </ul>
-                
             </div>
             <!-- //main__menu -->
 
@@ -1127,6 +1128,83 @@
                 </div>
                 <!-- //sample21 -->
 
+                <div id="sample22" class="sample">
+                    <h3>22. 파일 : 서버 데이터 불러오기 : XMLHttpRequest</h3>
+                    <p>JavaScript를 사용하여 비동기적으로 HTTP GET 요청을 보내고, 응답으로 받은 JSON 데이터를 처리하는 예제입니다.</p>
+<pre class="line-numbers"><code class="language-js">{
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "https://webstoryboy.github.io/webs2024/json/gineungsaJC2011_05.json", true);
+    
+    xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                    var responseData = xhr.responseText;
+                    var jsonData = JSON.parse(responseData);
+
+                    console.log(jsonData);
+            } else if (xhr.readyState === 4) {
+                    console.error("데이터 불러오기 오류: " + xhr.status);
+            }
+    };
+
+    xhr.send();
+}
+</code></pre>
+                    <div class="desc">
+                        1. var xhr = new XMLHttpRequest();: XMLHttpRequest 객체를 생성합니다. 이 객체는 서버와 상호작용할 수 있는 기능을 제공합니다.<br>
+                        2. xhr.open("GET", "https://webstoryboy.github.io/webs2024/json/gineungsaJC2011_05.json", true);: HTTP 요청을 설정합니다. 첫 번째 인자는 HTTP 메서드 (여기서는 GET), 두 번째 인자는 요청을 보낼 URL입니다. 세 번째 인자는 요청을 비동기적으로 보낼지 여부를 나타냅니다 (true는 비동기, false는 동기).<br>
+                        3. xhr.onreadystatechange: XMLHttpRequest 객체의 상태가 변할 때마다 호출되는 이벤트 핸들러입니다. 즉, 서버로부터 응답이 도착하면 호출됩니다.<br>
+                        4. if (xhr.readyState === 4 && xhr.status === 200) { ... }: readyState는 현재 XMLHttpRequest 객체의 상태를 나타냅니다. 4는 완료 상태를 나타내고, 200은 HTTP 상태 코드 중 성공을 나타냅니다.<br>
+                        5. xhr.readyState === 4 && xhr.status === 200는 서버에서 응답을 받았고, 상태 코드가 200인 경우를 의미합니다.<br>
+                        6. var responseData = xhr.responseText;: 응답으로 받은 데이터를 문자열 형태로 responseData 변수에 저장합니다.<br>
+                        7. var jsonData = JSON.parse(responseData);: 문자열 형태로 받은 JSON 데이터를 JavaScript 객체로 파싱하여 jsonData 변수에 저장합니다.<br>
+                        8. console.log(jsonData);: 파싱된 JSON 데이터를 콘솔에 출력합니다.<br>
+                        9. else if (xhr.readyState === 4) { ... }: 서버에서 응답이 도착했지만 상태 코드가 200이 아닌 경우, 즉 오류가 발생한 경우를 처리합니다.<br>
+                        10. xhr.readyState === 4는 서버와의 통신이 완료되었음을 의미합니다.<br>
+                        11. console.error("데이터 불러오기 오류: " + xhr.status);는 오류 메시지를 콘솔에 출력합니다. 여기서 xhr.status는 서버에서 받은 HTTP 상태 코드를 나타냅니다.<br>
+                        12. xhr.send();: 실제로 HTTP 요청을 보냅니다.
+                    </div>
+                    <details class="result">
+                        <summary>결과 확인하기</summary>
+                        <div>
+                            <script>
+                            </script>
+                        </div>
+                    </details>
+                </div>
+                <!-- //sample22 -->
+
+                <div id="sample23" class="sample">
+                    <h3>23. 파일 : 서버 데이터 불러오기 : fetch API</h3>
+                    <p>JavaScript에서 fetch API를 사용하여 비동기적으로 데이터를 가져오고, 이후에 해당 데이터를 JSON으로 파싱하여 처리하는 예제입니다.</p>
+<pre class="line-numbers"><code class="language-js">{
+    fetch(https://webstoryboy.github.io/webs2024/json/gineungsaJC2011_05.json)
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            console.log(data);
+        })
+        .catch(error => {
+            console.log(error);
+        })
+}
+</code></pre>
+                    <div class="desc">
+                        1. fetch('https://webstoryboy.github.io/webs2024/json/gineungsaJC2011_05.json'): fetch 함수를 사용하여 주어진 URL에서 데이터를 가져옵니다. 이 함수는 HTTP 요청을 보내고, 해당 요청에 대한 Promise를 반환합니다.<br>
+                        2. .then(response => { return response.json(); }): 첫 번째 .then 블록은 응답 객체(response)를 받아와서 해당 응답을 JSON 형식으로 파싱합니다. response.json()은 비동기 작업이기 때문에, 이 또한 Promise를 반환합니다.<br>
+                        3. .then(data => { console.log(data); }): 두 번째 .then 블록은 JSON으로 파싱된 데이터(data)를 받아와서 콘솔에 출력합니다. 이 단계에서 data는 JavaScript 객체로 변환된 JSON 데이터입니다.<br>
+                        4. .catch(error => { console.log(error); });: 어떤 이유로든 에러가 발생하면 .catch 블록에서 해당 에러를 처리하고 콘솔에 출력합니다.
+                    </div>
+                    <details class="result">
+                        <summary>결과 확인하기</summary>
+                        <div>
+                            <script>
+                            </script>
+                        </div>
+                    </details>
+                </div>
+                <!-- //sample22 -->
+
             </div>          
         </main>
         <!-- //main -->
@@ -1139,7 +1217,7 @@
         <!-- script -->
         <script src="../assets/js/prism.js"></script>
         <script>
-
+            
         </script>
     </div>
 </body>

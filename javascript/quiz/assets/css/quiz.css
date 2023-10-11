@@ -892,6 +892,14 @@ body::after {
     text-align: center;
     cursor: pointer;
 }
+.cbt__again {
+    background-color: #412E91;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 40px;
+    text-align: center;
+    cursor: pointer;
+}
 .cbt__answer {
     border: 1px solid #f2f2f2;
     padding: 10px 20px 10px 88px;

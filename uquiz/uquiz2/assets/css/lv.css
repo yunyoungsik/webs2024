@@ -13,6 +13,48 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+.quiz__wrap > .quiz.good {
+    position: relative;
+}
+.quiz__wrap > .quiz.good::before {
+    content: '';
+    width: 400px;
+    height: 400px;
+    border: 30px solid rgba(255, 0, 0, 1);
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+}
+.quiz__wrap > .quiz.bad {
+    position: relative;
+}
+.quiz__wrap > .quiz.bad::before {
+    content: '';
+    width: 400px;
+    height: 20px;
+    background-color: rgba(255, 0, 0, 1);
+    position: absolute;
+    left: calc(50% - 200px);
+    top: 50%;
+    border-radius: 30px;
+    transform: rotate(45deg);
+    z-index: 100;
+}
+.quiz__wrap > .quiz.bad::after {
+    content: '';
+    width: 400px;
+    height: 20px;
+    background-color: rgba(255, 0, 0, 1);
+    position: absolute;
+    left: calc(50% - 200px);
+    top: 50%;
+    border-radius: 30px;
+    transform: rotate(-45deg);
+    z-index: 100;
+}
 .quiz__question {
     position: relative;
 }
@@ -72,69 +114,188 @@
     content: "정답 : ";
 }
 
-/* O, X */
-.quiz__wrap > .quiz.good {
-    position: relative;
-}
-.quiz__wrap > .quiz.good::before {
-    content: '';
-    width: 400px;
-    height: 400px;
-    border: 30px solid rgba(255, 0, 0, 1);
-    border-radius: 50%;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 100;
-}
-.quiz__wrap > .quiz.bad {
-    position: relative;
-}
-.quiz__wrap > .quiz.bad::before {
-    content: '';
-    width: 400px;
-    height: 20px;
-    background-color: rgba(255, 0, 0, 1);
-    position: absolute;
-    left: calc(50% - 200px);
-    top: 50%;
-    border-radius: 30px;
-    transform: rotate(45deg);
-    z-index: 100;
-}
-.quiz__wrap > .quiz.bad::after {
-    content: '';
-    width: 400px;
-    height: 20px;
-    background-color: rgba(255, 0, 0, 1);
-    position: absolute;
-    left: calc(50% - 200px);
-    top: 50%;
-    border-radius: 30px;
-    transform: rotate(-45deg);
-    z-index: 100;
-}
-
 /* timer */
-.start {
+.timer {
+    width: 500px;
     position: absolute;
+    bottom: 100px;
+}
+.quiz__timer {
     margin-top: 50px;
+    width: 100%;
+    height: 25px;
+    background-color: #59D5A2;
+    border-radius: 25px;
+    border: 1px solid #319073;
+    position: absolute;
+    bottom: 0;
+    z-index: 100;
+
+}
+.timer__back {
+    width: 100%;
     height: 25px;
     background-color: #fff;
     border-radius: 25px;
-    border: 1px solid #000;
+    border: 1px solid #319073;
+    position: absolute;
+    bottom: 0;
 }
-.start::before {
-    content: '';
-    display: inline-block;
+
+
+/* modal */
+.modal__cont {
     width: 100%;
-    height: 25px;
+    height: 100vh;
+    background-color: #00000070;
+    position: fixed;
     left: 0;
     top: 0;
-    background: linear-gradient(90deg, #319073 50%, transparent 50%);
-    background-size: 200% 100%;
-    transition: background-position 240s linear;
+    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transform: scale(0);
+}
+.modal__box {
+    width: 700px;
     border-radius: 20px;
-    animation: timerDecrease 240s linear infinite;
+    transform: scale(0);
+}
+.modal__box .title {
+    padding: 1rem;
+    /* margin-top: 10px; */
+    background-color: #59D5A2;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    height: 200px;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+
+.modal__box .title .taps {
+    margin: 0 auto;
+    height: 100px;
+}
+.modal__box .title .taps > .active {
+    font-size: 100px;
+    font-weight: 800;
+}
+.modal__box .title .taps > div .close {
+    margin-left: 3rem;
+    margin-top: 0.3rem;
+}
+.modal__box > .cont > div {
+    font-size: 50px !important;
+    padding-top: 50px;
+}
+.modal__box .cont {
+    color: #fff;
+    font-size: 50px;
+    background-color: #59D5A2;
+    height: 300px;
+    overflow-y: hidden;
+    box-sizing: border-box;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    text-align: center;
+}
+.modal__box .cont > div {
+    display: none;
+}
+.modal__box .cont > div.active {
+    display: block;
+    height: 100%;
+}
+.modal__close {
+    width: 100px;
+    font-size: 23px;
+    position: absolute;
+    right: 47.5%;
+    bottom: 28%;
+    background-color: #fff;
+    text-align: center;
+    color: #000;
+    padding: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    opacity: 0;
+}
+.modal__close:hover {
+    background-color: #319073;
+    color: #fff;
+}
+@media (max-width: 1100px){
+    .modal__box .title {
+        overflow: hidden;
+    }
+    .modal__box .title .dot {
+        display: none;
+    }
+    .modal__box .title .tabs {
+        margin-left: 0;
+    }
+    .modal__box .title .tabs > div .close {
+        display: none;
+    }
+}
+@media (max-width: 800px){
+    #header {
+        width: 100%;
+        text-align: center;
+    }
+    #header h1 {
+        line-height: 1.4;
+    }
+    .modal__box {
+        width: 96%;
+    }
+}
+/* 모달 애니메이션 */
+.modal__cont.show {
+    animation: foldOut 1s ease forwards;
+}
+.modal__cont.show .modal__box {
+    animation: zoomOut 0.5s 1s ease forwards;
+}
+.modal__cont.show .modal__close {
+    animation: opacityOut 0.5s 1.5s ease forwards;
+}
+.modal__cont.show.hide {
+    animation: foldIn 0.3s 0.5s ease backwards;
+}
+.modal__cont.show.hide .modal__box {
+    animation: zoomIn 0.5s ease forwards;
+}
+.modal__cont.show.hide .modal__close {
+    animation: opacityIn 0.5s ease forwards;
+}
+@keyframes foldOut {
+    0% {transform: scaleX(0.0001) scaleY(1);}
+    50% {transform: scaleX(0.0001) scaleY(1)}
+    100% {transform: scaleX(1) scaleY(1)}
+}
+@keyframes foldIn {
+    0% {transform: scaleX(1) scaleY(1)}
+    50% {transform: scaleX(0.0001) scaleY(1)}
+    100% {transform: scaleX(0.0001) scaleY(1);}
+}
+@keyframes zoomOut {
+    0% {transform: scale(0);}
+    100% {transform: scale(1);}
+}
+@keyframes zoomIn {
+    0% {transform: scale(1);}
+    100% {transform: scale(0);}
+}
+@keyframes opacityOut {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+@keyframes opacityIn {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
 }

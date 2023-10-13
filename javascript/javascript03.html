@@ -945,7 +945,7 @@
     func1(3);
 
     function func2(num){
-        if(num - 1) return;
+        if(num &lt;= 0) return;
         console.log("22-1. 함수가 실행되었습니다.");
         func2(num -1);
     }
@@ -960,12 +960,11 @@
                         └ 예를 들어, func1(10)을 호출하면 0부터 10까지 총 11번의 메시지가 출력됩니다.<br><br>
 
                         func2 함수:<br>
-                        · func2 함수는 num이라는 매개변수를 받습니다.<br>
-                        · 함수 내부에는 조건문이 있습니다: if(num - 1) return;<br>
-                        · 이 부분은 num이 1이 아니면 함수를 종료시킵니다. 즉, num이 1일 때만 다음 코드를 실행합니다.<br>
-                        · 조건이 만족되면 콘솔에 "22-1. 함수가 실행되었습니다."라는 메시지가 출력됩니다.<br>
-                        · 그리고 func1(num -1);을 호출하여 func1 함수를 호출합니다.<br>
-                        · 이렇게 하면 func2(10)이 호출될 때, 10에서 시작하여 9부터 0까지의 숫자가 func1 함수에서 출력되며, 각각의 호출에서 메시지가 출력됩니다.
+                        · func2는 매개변수 num을 받습니다.<br>
+                        · if(num &lt;= 0) 조건문을 사용하여 num이 0 이하인 경우 함수를 종료합니다.<br>
+                        · "22-1. 함수가 실행되었습니다."를 출력한 후, func2 함수를 재귀적으로 호출하며 num을 1 감소시킵니다.<br>
+                        · 이로써 func2 함수는 num이 0 이하가 될 때까지 계속 호출됩니다.<br>
+                        결과 확인하기
                     </div>
                     <details class="result">
                         <summary>결과 확인하기</summary>
@@ -979,11 +978,11 @@
                                 func1(10);
 
                                 function func2(num){
-                                    if(num - 1) return;
-                                    document.write("22-1. 함수가 실행되었습니다.<br>");
-                                    func2(num -1);   
+                                    if(num <= 0) return;
+                                    document.write("22-1. 함수가 실행되었습니다.");
+                                    func2(num -1);
                                 }
-                                func2(10);
+                                func2(3);
                             }
                         </script>
                     </details>
@@ -1069,7 +1068,7 @@
 
                 <div id="sample24" class="sample">
                     <h3>24. 함수 : 비동기 함수 : 콜백 함수</h3>
-                    <p>다양한 종류의 함수 호출과 콜백 함수의 사용 예시입니다. </p>
+                    <p>JavaScript를 사용하여 동기 및 비동기 함수 호출 및 콜백 함수의 개념을 설명하는 예제들을 보여줍니다. </p>
 <pre class="line-numbers"><code class="language-js">{
     // 01 동기적인 함수 호출
     function func1(){
@@ -1141,38 +1140,197 @@
 }
 </code></pre>
                     <div class="desc">
-                        1. 동기적인 함수 호출:
-                        func1과 func2 함수는 각각 메시지를 출력합니다.
-                        함수가 순차적으로 호출되기 때문에 func1이 실행된 후 func2가 실행됩니다.
-                       
+                        동기적인 함수 호출:<br>
+                        · func1과 func2라는 두 개의 함수가 정의되었습니다.<br>
+                        · func1은 즉시 호출되어 "24. 함수가 실행되었습니다."를 출력합니다.<br>
+                        · 그 다음으로 func2가 호출되어 "24-1. 함수가 실행되었습니다."를 출력합니다.<br>
+                        · 이것은 함수 호출이 순차적으로 실행되어 먼저 func1이 완료된 후 func2가 실행됨을 의미합니다.<br><br>
+
+                        비동기적인 함수 호출:<br>
+                        func3와 func4라는 두 개의 함수가 정의되었습니다.<br>
+                        · func3은 1초 후에 실행되는 setTimeout 함수를 사용하여 "24-2. 함수가 실행되었습니다."를 출력합니다.<br>
+                        · func4는 func3 다음에 즉시 호출되어 "24-3. 함수가 실행되었습니다."를 출력합니다.<br>
+                        · 이로 인해 func4가 func3의 실행을 기다리지 않고 비동기적으로 실행됩니다.<br><br>
+                        
+                        비동기적인 콜백 함수 호출:<br>
+                        · func5와 func6라는 두 개의 함수가 정의되었습니다.<br>
+                        · func5는 1초 후에 실행되는 setTimeout 함수를 사용하여 "24-4. 함수가 실행되었습니다."를 출력하고, 그 다음에 콜백 함수를 호출합니다.<br>
+                        · 콜백 함수는 func6를 호출하고, 이로 인해 "24-5. 함수가 실행되었습니다."가 출력됩니다.<br>
+                        · 이것은 비동기적인 콜백 함수의 예제로, func5가 실행이 끝날 때까지 기다리지 않고 다음 작업을 수행합니다.<br><br>
+                        
+                        콜백 지옥:<br>
+                        · 이 부분에서는 콜백 함수를 중첩하여 사용하는 "콜백 지옥" 예제를 보여줍니다. funcA, funcB, funcC, 그리고 funcD라는 네 개의 함수가 정의됩니다.<br>
+                        · 각 함수는 1초 후에 실행되고, 그 중간에 콜백 함수가 사용됩니다.<br>
+                        · funcA가 실행되면, funcB가 실행되고, funcB가 실행되면 funcC가 실행되고, 마지막으로 funcC가 실행되면 funcD가 실행됩니다.<br>
+                        · 이것은 콜백 함수가 중첩되어 복잡성을 증가시키는 "콜백 지옥" 상황을 보여줍니다. 이러한 상황을 피하기 위해 Promise나 async/await과 같은 비동기 처리 방법을 사용할 수 있습니다.
                     </div>
                     <details class="result">
                         <summary>결과 확인하기</summary>
-                        <script>
-                           
-                        </script>
+                        <div>
+                            24. 함수가 실행되었습니다.<br>
+                            24-1. 함수가 실행되었습니다.<br><br>
+
+                            24-3. 함수가 실행되었습니다.<br>
+                            24-2. 함수가 실행되었습니다.<br><br>
+
+                            24-4. 함수가 실행되었습니다.<br>
+                            24-5. 함수가 실행되었습니다.<br><br>
+
+                            funcA가 실행되었습니다.<br>
+                            funcB가 실행되었습니다.<br>
+                            funcC가 실행되었습니다.<br>
+                            funcD가 실행되었습니다.
+                        </div>
                     </details>
                 </div>
-                <!-- //sample21 -->
+                <!-- //sample24 -->
 
-                <div id="sample21" class="sample">
-                    <h3></h3>
+                <div id="sample25" class="sample">
+                    <h3>25. 함수 : 비동기 함수 : 프로미스</h3>
                     <p></p>
 <pre class="line-numbers"><code class="language-js">{
-    
+    let data = true;
+
+    const func = new Promise((resolve, reject) => {
+        if(data){
+            resolve("25. 함수가 실행되었습니다.");
+        } else {
+            reject("25. 함수가 실행되지 않았습니다.")
+        }
+    });
+    func
+        .then(
+            result => console.log(result)
+        )
+        .catch(
+            error => console.log(error)
+        )
+
+    // 콜백지옥 --&gt; 프로미스
+    function funcA(){
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                console.log("funcA가 실행되었습니다.");
+                resolve();
+            }, 1000);
+        });
+    }
+    function funcB(){
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                console.log("funcB가 실행되었습니다.");
+                resolve();
+            }, 1000);
+        });
+    }
+    function funcC(){
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                console.log("funcC가 실행되었습니다.");
+                resolve();
+            }, 1000);
+        });
+    }
+    function funcD(){
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                console.log("funcD가 실행되었습니다.");
+                resolve();
+            }, 1000);
+        });
+    }
+    funcA()
+        .then(funcB)
+        .then(funcC)
+        .then(funcD)
+        .catch((error) => {
+            console.log(error)
+        })
 }
 </code></pre>
                     <div class="desc">
-                       
+                        첫 부분: 기본적인 Promise 사용<br>
+                        · func는 새로운 Promise를 생성합니다. 이 Promise는 resolve와 reject 콜백 함수를 받습니다.<br>
+                        · data가 true이기 때문에 resolve가 호출되어 "25. 함수가 실행되었습니다."가 출력됩니다.<br><br>
+
+                        콜백지옥을 Promise 체이닝으로 대체<br>
+                        · funcA, funcB, funcC, funcD 함수는 각각 1초 후에 실행되는 Promise를 반환합니다.<br>
+                        · funcA가 끝나면 funcB가 실행되고, 그 다음은 funcC, 그리고 마지막으로 funcD가 실행됩니다.<br>
+                        · 만약 중간에 어떤 함수에서라도 오류가 발생하면 catch 블록이 실행됩니다.
                     </div>
                     <details class="result">
                         <summary>결과 확인하기</summary>
-                        <script>
-                           
-                        </script>
+                        <div>
+                            25. 함수가 실행되었습니다.<br><br>
+
+                            funcA가 실행되었습니다.<br>
+                            funcB가 실행되었습니다.<br>
+                            funcC가 실행되었습니다.<br>
+                            funcD가 실행되었습니다.
+                        </div>
                     </details>
                 </div>
-                <!-- //sample21 -->
+                <!-- //sample25 -->
+
+                <div id="sample26" class="sample">
+                    <h3>26. 함수 : 비동기 함수 : asyne/await</h3>
+                    <p></p>
+<pre class="line-numbers"><code class="language-js">{
+    // 01
+    function func(){
+        console.log("26. 함수가 실행되었습니다.")
+    }
+    func();
+    
+    // 02
+    async function func1(){
+        console.log("26-1. 함수가 실행되었습니다.")
+    }
+    func1();
+
+    // 03
+    async function func2(){
+        const result = await fetch("https://webstoryboy.github.io/webs2024/json/gineungsaJC2011_05.json")
+        const data = await result.json();
+        console.log(data);
+    }
+    func2();
+
+    // 04
+    async function func3(){
+        try {
+            const result = await fetch("https://webstoryboy.github.io/webs2024/json/gineungsaJC2011_05.json")
+            const data = await result.json();
+            console.log(data);
+        } catch(error){
+            console.log(error);
+        }
+    }
+    func3();
+}
+</code></pre>
+                    <div class="desc">
+                        1. 동기적인 함수 호출<br>
+                        func 함수는 "26. 함수가 실행되었습니다."를 출력합니다.<br><br>
+
+                        2. 비동기 함수 호출 (async/await 사용하지 않음)<br>
+                        async 키워드로 정의된 func1 함수는 비동기 함수입니다. 하지만 내부에서 await를 사용하지 않기 때문에 동기적으로 실행됩니다.<br><br>
+
+                        3. 비동기 함수 호출 (fetch와 await 사용)<br>
+                        func2는 비동기 함수입니다. 내부에서 await를 사용하여 fetch를 호출하고, 그 결과를 처리합니다. 이 함수는 URL에서 JSON 데이터를 가져와서 출력합니다.<br><br>
+
+                        4. 비동기 함수 호출 (에러 처리)<br>
+                        func3는 비동기 함수로, 마찬가지로 URL에서 JSON 데이터를 가져옵니다. 그러나 try-catch 블록을 사용하여 예외를 처리합니다. 만약 데이터를 가져오는 과정에서 오류가 발생하면 catch 블록에서 오류를 처리하고 출력합니다.
+                    </div>
+                    <details class="result">
+                        <summary>결과 확인하기</summary>
+                        <div>
+                            26. 함수가 실행되었습니다.<br>
+                            26-1. 함수가 실행되었습니다.
+                        </div>
+                    </details>
+                </div>
+                <!-- //sample26 -->
 
             </div>
             <!-- //main__sample -->
@@ -1453,100 +1611,100 @@
             //     });
             // }
 
-            // 25. 함수 : 비동기 함수 : 포르미스
-            {
-                let data = true;
+            // // 25. 함수 : 비동기 함수 : 프로미스
+            // {
+            //     let data = true;
 
-                const func = new Promise((resolve, reject) => {
-                    if(data){
-                        resolve("25. 함수가 실행되었습니다.");
-                    } else {
-                        reject("25. 함수가 실행되지 않았습니다.")
-                    }
-                });
-                func
-                    .then(
-                        result => console.log(result)
-                    )
-                    .catch(
-                        error => console.log(error)
-                    )
+            //     const func = new Promise((resolve, reject) => {
+            //         if(data){
+            //             resolve("25. 함수가 실행되었습니다.");
+            //         } else {
+            //             reject("25. 함수가 실행되지 않았습니다.")
+            //         }
+            //     });
+            //     func
+            //         .then(
+            //             result => console.log(result)
+            //         )
+            //         .catch(
+            //             error => console.log(error)
+            //         )
 
-                // 콜백지옥 --> 프로미스
-                function funcA(){
-                    return new Promise((resolve) => {
-                        setTimeout(() => {
-                            console.log("funcA가 실행되었습니다.");
-                            resolve();
-                        }, 1000);
-                    });
-                }
-                function funcB(){
-                    return new Promise((resolve) => {
-                        setTimeout(() => {
-                            console.log("funcB가 실행되었습니다.");
-                            resolve();
-                        }, 1000);
-                    });
-                }
-                function funcC(){
-                    return new Promise((resolve) => {
-                        setTimeout(() => {
-                            console.log("funcC가 실행되었습니다.");
-                            resolve();
-                        }, 1000);
-                    });
-                }
-                function funcD(){
-                    return new Promise((resolve) => {
-                        setTimeout(() => {
-                            console.log("funcD가 실행되었습니다.");
-                            resolve();
-                        }, 1000);
-                    });
-                }
-                funcA()
-                    .then(funcB)
-                    .then(funcC)
-                    .then(funcD)
-                    .catch((error) => {
-                        console.log(error)
-                    })
-            }
+            //     // 콜백지옥 --> 프로미스
+            //     function funcA(){
+            //         return new Promise((resolve) => {
+            //             setTimeout(() => {
+            //                 console.log("funcA가 실행되었습니다.");
+            //                 resolve();
+            //             }, 1000);
+            //         });
+            //     }
+            //     function funcB(){
+            //         return new Promise((resolve) => {
+            //             setTimeout(() => {
+            //                 console.log("funcB가 실행되었습니다.");
+            //                 resolve();
+            //             }, 1000);
+            //         });
+            //     }
+            //     function funcC(){
+            //         return new Promise((resolve) => {
+            //             setTimeout(() => {
+            //                 console.log("funcC가 실행되었습니다.");
+            //                 resolve();
+            //             }, 1000);
+            //         });
+            //     }
+            //     function funcD(){
+            //         return new Promise((resolve) => {
+            //             setTimeout(() => {
+            //                 console.log("funcD가 실행되었습니다.");
+            //                 resolve();
+            //             }, 1000);
+            //         });
+            //     }
+            //     funcA()
+            //         .then(funcB)
+            //         .then(funcC)
+            //         .then(funcD)
+            //         .catch((error) => {
+            //             console.log(error)
+            //         })
+            // }
             //26. 함수 : 비동기 함수 : asyne/await
-            {
-                // 01
-                function func(){
-                    console.log("26. 함수가 실행되었습니다.")
-                }
-                func();
+            // {
+            //     // 01
+            //     function func(){
+            //         console.log("26. 함수가 실행되었습니다.")
+            //     }
+            //     func();
                 
-                // 02
-                async function func1(){
-                    console.log("26-1. 함수가 실행되었습니다.")
-                }
-                func1();
+            //     // 02
+            //     async function func1(){
+            //         console.log("26-1. 함수가 실행되었습니다.")
+            //     }
+            //     func1();
 
-                // 03
-                async function func2(){
-                    const result = await fetch("https://webstoryboy.github.io/webs2024/json/gineungsaJC2011_05.json")
-                    const data = await result.json();
-                    console.log(data);
-                }
-                func2();
+            //     // 03
+            //     async function func2(){
+            //         const result = await fetch("https://webstoryboy.github.io/webs2024/json/gineungsaJC2011_05.json")
+            //         const data = await result.json();
+            //         console.log(data);
+            //     }
+            //     func2();
 
-                // 04
-                async function func3(){
-                    try {
-                        const result = await fetch("https://webstoryboy.github.io/webs2024/json/gineungsaJC2011_05.json")
-                        const data = await result.json();
-                        console.log(data);
-                    } catch(error){
-                        console.log(error);
-                    }
-                }
-                func3();
-            }
+            //     // 04
+            //     async function func3(){
+            //         try {
+            //             const result = await fetch("https://webstoryboy.github.io/webs2024/json/gineungsaJC2011_05.json")
+            //             const data = await result.json();
+            //             console.log(data);
+            //         } catch(error){
+            //             console.log(error);
+            //         }
+            //     }
+            //     func3();
+            // }
     </script>
 </body>
 </html>

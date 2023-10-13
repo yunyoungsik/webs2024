@@ -51,7 +51,7 @@
                     * 총<em><?=$boardTotalCount?></em>건의 게시물이 등록되어 있습니다.
                 </div>
                 <div class="right">
-                    <form action="boardSearch.php" name="boardSearch" method="post">
+                    <form action="boardSearch.php" name="boardSearch" method="get">
                         <fieldset>
                             <legend class="blind">게시판 검색 영역</legend>
                         </fieldset>
@@ -85,13 +85,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- <tr>
-                            <td>1</td>
-                            <td><a href="boardView">게시판 제목</a></td>
-                            <td>yys</td>
-                            <td>2023-10-04</td>
-                            <td>100</td>
-                        </tr> -->
                         <?php
                             if(isset($_GET['page'])){
                                 $page = (int) $_GET['page'];
@@ -153,17 +146,7 @@
                             echo "<li class='first'><a href='board.php?page=1'>처음으로</a></li>";
                             echo "<li class='prev'><a href='board.php?page=".($page-1)."'>이전</a></li>";
                         }
-                        // if($page != 1){
-                        //     $prevPage = $page - 1;
-                        //     echo "<li class='first'><a href='board.php?page=1'>처음으로</a></li>";
-                        //     echo "<li class='prev'><a href='board.php?page={$prevPage}'>이전</a></li>";
-                        // }
-                        
-                        // 페이지
-                        // for($i=$startPage; $i<=$endPage; $i++){
-                        //     $activeClass = ($i == $page) ? 'active' : '';
-                        //     echo " <li class='$activeClass'><a href='#'>${i}</a></li>";
-                        // }
+
                         for($i=$startPage; $i<=$endPage; $i++){
                             $active = "";
                             if($i == $page) $active = "active";
@@ -175,23 +158,7 @@
                             echo "<li class='next'><a href='board.php?page=".($page+1)."'>다음</a></li>";
                             echo "<li class='last'><a href='board.php?page={$boardTotalCount}'>마지막으로</a></li>";
                         }
-                        // if($page != 1){
-                        //     $nextPage = $page + 1;
-                        //     echo "<li class='next'><a href='board.php?page={nextPage}'>다음</a></li>";
-                        //     echo "<li class='last'><a href='board.php?page={$boardTotalCount}'>마지막으로</a></li>";
-                        // }
                     ?>
-                    <!-- <li class="first"><a href="#">처음으로</a></li>
-                    <li class="prev"><a href="#">이전</a></li>
-                    <li class="active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">6</a></li>
-                    <li><a href="#">7</a></li>
-                    <li class="next"><a href="#">다음</a></li>
-                    <li class="last"><a href="#">마지막으로</a></li> -->
                 </ul>
             </div>
         </section>

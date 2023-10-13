@@ -273,8 +273,8 @@ const displayTime = () => {
     const minutes = Math.floor(remainingTime / 60);
             const seconds = remainingTime % 60;
 
-            const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
-            const formattedSeconds = seconds < 10 ? `0${seconds}` : seconds;
+            const formattedMinutes = minutes &lt; 10 ? `0${minutes}` : minutes;
+            const formattedSeconds = seconds &lt; 10 ? `0${seconds}` : seconds;
 
             // const formattedMinutes = String(minutes).padStart(2, '0');
             // const formattedSeconds = String(seconds).padStart(2, '0');

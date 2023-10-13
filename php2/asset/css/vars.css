@@ -1,0 +1,26 @@
+:root {
+    --main-nanum : "NanumSquareNeo";
+    --main-hallym : "Hallym";
+
+    --black : #000;
+    --white : #fff;
+    --red : rgb(222, 9, 20);
+    --redHover : #C11119;
+
+    --black100: #333;
+    --black200: #555;
+    --black300: #777;
+    --black400: #999;
+    --black500: #d7d7d7;
+    --black600: #e8e8e8;
+
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+@media (max-width: 800px) {
+    :root {
+        font-size: 14px;
+    }
+}

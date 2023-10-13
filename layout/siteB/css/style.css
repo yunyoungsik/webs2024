@@ -1,0 +1,28 @@
+.container {
+    width: 1280px;
+    height: inherit;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, .3);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+#wrap {
+    width: 100%;
+}
+#header {
+    width: 100%;
+    height: 100px;
+    background-color: #dcdcdc;
+}
+#main {
+    height: 500px;
+}
+#footer {
+    width: 100%;
+    height: 100px;
+    background-color: #dcdcdc;
+}

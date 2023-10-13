@@ -47,6 +47,10 @@
                         <?php
                             $boardID = $_GET['boardID'];
 
+                            //보드 뷰 + 1
+                            $sql = "UPDATE board SET boardView = boardView +1 WHERE boardID = {$boardID}";
+                            $connect -> query($sql);
+
                             $sql = "SELECT b.boardTitle, m.youName, b.regTime, b.boardView, b.boardContents FROM board b JOIN members m ON(b.memberID = m.memberID) WHERE b.boardID = {$boardID}";
                             $result = $connect -> query($sql);
 
@@ -60,26 +64,6 @@
                                 echo "<tr><th>내용</th><td class='board__cont'>".$info['boardContents']."</td></tr>";
                             }
                         ?>
-                        <!-- <tr>
-                            <th>제목</th>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th>등록자</th>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th>등록일</th>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th>조회수</th>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th>내용</th>
-                            <td class="board__cont"></td>
-                        </tr> -->
                     </tbody>
                 </table>
             </div>
@@ -87,9 +71,6 @@
                 <a href="boardModify.php?boardID=<?=$_GET['boardID']?>" class="btn__style3 mr10">수정하기</a>
                 <a href="boardRemove.php?boardID=<?=$_GET['boardID']?>" class="btn__style3 mr10" onclick="return confirm('정말 삭제하시겠습니까?')">삭제하기</a>
                 <a href="board.php" class="btn__style3 mr10">목록보기</a>
-                <!-- <button type="submit" class="btn__style3 mr10">삭제하기</button>
-                <button type="submit" class="btn__style3 mr10">목록보기</button>
-                <button type="submit" class="btn__style3">수정하기</button> -->
             </div>
         </section>
     </main>

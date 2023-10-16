@@ -43,7 +43,7 @@
     font-weight: 900;
     font-family: var(--main-gmark);
     background-color: var(--black);
-    color: var(--white);
+    color: var(--red);
     padding: 1rem;
     position: relative;
     z-index: 10;
@@ -86,11 +86,11 @@
     color: var(--white);
     background-color: var(--black);
     padding: 2px 4px;
-    border: 1px solid var(--white);
+    border: 1px solid var(--black100);
 }
 .nav__inner li a:hover {
-    background-color: var(--white);
-    color: var(--black);
+    background-color: var(--redHover);
+    color: var(--white);
 }
 
 @media (max-width: 800px){

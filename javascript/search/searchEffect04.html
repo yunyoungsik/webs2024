@@ -84,11 +84,10 @@
                             z"/></svg>
                     </button>
                     <div class="search__box__result">
-                        align-content는 콘텐츠 아이템의 상하관계 정렬 상태를 설정합니다.
+                        설명이 나오는 곳!
                     </div>
                 </div>
                 <div class="search__info">
-                    <div class="all">CSS 속성 갯수 : <span class="num">0</span></div>
                     <div class="search__list">
                     </div>
                 </div>
@@ -189,53 +188,52 @@
         // 선택자
         const searchList = document.querySelector(".search__list");
         const searchInfoNum = document.querySelector(".search__info .num");
-        const searchListSelect = document.querySelectorAll(".search__list span");
         const searchBox = document.querySelector(".search__box input");
         const searchBoxResult = document.querySelector(".search__box__result");
-        const searchBoxButton = document.querySelector(".search__box button");
+        const searchButton = document.querySelector(".search__box button");
 
         // 출력하기
-        cssProperty.map((element, index)=> {
-            searchList.innerHTML += `<span>${element.name}</span>`;
+        cssProperty.map((el, index) => {
+            searchList.innerHTML += `<span>${el.name}</span>`;
         });
 
-        // 입력하기
-        // searchBox.addEventListener("keyup", () => {
-        //     const searchWord = searchBox.value;
+        // 검색하기
+        function findProperty(searchKeyword){
+            const targetData = cssProperty.find((data) => data.name === searchKeyword);
+            const listItem = searchList.querySelectorAll("span");
 
-        //     findPropery(searchWord);
-        // });
-
-        // 검색버튼
-        searchBoxButton.addEventListener("click", () => {
-            const searchWord = searchBox.value;
-            findPropery(searchWord);
-        });
-
-        // 클릭하기
-        searchListSelect.forEach((span) => {
-            span.addEventListener("click", () => {
-                const clickWord = span.textContent;
-                findPropery(clickWord);
-            });
-        });
-
-        // 속성 찾기
-        function findPropery(searchData){
-            const targetData = cssProperty.find((data) => data.name === searchData);
+            // active 제거
+            listItem.forEach(item => item.classList.remove("active"));
 
             if(targetData == null){
-                searchBoxResult.textContent = "해당 속성은 존재하지 않습니다. 다시 한번 검색해주세요.";
+                searchBoxResult.textContent = "해당 속성이 존재하지 않습니다.";
+                return;
             } else {
                 searchBoxResult.textContent = targetData.desc;
-
-                // const foundSpan = document.querySelector(`.search__list span[data-name="${searchData}"]`);
-                // if (foundSpan) {
-                //     foundSpan.classList.add("active");
-                // }
+                listItem.forEach((item) => {
+                    if(item.textContent === searchKeyword){
+                        item.classList.add("active");
+                    }
+                });
             }
         }
+
+        // 속성 클릭하기
+        document.querySelectorAll(".search__list span").forEach((span) => {
+            span.addEventListener("click", () => {
+                const keyword = span.innerText;
+                findProperty(keyword);
+            });
+        });
         
+
+        // 검색 버튼 클릭하기
+        searchButton.addEventListener("click", () => {
+            const keyword = searchBox.value;
+            findProperty(keyword);
+        });
+        
+
     </script>
 </body>
 </html>

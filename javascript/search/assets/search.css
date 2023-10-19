@@ -149,6 +149,38 @@ body {
     word-break: keep-all;
 }
 
+.search__star ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.search__star li {
+    padding: 5px 10px;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 10px;
+    background-color: #e5e5e5;
+    margin: 0 10px 10px 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+.search__star li:hover {
+    background-color: #03c75a;
+}
+.search__star li:hover svg {
+    fill: #fff;
+}
+.search__star svg {
+    fill: #b6b6b6;
+}
+.search__star span {
+    font-weight: 700;
+    color: #b6b6b6;
+}
+.search__star li:hover span {
+    color: #fff;
+}
+
 /* 숨겨줌, 보여줌 */
 .search__list li.hide {
     display: none;

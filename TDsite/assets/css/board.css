@@ -103,10 +103,16 @@
 }
 .board__table tbody tr.fG td {
     color: var(--black400);
+    font-size: 0.8rem;
 }
-.board__table tbody tr.trPb td {
+/* 테스트 중 */
+.board__table tbody tr:nth-child(even){ 
+    border-collapse: separate;
+    border-spacing: 10px 10px;
+}
+/* .board__table tbody tr.trPb td {
     height: 20px;
-  }
+} */
 .board__table tbody tr td img {
     width: 35px;
 }

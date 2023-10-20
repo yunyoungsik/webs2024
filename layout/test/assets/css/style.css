@@ -1,0 +1,226 @@
+
+@charset "UTF-8";
+* {
+    margin: 0;
+    padding: 0;
+}
+a {
+    display: inline-block;
+    color: #333;
+    text-decoration: none;
+}
+li {
+    list-style: none;
+}
+.wrap {
+    width: 100%;
+    color: #333;
+    background-color: #fff;
+}
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}
+#header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #000;
+}
+#header .logo {
+    width: 200px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 1.5rem;
+}
+#header .nav {
+    width: calc(100% - 200px);
+    height: 100px;
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+    box-sizing: border-box;
+}
+#header .nav > ul {
+    display: flex;
+    align-items: center;
+}
+#header .nav > ul > li {
+    width: 100px;
+    height: 30px;
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -1px;
+    position: relative;
+}
+#header .nav > ul > li > a {
+    width: 100%;
+    font-weight: bold;
+    text-align: center;
+}
+#header .nav > ul > li:hover{
+    background-color: rgba(0,0,0,.15);
+}
+#header .nav > ul > li > .submenu {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    top: 27px;
+    background-color: #fff;
+    display: none;
+}
+#header .nav > ul > li > .submenu > li {
+    width: 100px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#header .nav > ul > li > .submenu > li:hover {
+    background-color: rgba(0,0,0,.15);
+}
+#header .nav > ul > li > .submenu > li > a {
+    width: 100%;
+    font-weight: bold;
+    text-align: center;
+}
+#main {
+    width: 100%;
+    overflow: hidden;
+}
+#main .slider__inner {
+    width: 400%;
+    height: 300px;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+}
+#main .slider img {
+    width: 1200px;
+    vertical-align: top;
+}
+#main .main__footer {
+    width: 100%;
+    display: flex;
+}
+#main .main__footer .notice {
+    width: 33.333%;
+    height: 200px;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#main .main__footer .notice > ul{
+    display: flex;
+}
+#main .main__footer .notice > ul > li {
+    width: 100px;
+    text-align: center;
+    border: 1px solid #000;
+    margin-left: -1px;
+    background-color: #333;
+    
+}
+#main .main__footer .notice > ul > li > a {
+    color: rgb(195, 195, 195);
+}
+#main .main__footer .notice > ul > li.active {
+    background-color: #fff;
+}
+#main .main__footer .notice > ul > li.active a{
+    color: #000;
+} 
+
+#main .main__footer .baner {
+    width: 33.333%;
+    height: 200px;
+    background-color: #e3e3e3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+#main .main__footer .baner .text {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,.5);
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+#main .main__footer .baner .text span {
+    font-size: 3rem;
+    font-weight: bold;
+}
+#main .main__footer .baner .text span em {
+    font-size: 1rem;
+}
+#main .main__footer .baner img {
+    height: 200px;
+    vertical-align: top;
+}
+#main .main__footer .link {
+    width: 33.333%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#main .main__footer .link select {
+    width: 50%;
+    height: 50px;
+}
+
+
+
+#footer {
+    width: 100%;
+    display: flex;
+    border-top: 1px solid #000;
+    background-color: #bfbfbf;
+    box-sizing: border-box;
+}
+#footer .footer__1 {
+    width: 15%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: #8b8b8b;
+}
+#footer .footer__2 {
+    width: 70%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #8b8b8b;
+}
+#footer .footer__3 {
+    width: 15%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#footer .footer__3 svg {
+    margin-right: 10px;
+    fill: #606060;
+}
+
+.blind {
+    display: none;
+}

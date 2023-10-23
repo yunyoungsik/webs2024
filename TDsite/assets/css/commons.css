@@ -22,7 +22,11 @@
     margin: 0 auto;
     text-align: center;
 }
-
+@media(max-width: 980px){
+    .container2 {
+        width: 95%;
+    }
+}
 
 /* required */
 .required::after {

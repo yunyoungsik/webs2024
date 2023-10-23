@@ -1,0 +1,310 @@
+#header {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#header img {
+    width: 200px;
+}
+#main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    flex-direction: column;
+}
+.quiz__wrap {
+    max-width: 400px;
+    margin-bottom: 2rem;
+}
+.quiz__wrap > .quiz.good {
+    position: relative;
+}
+.quiz__wrap > .quiz.good::before {
+    content: '';
+    width: 400px;
+    height: 400px;
+    border: 30px solid rgba(255, 0, 0, 1);
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+}
+.quiz__wrap > .quiz.bad {
+    position: relative;
+}
+.quiz__wrap > .quiz.bad::before {
+    content: '';
+    width: 400px;
+    height: 20px;
+    background-color: rgba(255, 0, 0, 1);
+    position: absolute;
+    left: calc(50% - 200px);
+    top: 50%;
+    border-radius: 30px;
+    transform: rotate(45deg);
+    z-index: 100;
+}
+.quiz__wrap > .quiz.bad::after {
+    content: '';
+    width: 400px;
+    height: 20px;
+    background-color: rgba(255, 0, 0, 1);
+    position: absolute;
+    left: calc(50% - 200px);
+    top: 50%;
+    border-radius: 30px;
+    transform: rotate(-45deg);
+    z-index: 100;
+}
+.quiz {
+    position: relative;
+}
+.quiz__main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.quiz__question {
+    position: relative;
+}
+.quiz__question {
+    display: flex;
+}
+.quiz__question img {
+    max-width: 400;
+    border-radius: 20px;
+    box-shadow: 3px 3px 10px #9BBCB2;
+}
+.quiz__footer {
+    width: 100%;
+    position: absolute;
+    bottom: 10px;
+}
+.quiz__input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.quiz__input input {
+    width: 90%;
+    height: 50px;
+    border: 0;
+    border-radius: 25px;
+    text-align: center;
+    border: 1px solid rgba(0,0,0,.15);
+}
+.quiz__input input:focus {
+    outline: 0;
+}
+.quiz__input input::placeholder {
+    color: #B0E0D1;
+}
+.quiz__input button {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    right: 10%;
+    background-color: transparent;
+    padding: 0;
+}
+.quiz__input button > img {
+    width: 100%;
+}
+.quiz__answer {
+    width: 90%;
+    height: 50px;
+    border: 0;
+    border-radius: 25px;
+    text-align: center;
+    line-height: 50px;
+    background-color: #fff;
+}
+.quiz__answer::before {
+    content: "정답 : ";
+}
+
+/* timer */
+.timer {
+    width: 400px;
+    position: relative;
+}
+.quiz__timer {
+    width: 100%;
+    height: 25px;
+    background-color: #59D5A2;
+    border-radius: 25px;
+    border: 1px solid #319073;
+    z-index: 1000;
+    position: relative;
+
+}
+.timer__back {
+    width: 100%;
+    height: 25px;
+    background-color: #fff;
+    border-radius: 25px;
+    border: 1px solid #319073;
+    position: absolute;
+    bottom: 0;
+}
+
+
+/* modal */
+.modal__cont {
+    width: 100%;
+    height: 100vh;
+    background-color: #000000a8;
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transform: scale(0);
+}
+.modal__box {
+    max-width: 350px;
+    border-radius: 5px;
+    transform: scale(0);
+    background-color: #59D5A2;
+    position: relative;
+}
+.modal__box .title {
+    display: flex;
+    align-items: center;
+    height: 10px;
+}
+.modal__box .title img {
+    width: 40%;
+    margin: 0 auto;
+}
+.modal__box .title .taps > div .close {
+    margin-left: 3rem;
+    margin-top: 0.3rem;
+}
+.modal__box .cont {
+    color: #fff;
+    font-size: 2rem;
+    line-height: 2.5rem;
+    height: 300px;
+    overflow-y: hidden;
+    box-sizing: border-box;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.modal__box .cont h3 {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #F5F103;
+    padding-bottom: 0.5rem;
+}
+.modal__box .cont p {
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+.modal__box .cont > div.active {
+    display: block;
+    height: 100%;
+}
+.modal__close {
+    width: 50%;
+    font-size: 1rem;
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    text-align: center;
+    color: #000;
+    padding: 0 1rem;
+    border-radius: 4rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    opacity: 0;
+}
+.modal__close:hover {
+    background-color: #319073;
+    color: #fff;
+}
+@media (max-width: 800px){
+    #header {
+        width: 100%;
+        text-align: center;
+    }
+    #header h1 {
+        line-height: 1.4;
+    }
+    .modal__box {
+        width: 96%;
+    }
+}
+/* 모달 애니메이션 */
+.modal__cont.show {
+    animation: foldOut 1s ease forwards;
+}
+.modal__cont.show .modal__box {
+    animation: zoomOut 0.5s 1s ease forwards;
+}
+.modal__cont.show .modal__close {
+    animation: opacityOut 0.5s 1.5s ease forwards;
+}
+.modal__cont.show.hide {
+    animation: foldIn 0.3s 0.5s ease backwards;
+}
+.modal__cont.show.hide .modal__box {
+    animation: zoomIn 0.5s ease forwards;
+}
+.modal__cont.show.hide .modal__close {
+    animation: opacityIn 0.5s ease forwards;
+}
+@keyframes foldOut {
+    0% {transform: scaleX(0.0001) scaleY(1);}
+    50% {transform: scaleX(0.0001) scaleY(1)}
+    100% {transform: scaleX(1) scaleY(1)}
+}
+@keyframes foldIn {
+    0% {transform: scaleX(1) scaleY(1)}
+    50% {transform: scaleX(0.0001) scaleY(1)}
+    100% {transform: scaleX(0.0001) scaleY(1);}
+}
+@keyframes zoomOut {
+    0% {transform: scale(0);}
+    100% {transform: scale(1);}
+}
+@keyframes zoomIn {
+    0% {transform: scale(1);}
+    100% {transform: scale(0);}
+}
+@keyframes opacityOut {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+@keyframes opacityIn {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+
+/* quiz */
+@media(max-width: 423px){
+    #main {
+        width: 95%;
+        margin: 0 auto;
+    }
+    .quiz__wrap {
+        margin-bottom: 1rem;
+    }
+    .timer {
+        width: 100%;
+    }
+}

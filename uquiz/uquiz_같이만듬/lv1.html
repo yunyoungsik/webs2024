@@ -1,83 +1,64 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>U.QUIZ?</title>
-    <link rel="stylesheet" href="assets/css/resets.css">
+    <title>U.Quiz1</title>
 
-    <link rel="stylesheet" href="assets/css/lv.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <style>
-        body {
-            background-image: url(assets/img/bg02.png);
-            background-position: center;
-            background-size: cover;
-        }
+    <link rel="stylesheet" href="assets/css/quiz.css">
 
-        .wrap {
-            background-image: url(assets/img/bg01.png);
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: 100%;
-        }
-
-        #footer p {
-            color: #3c3c3c;
-        }
-
-        @media(max-width: 900px){
-            .wrap {
-                background-image: none;
-            }
-        }
-    </style>
 </head>
-
 <body>
-    <div class="wrap">
+    <div id="wrap">
         <header id="header">
             <h1>
-                <a href="index.html"><img src="assets/img/logo.png" alt="U.QUIZ_logo"></a>
+                <a href="index.html"><img src="assets/img/logo2.png" alt=""></a>
             </h1>
+
         </header>
-        <!-- //header -->
+        <!-- // header -->
 
         <main id="main">
-
             <div class="quiz__wrap">
-            </div>
-            <div class="timer">
-                <div class="quiz__timer start"></div>
-                <div class="timer__back"></div>
+                
             </div>
         </main>
         <!-- //main -->
 
         <footer id="footer">
+            <div class="quiz__timer timer"></div>
             <div class="modal__wrap">
-                <div class="modal__cont sohw">
+                <div class="modal__cont">
                     <div class="modal__box">
                         <div class="title">
-                            <img src="assets/img/trophy.png" alt="trophy">
+                            <span class="dot" aria-label="true"></span>
+                            <div class="taps">
+                                <div class="active">
+                                    RESULT
+                                </div>
+                            </div>
                         </div>
                         <div class="cont">
                         </div>
-                        <div class="modal__close">
-                            확인
-                        </div>
+                    </div>
+                    <div class="modal__close">
+                        <!-- <svg width="18" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+                            <path d="M12.5 3.5L3.5 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M12.5 12.5L3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg> -->
+                        확인
                     </div>
                 </div>
             </div>
-            <p>ⓒ 2023 U.QUIZ?</p>
         </footer>
         <!-- //footer -->
     </div>
-
+    <!-- //wrap -->
+    
     <script>
         // 선택자
         const quizWrap = document.querySelector(".quiz__wrap");
+        const quizTimer = document.querySelector(".quiz__timer");
         const modal = document.querySelector(".modal__wrap");
         let correct = 0;
 
@@ -86,22 +67,21 @@
         const modalClose = document.querySelector(".modal__close");
         const modalCont = document.querySelector(".modal__cont");
         const cont = document.querySelector(".cont");
-
+        
         //모달 창 닫기
         modalClose.addEventListener("click", () => {
             modalCont.classList.add("hide");
             modalCont.classList.remove("show");
-            if (correct > 10) {
-                window.location.href = "lv2.html";
+            if(correct > 10){
+                window.location.href = "lv1_5.html";
             } else {
                 window.location.href = "index.html";
             }
-        });
-
+        })
 
         // 문제 정보
         const quizInfo = [
-        {
+            {
                 infoQuestion : 'assets/img/lv1/lv1-1.jpg',
                 infoAnswer : "유재석"
             },
@@ -197,25 +177,33 @@
 
         // 문제 배열 섞기
         shuffleArray(quizInfo);
-
-        let currentIndex = 0; // 현재 문제 변수 값 (현재 풀고 있는 문제)
+        
+        let currentIndex = 0;       // 현재 문제 변수 값 (현재 풀고 있는 문제)
 
         // 문제 출력
         const updateQuiz = (index) => {
             let quizWrapTag = `
                 <div class="quiz">
+                    <div class="quiz__header"></div>
                     <div class="quiz__main">
                         <div class="quiz__question">
                             <img src="${quizInfo[index].infoQuestion}">
+
+                        </div>
+                        <div class="quiz__answer none">
+                            ${quizInfo[index].infoAnswer}
                         </div>
                     </div>
                     <div class="quiz__footer">
                         <div class="quiz__input">
                             <input type="text" placeholder="정답을 입력해주세요.">
-                            <div class="quiz__answer none">${quizInfo[index].infoAnswer}</div>
-                            <button class="quiz__confirm"><img src="assets/img/next.png" alt="next"></button>
-                            <button class="quiz__next none"><img src="assets/img/next.png" alt="next"></button>
                         </div>
+                        <button class="quiz__confirm">
+                            정답
+                        </button>
+                        <button class="quiz__next none">
+                            다음
+                        </button>
                     </div>
                 </div>
             `;
@@ -223,86 +211,84 @@
 
             // 선택자
             const quizConfirm = quizWrap.querySelector(".quiz__confirm");
-            const quizNext = quizWrap.querySelector(".quiz__next");
+            const quizNext = quizWrap.querySelector(".quiz__next"); 
 
             // 정답 확인 버튼
             quizConfirm.addEventListener("click", () => {
                 checkAnswer();
-                const quizInput2 = document.querySelector(".quiz__input > input");
+                const quizInput2 = document.querySelector(".quiz__input");
                 quizInput2.classList.add("none");
-                quizConfirm.classList.add("none"); // 정답 버튼 숨김
-                quizNext.classList.remove("none"); // 다음 버튼 추가
+                quizConfirm.classList.add("none");      // 정답 버튼 숨김
+                quizNext.classList.remove("none");      // 다음 버튼 추가
             });
 
             // 다음 문제 버튼
             quizNext.addEventListener("click", () => {
-                if (currentIndex < quizInfo.length - 1) {
+                if(currentIndex < quizInfo.length -1){
                     quizNext.classList.add("none");         // 다음 버튼 숨김
                     quizConfirm.classList.remove("none");   // 정답 버튼 추가
                     currentIndex++;                         // 퀴즈 번호 추가
                     updateQuiz(currentIndex);               // 퀴즈 반영
                 } else {
-                    alert("모든 문제를 푸셨습니다!");
+                    alert("1단계 문제가 끝났습니다.");
                 }
             });
         }
 
+        // 타이머
+        function startTimer(duration, display) {
+            var timer = duration, minutes, seconds;
+            setInterval(function () {
+                quizTimer.classList.add("start");
+                
+                seconds = parseInt(timer % 60, 10);
+
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = "남은 시간: " + seconds + "초";
+
+                if (--timer < 0) {
+                    modalCont.classList.add("show");
+                    if(correct > 10){
+                        cont.innerHTML = `축하합니다! ${correct}개 맞추셨네요. <br>다음 단계로 가실 수 있습니다!`;
+                    } else {
+                        cont.innerHTML = `아쉽네요. ${correct}개 맞추셨습니다. <br>미션 실패!`;
+                    }
+                    timer = duration;
+                    quizTimer.classList.remove("start");
+                    quizTimer.style.display = "none";
+                }
+            }, 1000);
+        }
+
+        window.onload = function () {
+            var duration = 60; // 타이머 시간 (초)
+            var display = document.querySelector(".timer");
+            startTimer(duration, display);
+        };
+           
         // 정답 확인
-        const checkAnswer = () => {
-            const quizInput = document.querySelector(".quiz__input input");
-            const userAnswer = quizInput.value;
+        const checkAnswer = () => {         
+            const quizInput = document.querySelector(".quiz__input input");   
+            const userAnswer = quizInput.value;  
             const correctAnswer = quizInfo[currentIndex].infoAnswer; // 정답지의 정답
             const quizElement = quizWrap.querySelector(".quiz");
             const answerElement = quizWrap.querySelector(".quiz__answer");
+            
 
-            if (userAnswer === correctAnswer) {
+            if(userAnswer === correctAnswer){
                 quizElement.classList.add("good");
-                answerElement.classList.remove("none");
                 correct++;
             } else {
                 quizElement.classList.add("bad");
                 answerElement.classList.remove("none");
             }
         }
-
-        function startTimer(duration) {
-            var timer = duration, seconds;
-            var startElement = document.querySelector(".start");
-
-            setInterval(function () {
-                const quizTimer = document.querySelector(".quiz__timer");
-                quizTimer.classList.add("start");
-                seconds = parseInt(timer % 60, 10);
-                seconds = seconds < 10 ? "0" + seconds : seconds;
-
-                if (--timer < 0) {
-                    modalCont.classList.add("show");
-                    if (correct > 10) {
-                        cont.innerHTML = `<h3>SUCCESS</h3><p>${correct}개 맞추셨습니다.<br/>다음 난이도로 이동합니다.</p>`;
-                    } else {
-                        cont.innerHTML = `<h3>FAILL</h3><p>${correct}개 맞추셨습니다.<br/>다시 도전하세요!</p>`;
-                    }
-                    timer = duration;
-                    quizTimer.classList.remove("start");
-                    quizTimer.style.display = "none";
-                }
-
-                // .start 엘리먼트의 너비 설정
-                startElement.style.width = (timer / duration) * 100 + "%";
-            }, 1000);
-        }
-
-        window.onload = function () {
-            let duration = 60; // 타이머 시간 (초)
-            let display = document.querySelector(".timer");
-            startTimer(duration, display);
-        };
-
+            
         // 페이지가 로드된 후 실행
         document.addEventListener("DOMContentLoaded", () => {
             updateQuiz(currentIndex);
         });
-    </script>
+    </script>   
 </body>
-
 </html>

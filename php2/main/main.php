@@ -17,7 +17,7 @@
     <!-- CSS -->
     <?php include "../include/head.php"?>
 </head>
-<body class="gray">
+<body class="black">
     <?php include "../include/skip.php"?>
     <!-- //skip -->
 

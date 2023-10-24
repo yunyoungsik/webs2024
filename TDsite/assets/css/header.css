@@ -29,7 +29,7 @@
     position: absolute;
     right: 1%;
     top: 50%;
-    transform: translateY(-30%);
+    transform: translateY(-50%);
 }
 #header .header__etc .header__search {
     margin-right: 15px;
@@ -114,6 +114,9 @@
     color: var(--black200);
     text-align-last: left;
 }
+#header .header__user img {
+    width: 1.25rem;
+}
 
 /* nav */
 #nav {
@@ -158,10 +161,6 @@
 #nav .container > ul > li > ul > li > a {
     font-weight: bold;
 }
-
-
-
-
 
 @media(max-width: 1380px){
     #header .container {

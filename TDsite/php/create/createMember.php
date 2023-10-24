@@ -7,6 +7,7 @@
     $sql .= "youPass varchar(40) NOT NULL,";
     $sql .= "youBirth varchar(40) NOT NULL,";
     $sql .= "youPhone varchar(40) NOT NULL,";
+    $sql .= "youAddress varchar(255) DEFAULT NULL,";
     $sql .= "youImgFile varchar(100) DEFAULT NULL,";
     $sql .= "youImgSize varchar(100) DEFAULT NULL,";
     $sql .= "regTime int(20) NOT NULL,";

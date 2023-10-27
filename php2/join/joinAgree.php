@@ -17,7 +17,7 @@
     <!-- CSS -->
     <?php include "../include/head.php"?>
 </head>
-<body class="black">
+<body class="white">
     <?php include "../include/skip.php"?>
     <!-- //skip -->
 
@@ -26,8 +26,8 @@
 
     <main id="main" role="main">
     <div class="intro__inner bmStyle container">
-            <div class="intro__img">
-                <img srcset="../asset/img/N_logo.jpg 1x, ../asset/img/N_logo@2x-min.jpg 2x, ../asset/img/N_logo@3x-min.jpg 3x" alt="인트로 이미지">
+            <div class="intro__img main">
+                <img srcset="../asset/img/img01.jpg 1x, ../asset/img/img01@2x.jpg 2x, ../asset/img/img01@3x.jpg 3x" alt="인트로 이미지">
             </div>
             <div class="intro__text">
                 회원가입을 해주시면 다양한 정보를 자유롭게 볼 수 있습니다.
@@ -76,7 +76,7 @@
                         서비스 이용료 및 결제 방법 (선택사항): 유료 서비스의 경우 이용자가 지불해야 할 요금과 결제 방법에 대한 내용
                         서비스 제공 중지 및 이용계약 해지 방침: 서비스 중지나 계약 해지에 대한 절차와 방법에 대한 설명
                     </div>
-                    <div class="check">
+                    <div class="check check__right">
                         <input type="checkbox" name="agreeCheck1" id="agreeCheck1">
                         <label for="agreeCheck1">블로그 이용약관 동의합니다.</label>
                     </div>
@@ -114,7 +114,7 @@
                         쿠키 및 유사 기술의 이용: 쿠키 등을 사용하는 경우에 대한 설명
                         개인정보 보호책임자 및 담당자 연락처: 개인정보 관리에 대한 책임자와 연락처 정보
                     </div>
-                    <div class="check">
+                    <div class="check check__right">
                         <input type="checkbox" name="agreeCheck2" id="agreeCheck2">
                         <label for="agreeCheck2">블로그 개인정보 수집 및 이용에 동의합니다.</label>
                     </div>

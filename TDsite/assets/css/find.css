@@ -1,5 +1,7 @@
 /* findResult */
-
+.find__inner.container2 {
+    min-height: calc(100vh - 376px);
+}
 .find__result {
     margin-bottom: 60px;
 }
@@ -103,8 +105,10 @@
     text-underline-position: under;
     cursor: pointer;
 }
-
-
+.find__resultBox p i {
+    color: var(--blue100);
+    font-weight: 700;
+}
 
 
 

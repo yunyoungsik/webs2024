@@ -1,12 +1,14 @@
 .card__wrap {
     padding: 20px 0;
     position: relative;
-    color: var(--white);
+    color: var(--black250);
 }
 .card__wrap h2 {
     display: inline-block;
     font-size: 1rem;
-    border: 1px solid var(--white);
+    border: 1px solid var(--br100);
+    color: var(--white);
+    background-color: var(--black250);
     padding: 0.4rem 1rem;
     margin-top: 50px;
     margin-bottom: 1rem;
@@ -58,7 +60,7 @@
     text-overflow: ellipsis;
 }
 .card__inner > div h3 span {
-    border-bottom: 2px solid var(--white);
+    border-bottom: 2px solid var(--br100);
     padding-bottom: 3px;
 }
 .card__inner > div p {
@@ -76,7 +78,7 @@
     width: 30px;
     height: 30px;
     line-height: 31px;
-    background-color: var(--black);
+    background-color: var(--black250);
     border-radius: 50%;
     display: inline-block;
     text-align: center;
@@ -91,6 +93,10 @@
     filter: saturate(100%);
     transition: all 0.3s;
 }
+            /* 임의추가 */
+            .card__inner > div figure img {
+                height: 191px;
+            }
 .card__inner > div figure:hover img {
     filter: saturate(0%);
 }
@@ -102,21 +108,21 @@
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background-color: var(--black);
+    background-color: var(--black250);
     z-index: 100;
-    border: 1px solid var(--black500);
+    border: 1px solid var(--br100);
     transition: all 0.3s;
 }
 
 .card__more:hover {
-    border-color: var(--white);
+    border-color: var(--br100);
     background-color: var(--white);
 }
 .card__more::before {
     content: '';
     width: 18px;
     height: 2px;
-    background-color: var(--black500);
+    background-color: var(--white);
     position: absolute;
     left: 5px;
     top: 13px;
@@ -126,7 +132,7 @@
     content: '';
     width: 2px;
     height: 18px;
-    background-color: var(--black500);
+    background-color: var(--white);
     position: absolute;
     left: 13px;
     top: 5px;

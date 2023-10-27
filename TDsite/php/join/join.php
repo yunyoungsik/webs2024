@@ -183,12 +183,15 @@
 
                 if(getYouPass.length < 8 || getYouPass.length > 20){
                     $("#memberPassMsg").text("8자리 ~ 20자리 이내로 입력해주세요.");
+                    $("#youPass").focus();
                     return false;
                 } else if (getYouPass.search(/\s/) != -1){
                     $("#memberPassMsg").text("비밀번호는 공백없이 입력해주세요.");
+                    $("#youPass").focus();
                     return false;
                 } else if (getYouPassNum < 0 || getYouPassEng < 0 || getYouPassSpe < 0 ){
                     $("#memberPassMsg").text("영문, 숫자, 특수문자를 혼합하여 입력해주세요.");
+                    $("#youPass").focus();
                     return false;
                 } 
             }

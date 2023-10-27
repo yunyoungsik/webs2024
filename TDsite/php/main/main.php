@@ -231,15 +231,15 @@
 
                 <div class="intro__images">
                     <div class="intro__img">
-                        <img src="../assets/img/icon__compare.png" alt="스마트폰 비교하기">
+                        <img src="../../assets/img/icon__compare.png" alt="스마트폰 비교하기">
                         <span>스마트폰 비교하기</span>
                     </div>
                     <div class="intro__img">
-                        <img src="../assets/img/icon__join.png" alt="회원가입">
-                        <span>회원가입</span>
+                        <a href="../join/join.php"><img src="../../assets/img/icon__join.png" alt="회원가입"></a>
+                        <span><a href="../join/join.php">회원가입</a></span>
                     </div>
                     <div class="intro__img">
-                        <img src="../assets/img/icon__comunity.png" alt="커뮤니티">
+                        <img src="../../assets/img/icon__comunity.png" alt="커뮤니티">
                         <span>커뮤니티</span>
                     </div>
                 </div>
@@ -248,7 +248,7 @@
                 <div class="intro__footer">
                     <span>이미 회원이신가요?</span>
                     <div class="intro__btn">
-                        <a href="#">로그인</a>
+                        <a href="../login/login.php">로그인</a>
                     </div>
                 </div>
                 <!-- //intro__footer -->
@@ -268,6 +268,30 @@
 
     <!-- script -->
     <script>
+        // 메뉴
+        // let header = document.querySelector("#header");
+        // let nav = document.querySelector("#nav");
+        // let hamMenu = document.querySelector("#header .header__ham");
+        // let hamShape = document.querySelector("#header .header__ham div");
+
+        // function showNav() {
+        //     nav.style.height = "360px";
+        //     hamShape.classList.add("hamX");
+        //     hamShape.classList.remove("ham");
+        // };
+        // function hideNav() {
+        //     nav.style.height = "0";
+        //     hamShape.classList.add("ham");
+        //     hamShape.classList.remove("hamX");
+        // };
+
+        hamMenu.addEventListener("mouseover", showNav);
+        hamMenu.addEventListener("mouseout", hideNav);
+
+        nav.addEventListener("mouseover", showNav);
+        nav.addEventListener("mouseout", hideNav);
+
+
         window.onload = () => {
             // 슬라이드
             let currentIndex = 0;   //현재 이미지
@@ -350,10 +374,10 @@
 
         // 애니메이션
         const ani = gsap.timeline();
-        ani.from("#section1 .t1", { xPercent: 300 }, "text")
-            .from("#section1 .t2", { xPercent: 300 }, "text")
-            .from("#section1 .t3", { xPercent: 300 }, "text")
-            .from("#section1 .t4", { xPercent: 300 }, "text")
+        ani.from("#section1 .t1", { xPercent: 700 }, "text")
+            .from("#section1 .t2", { xPercent: 700 }, "text")
+            .from("#section1 .t3", { xPercent: 700 }, "text")
+            .from("#section1 .t4", { xPercent: 700 }, "text")
 
         ScrollTrigger.create({
             animation: ani,

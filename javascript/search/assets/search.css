@@ -163,6 +163,7 @@ body {
     cursor: pointer;
     display: flex;
     align-items: center;
+    color: #b6b6b6;
 }
 .search__star li:hover {
     background-color: #03c75a;
@@ -177,8 +178,12 @@ body {
     font-weight: 700;
     color: #b6b6b6;
 }
-.search__star li:hover span {
+.search__star li:hover {
     color: #fff;
+}
+.search__star li:after {
+    color: #b6b6b6;
+    content: attr(data-desc);
 }
 
 /* 숨겨줌, 보여줌 */

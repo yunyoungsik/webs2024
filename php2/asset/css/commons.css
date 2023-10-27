@@ -22,6 +22,9 @@
 .black {
     background-color: var(--black);
 }
+.white {
+    background-color: var(--white);
+}
 
 /* container */
 .container {
@@ -46,9 +49,10 @@
     max-width: 300px;
     width: 100%;
     margin: 0 auto;
-    border-radius: 50%;
+    border-radius: 25%;
     overflow: hidden;
-    border: 1px solid var(--black100);
+    /* border: 1px solid var(--black100); */
+    vertical-align: top;
 }
 .intro__img.small {
     max-width: 200px;
@@ -61,19 +65,20 @@
     border-radius: 250px;
 }
 .intro__text {
-    color: var(--white);
+    color: var(--black250);
     font-size: 1.4rem;
     padding: 5% 20% 0 20%;
     word-break: keep-all;
     font-weight: 300;
+    text-align: center;
 }
 .intro__text h2 {
-    color: var(--white);
+    color: var(--black250);
     font-size: 1.8rem;
     margin-bottom: 1.25rem;
 }
 .intro__text p em {
-    color: red;
+    color: var(--black250);
 }
 .intro__btn {
     margin-top: 20px;
@@ -83,8 +88,19 @@
     padding: 0.6em 4em;
     margin: 0.4em;
     border-radius: 40px;
-    background-color: var(--black);
+    background-color: var(--black250);
     color: var(--white);
+    transition: all 0.3s;
+}
+.intro__btn a:hover {
+    background-color: var(--hover250);
+}
+
+/* blog */
+.intro__inner.blogStyle .intro__text h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 10px;
 }
 
 @media(max-width: 800px){
@@ -114,26 +130,29 @@
     font-size: 1.2rem;
     font-weight: 300;
     border: 0;
+    border: 1px solid var(--br100);
 }
 
 /* btn__style */
 .btn__style {
     display: block;
-    background-color: var(--red);
+    background-color: var(--black250);
+    border: 1px solid var(--black250);
     color: var(--white);
     font-size: 1.2rem;
     border-radius: 30px;
     padding: 1rem 3.5rem;
     margin: 0 auto;
     cursor: pointer;
+    transition: all 0.3s;
 }
 .btn__style:hover {
-    background-color: var(--redHover);
+    background-color: var(--hover250);
 }
 .btn__style2 {
     width: 100%;
     display: block;
-    background-color: var(--black);
+    background-color: var(--black250);
     color: var(--white);
     font-size: 1.2rem;
     border-radius: 5px;
@@ -143,7 +162,7 @@
 }
 .btn__style3 {
     display: inline-block;
-    background-color: var(--black);
+    background-color: var(--black250);
     color: var(--white);
     font-size: 1rem;
     padding: 0.7rem 2rem;
@@ -152,7 +171,8 @@
 }
 .btn__style4 {
     display: inline-block;
-    background-color: var(--red);
+    background-color: var(--black250);
+    border: 1px solid var(--black250);
     color: var(--white);
     font-weight: 600;
     font-size: 1rem;
@@ -160,9 +180,10 @@
     cursor: pointer;
     width: 30%;
     border-radius: 5px;
+    transition: all 0.3s;
 }
 .btn__style4:hover {
-    background-color: var(--redHover);
+    background-color: var(--hover250);
 }
 
 /* list__style */
@@ -207,12 +228,12 @@
 /* required */
 .required::after {
     content: ' *';
-    color: var(--red);
+    color: var(--y100);
 }
 
 /* bmStyle */
 .bmStyle {
-    border-bottom: 3px solid var(--black100);
+    border-bottom: 3px solid var(--br100);
     position: relative;
 }
 .bmStyle::after {
@@ -222,11 +243,11 @@
     position: absolute;
     left: 0;
     bottom: -8px;
-    background-color: var(--black100);
+    background-color: var(--br100);
 }
 
 .bmStyle2 {
-    border-bottom: 1px solid var(--black100);
+    border-bottom: 1px solid var(--br100);
     position: relative;
 }
 .bmStyle2::after {
@@ -236,12 +257,12 @@
     position: absolute;
     left: 0;
     bottom: -4px;
-    background-color: var(--black100);
+    background-color: var(--br100);
 }
 
 /* btStyle */
 .btStyle {
-    border-top: 3px solid var(--black100);
+    border-top: 3px solid var(--br100);
     position: relative;
 }
 .btStyle::after {
@@ -251,7 +272,7 @@
     position: absolute;
     left: 0;
     top: -8px;
-    background-color: var(--black100);
+    background-color: var(--br100);
 }
 
 /* scrollbar */
@@ -261,7 +282,7 @@
 
 .scroll::-webkit-scrollbar-thumb {
     height: 30%; /* 스크롤바의 길이 */
-    background: var(--red); /* 스크롤바의 색상 */
+    background: var(--black250); /* 스크롤바의 색상 */
     border-radius: 3px;
 }
 

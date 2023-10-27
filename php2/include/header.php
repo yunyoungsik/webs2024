@@ -8,8 +8,8 @@
             </a>
         </div>
         <div class="logo">
-            <a href="../main/main.php">Developer Blog</a>
-        </div>
+                <a href="../main/main.php">GONG-U</a>
+            </div>
         <div class="right">
             <?php if(isset($_SESSION['memberID'])){ ?>
                 <ul>
@@ -25,10 +25,10 @@
     </div>
     <nav class="nav__inner">
         <ul>
-            <li><a href="../join/joinAgree.php">회원가입</a></li>
-            <li><a href="../login/login.php">로그인</a></li>
+            <li><a href="../blog/blogCate.php?category=잡담">잡담</a></li>
+            <li><a href="../blog/blogCate.php?category=자격증정보">자격증정보</a></li>
+            <li><a href="../blog/blogCate.php?category=공부정보">공부정보</a></li>
             <li><a href="../board/board.php">게시판</a></li>
-            <li><a href="../blog/blog.php">블로그</a></li>
         </ul>
     </nav>
 </header>

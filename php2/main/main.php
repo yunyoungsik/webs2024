@@ -17,7 +17,7 @@
     <!-- CSS -->
     <?php include "../include/head.php"?>
 </head>
-<body class="black">
+<body class="white">
     <?php include "../include/skip.php"?>
     <!-- //skip -->
 
@@ -25,14 +25,15 @@
     <!-- //header -->
 
     <main id="main" role="main">
-        <div class="intro__inner bmStyle container">
-            <div class="intro__img">
-                <img srcset="../asset/img/intro02-min.jpg 1x, ../asset/img/intro02@2x-min.jpg 2x, ../asset/img/intro02@3x-min.jpg 3x" alt="인트로 이미지">
+       <div class="intro__inner bmStyle container">
+            <div class="intro__img main">
+                <img srcset="../asset/img/img01.jpg 1x, ../asset/img/img01@2x.jpg 2x, ../asset/img/img01@3x.jpg 3x" alt="인트로 이미지">
             </div>
             <div class="intro__text">
-                성공한 사람이 되려고 노력하기보다 가치있는 사람이 되려고 노력하라. &lt;알버트 아인슈타인&gt;
+                자격증 및 공부하며 정보를 공유하는 사이트입니다.
             </div>
         </div>
+        <!-- //intro__inner -->
     </main>
     <!-- //main -->
 

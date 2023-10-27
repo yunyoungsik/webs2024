@@ -40,6 +40,7 @@
                 <div class="music__inner">
                     <div class="music__header">
                         <h2>Music Player</h2>
+                        <div class="close">X</div>
                     </div>
                     <div class="music__contents">
                         <div class="music__view">
@@ -79,6 +80,20 @@
 
         </footer>
         <!-- //footer -->
+        <script>
+            const musicPlayer = document.querySelector("#musicWrap");
+            const musicPlayerView = document.querySelector(".music");
+            const musicPlayerClose = document.querySelector(".music__header .close");
+
+            function music(){
+                musicPlayerView.addEventListener("click", () => {
+                    musicPlayer.classList.remove("blind");
+                });
+                musicPlayerClose.addEventListener("click", () => {
+                    musicPlayer.classList.add("blind");
+                });
+            }
+        </script>
     </div>
 </body>
 </html>

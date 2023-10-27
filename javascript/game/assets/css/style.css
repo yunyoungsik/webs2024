@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    cursor: url(../img/cursor.gif), url(../img/cursor2.svg), auto;
 }
 #wrap {
     width: 100%;
@@ -14,6 +15,7 @@
     background-size: cover;
     background-position: center center;
 }
+
 
 /* common */
 .blind {
@@ -38,8 +40,12 @@
     position: relative;
 }
 .iconInner a {
+    display: block;
+    width: 48px;
+    height: 48px;
     position: relative;
     z-index: 2;
+    cursor: pointer;
 }
 .iconInner .coin {
     position: absolute;
@@ -76,10 +82,22 @@
     width: 100%;
     height: 30px;
     text-align: center;
+    position: relative;
 }
 .music__header h2 {
     font-size: 1rem;
     font-weight: bold;
+}
+.music__header  .close {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    line-height: 12px;
+    border-style: groove;
+    cursor: pointer;
+    color: #000;
 }
 .music__contents {}
 .music__contents .music__view {

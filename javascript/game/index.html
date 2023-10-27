@@ -23,9 +23,9 @@
         <!-- //header -->
 
         <main id="main">
+
             <div class="icon__menu">
-                
-                <div class="music iconInner">
+                <div class="musicBtn iconInner">
                     <a href="#" class="icon">
                         <img src="assets/img/icon_music.png" alt="iconMusic" class="icon">
                     </a>
@@ -33,10 +33,10 @@
                         <img src="assets/img/coin.png" alt="coin" >
                     </div>
                 </div>
-               
+                <!-- //music -->
             </div>
 
-            <div id="musicWrap">
+            <div id="musicWrap" class="blind">
                 <div class="music__inner">
                     <div class="music__header">
                         <h2>Music Player</h2>
@@ -63,16 +63,17 @@
                                 <li>3. music - name</li>
                                 <li>4. music - name</li>
                                 <li>5. music - name</li>
-                                <li>5. music - name</li>
-                                <li>5. music - name</li>
-                                <li>5. music - name</li>
-                                <li>5. music - name</li>
-                                <li>5. music - name</li>
+                                <li>6. music - name</li>
+                                <li>7. music - name</li>
+                                <li>8. music - name</li>
+                                <li>9. music - name</li>
+                                <li>10. music - name</li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- //musicWrap -->
         </main>
         <!-- //main -->
 
@@ -81,17 +82,20 @@
         </footer>
         <!-- //footer -->
         <script>
-            const musicPlayer = document.querySelector("#musicWrap");
-            const musicPlayerView = document.querySelector(".music");
-            const musicPlayerClose = document.querySelector(".music__header .close");
+            window.onload = function(){
+                const musicPlayer = document.querySelector("#musicWrap");
+                const musicPlayerOpen = document.querySelector(".musicBtn");
+                const musicPlayerClose = document.querySelector(".music__header .close");
 
-            function music(){
-                musicPlayerView.addEventListener("click", () => {
-                    musicPlayer.classList.remove("blind");
-                });
-                musicPlayerClose.addEventListener("click", () => {
-                    musicPlayer.classList.add("blind");
-                });
+                function music(){
+                    musicPlayerOpen.addEventListener("mouseover", () => {
+                        musicPlayer.classList.remove("blind");
+                    });
+                    musicPlayerClose.addEventListener("click", () => {
+                        musicPlayer.classList.add("blind");
+                    });
+                }
+                music();
             }
         </script>
     </div>

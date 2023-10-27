@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    cursor: url(../img/cursor.gif), url(../img/cursor2.svg), auto;
+    cursor: url(../img/cursor.png), auto;
 }
 #wrap {
     width: 100%;
@@ -45,7 +45,6 @@
     height: 48px;
     position: relative;
     z-index: 2;
-    cursor: pointer;
 }
 .iconInner .coin {
     position: absolute;
@@ -54,13 +53,30 @@
     z-index: 1;
     transition: transform 0.3s;
 }
+.iconInner .coin > img {
+    scale: 50%;
+}
 .iconInner:hover a > img{
-    transform: translateY(-30px);
+    animation: box 0.5s ease-in;
 }
 .iconInner:hover .coin {
-    transform: translateY(-90px);
+    animation: coin 1s ease-in;
 }
 
+@keyframes box {
+    0% {transform: rotate(0deg) translateY(0px);}
+    25% {transform: rotate(3deg) translateY(-30px);}
+    50% {transform: rotate(0deg) translateY(-70px);}
+    75% {transform: rotate(-3deg) translateY(30px);}
+    100% {transform: rotate(0deg) translateY(0px);}
+}
+@keyframes coin {
+    0% {transform: translateY(0px);}
+    25% {transform: translateY(-70px);}
+    50% {transform: translateY(-90px);}
+    75% {transform: translateY(5px);}
+    100% {transform: translateY(0px);}
+}
 
 /* musicWrap */
 #musicWrap {
@@ -88,7 +104,7 @@
     font-size: 1rem;
     font-weight: bold;
 }
-.music__header  .close {
+.music__header .close {
     position: absolute;
     right: 5px;
     top: 5px;
@@ -96,8 +112,10 @@
     height: 20px;
     line-height: 12px;
     border-style: groove;
-    cursor: pointer;
     color: #000;
+}
+.music__header .close:hover {
+    background-color: #bababa;
 }
 .music__contents {}
 .music__contents .music__view {
@@ -143,7 +161,6 @@
     text-align: center;
     line-height: 32.5px;
     border: 1px solid rgba(0,0,0,.15);
-    cursor: pointer;
 }
 .music__contents .music__list {
     border-style: groove;
@@ -165,7 +182,6 @@
 .music__contents .music__list ul li {
     line-height: 24px;
     margin-bottom: 3px;
-    cursor: pointer;
 }
 .music__contents .music__list ul li.active {
     background-color: #333;

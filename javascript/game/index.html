@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>슈퍼마리오</title>
 
+    <!-- css -->
     <link rel="stylesheet" href="assets/css/resets.css">
-    <!-- <link rel="stylesheet" href="assets/css/font.css"> -->
+    <link rel="stylesheet" href="assets/css/style.css">
 
+    <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
-    <!-- //font -->
-
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.cdnfonts.com/css/super-mario-256" rel="stylesheet">
 </head>
 <body>
     <div id="wrap" class="bg01">
@@ -23,9 +23,48 @@
         <!-- //header -->
 
         <main id="main">
+            <div class="popup">
+                <div class="popup__start">
+                    <div class="title">
+                        <div class="tt"></div>
+                        <p>
+                            <em>YUN</em><br>
+                            YOUNG SIK.
+                        </p>
+                        <div class="bb"></div>
+                    </div>
+                    <p>ⓒ2023 YUNYOUNGSIK</p>
+                    <div class="btn">
+                        <p class="active">1 PLAYER GAME</p>
+                        <p>2 PLAYER GAME</p>
+                        <span>TOP - 000000</span>
+                    </div>
+                </div>
+            </div>
+            <div class="topText">
+                <div class="topText__left">
+                    <div class="left1">
+                        <p>YUN</p>
+                        <span class="total__point">000000</span>
+                    </div>
+                    <div class="left2">
+                        <img src="assets/img/coin.png" alt="coin">
+                        <p>x<em class="coin__point">00</em></p>
+                    </div>
+                </div>
+                <div class="topText__right">
+                    <div class="right1">
+                        <p>WORLD</p>
+                        <span class="total__point">000000</span>
+                    </div>
+                    <div class="right2">
+                        <p>TIME</p>
+                        <span class="time__view">000</span>
+                    </div>
+                </div>
+            </div>
             <div class="icon__menu">
-                
-                <div class="music iconInner">
+                <div class="musicBtn iconInner">
                     <a href="#" class="icon">
                         <img src="assets/img/icon_music.png" alt="iconMusic" class="icon">
                     </a>
@@ -33,15 +72,16 @@
                         <img src="assets/img/coin.png" alt="coin" >
                     </div>
                 </div>
-               
+                <!-- //music -->
             </div>
 
-            <div id="musicWrap">
+            <div id="musicWrap" class="blind">
                 <div class="music__inner">
                     <div class="music__header">
                         <h2>Music Player</h2>
                         <div class="close">X</div>
                     </div>
+                    <!-- //music__header -->
                     <div class="music__contents">
                         <div class="music__view">
                             <img src="assets/img/music_mario.png" alt="">
@@ -63,16 +103,18 @@
                                 <li>3. music - name</li>
                                 <li>4. music - name</li>
                                 <li>5. music - name</li>
-                                <li>5. music - name</li>
-                                <li>5. music - name</li>
-                                <li>5. music - name</li>
-                                <li>5. music - name</li>
-                                <li>5. music - name</li>
+                                <li>6. music - name</li>
+                                <li>7. music - name</li>
+                                <li>8. music - name</li>
+                                <li>9. music - name</li>
+                                <li>10. music - name</li>
                             </ul>
                         </div>
                     </div>
+                    <!-- //music__contents -->
                 </div>
             </div>
+            <!-- //musicWrap -->
         </main>
         <!-- //main -->
 
@@ -80,18 +122,84 @@
 
         </footer>
         <!-- //footer -->
-        <script>
-            const musicPlayer = document.querySelector("#musicWrap");
-            const musicPlayerView = document.querySelector(".music");
-            const musicPlayerClose = document.querySelector(".music__header .close");
 
-            function music(){
-                musicPlayerView.addEventListener("click", () => {
-                    musicPlayer.classList.remove("blind");
-                });
-                musicPlayerClose.addEventListener("click", () => {
-                    musicPlayer.classList.add("blind");
-                });
+        <script>
+            window.onload = function(){
+
+                //popup
+                const popupBtn = document.querySelectorAll(".popup__start .btn p");
+                const popup = document.querySelector(".popup");
+
+                function introStart(){
+                    popupBtn.forEach((el) => {
+                        el.addEventListener("click", () => {
+                            popup.classList.add("blind");
+                        });
+                    });
+                }
+                introStart();
+
+                // 점수
+                const totalPointView = document.querySelectorAll(".total__point");
+                const coinPointView = document.querySelector(".coin__point");
+                
+                let totalPoint = 0;
+                let coinPoint = 0;
+                
+                
+                function updatetotalPointView() {
+                    totalPointView.forEach(el => {
+                        const totalPoint2 = totalPoint.toString().padStart(6, '0');
+                        el.innerHTML = totalPoint2;
+                    });
+                }
+                updatetotalPointView();
+
+                function updateCoinPointView() {
+                    const coinPoint2 = coinPoint.toString().padStart(2, '0');
+                    coinPointView.innerHTML = coinPoint2;
+                }
+
+                // 시간
+                const timeView = document.querySelector(".time__view");
+
+                let totalTime = 0;
+
+                function updateTimeView(){
+                    const totalTime2 = totalTime.toString().padStart(3, '0');
+                    timeView.innerHTML = totalTime2;
+                }
+
+                setInterval(() => {
+                    totalTime++;
+                    updateTimeView();
+                }, 1000);
+
+                // 뮤직플레이어 선택자
+                const musicPlayer = document.querySelector("#musicWrap");
+                const musicPlayerOpen = document.querySelector(".musicBtn");
+                const musicPlayerClose = document.querySelector(".music__header .close");
+
+                function iconView(){
+                    // 뮤직플레이어
+                    musicPlayerOpen.addEventListener("mouseover", () => {
+                        musicPlayer.classList.remove("blind");
+                        // 점수증가
+                        coinPoint++;
+                        updateCoinPointView();
+                        if (coinPoint >= 100) {
+                            coinPoint = 0;
+                            totalPoint++;
+                            updatetotalPointView();
+                        }
+                    });
+                    musicPlayerClose.addEventListener("click", () => {
+                        musicPlayer.classList.add("blind");
+                    });
+                    
+                    coinPointView.innerHTML = coinPoint;
+                }
+                iconView();
             }
         </script>
     </div>

@@ -67,7 +67,7 @@
                         <div class="join">
                             <label for="youId" class="required">아이디</label>
                             <div class="check">
-                                <input type="text" id="youId" name="youId" placeholder="아이디을 적어주세요!" class="input__style">
+                                <input type="text" id="youId" name="youId" placeholder="아이디를 적어주세요." class="input__style">
                                 <div class="btn" onclick="idChecking()">아이디 중복 검사</div>
                             </div>
                             <p class="msg" id="youIdComment"></p>
@@ -75,14 +75,14 @@
 
                         <div class="join">
                             <label for="youName" class="required">이름</label>
-                            <input type="text" id="youName" name="youName" placeholder="이름을 적어주세요!" class="input__style">
+                            <input type="text" id="youName" name="youName" placeholder="이름을 적어주세요." class="input__style">
                             <p class="msg" id="youNameComment"></p>
                         </div>
 
                         <div class="join">
                             <label for="youEmail" class="required">이메일</label>
                             <div class="check">
-                                <input type="email" id="youEmail" name="youEmail" placeholder="이메일을 적어주세요!" class="input__style">
+                                <input type="email" id="youEmail" name="youEmail" placeholder="이메일을 적어주세요." class="input__style">
                                 <div class="btn" onclick="emailChecking()">이메일 중복 검사</div>
                             </div>
                             <p class="msg" id="youEmailComment"></p>
@@ -90,13 +90,13 @@
 
                         <div class="join">
                             <label for="youPass" class="required">비밀번호</label>
-                            <input type="password" id="youPass" name="youPass" placeholder="비밀번호를 적어주세요!" autocomplete="off" class="input__style">
+                            <input type="password" id="youPass" name="youPass" placeholder="비밀번호를 적어주세요." autocomplete="off" class="input__style">
                             <p class="msg" id="youPassComment"></p>
                         </div>
 
                         <div class="join">
                             <label for="youPassC" class="required">비밀번호 확인</label>
-                            <input type="password" id="youPassC" name="youPassC" placeholder="다시 한번 비밀번호를 적어주세요!" autocomplete="off" class="input__style">
+                            <input type="password" id="youPassC" name="youPassC" placeholder="다시 한번 비밀번호를 적어주세요." autocomplete="off" class="input__style">
                             <p class="msg" id="youPassCComment"></p>
                         </div>
                     

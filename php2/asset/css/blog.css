@@ -2,17 +2,29 @@
     display: flex;
     justify-content: space-between;
 }
+
 .blog__contents {
     width: calc(100% - 340px);
-}
-.blog__aside {
-    width: 300px;
-    background-color: #eee;
 }
 
 /* blog__intro */
 .blog__intro {
     width: 100%;
+    margin-bottom: 20px;
+}
+.blog__intro__img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.blog__intro__img img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+.blog__intro__text {
+    text-align: center; 
+    padding: 10px 0;
 }
 
 /* blog__write */
@@ -20,6 +32,7 @@
     width: 100%;
     padding: 80px 0;
 }
+
 .blog__write select {
     width: 200px;
     padding: 0.8rem 1rem;
@@ -28,6 +41,7 @@
     border: 1px solid var(--br100);
     color: var(--black);
 }
+
 .blog__write input {
     border-radius: 0;
     padding: 0.8rem 1rem;
@@ -37,9 +51,11 @@
     font-weight: 500;
     color: var(--black);
 }
+
 .blog__write input:focus {
     outline: none;
 }
+
 .blog__write textarea {
     width: 100%;
     height: 400px;
@@ -51,14 +67,17 @@
     font-weight: 500;
     /* color: var(--black); */
 }
+
 .blog__write textarea:focus {
     outline: none;
 }
+
 .blog__write .file p {
     color: var(--y100);
     margin-bottom: 20px;
     font-weight: 500;
 }
+
 .blog__write .btn {
     text-align: right;
 }
@@ -68,24 +87,311 @@
     margin-bottom: 10px;
 }
 
+/* blog__aside */
+.blog__aside {
+    width: 300px;
+    background-color: var(--br100);
+    padding: 20px;
+}
+.blogWriteBtn {
+    margin-bottom: 20px;
+}
 .blog__category h3 {
     padding: 10px;
-    border-top: 2px solid var(--br100);
-    border-bottom: 1px solid var(--br100);
+    text-align: center;
+    color: var(--white);
+    background-color: var(--black250);
 }
+
 .blog__category ul {
     padding: 20px;
 }
+
 .blog__category ul li {
     list-style-type: circle;
+    margin-bottom: 5px;
+}
+.blog__category ul li:hover a {
+    text-decoration: underline;
+    text-underline-position: under;
 }
 
 .blog__index {
     border-top: 1px solid var(--br100);
     border-bottom: 1px solid var(--br100);
     padding: 30px 0;
+    margin-top: 50px;
     margin-bottom: 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.blog__index a i {
+    font-style: normal;
+    color: var(--black400);
+    margin: 0 5px;
+}
+
+.blog__comment h4 {
+    width: 100%;
+    border-top: 1px solid var(--br100);
+    border-bottom: 1px solid var(--br100);
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: var(--black250);
+}
+
+.comment__view {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.blog__view h3 {
+    font-size: 2rem;
+    padding: 20px 0 0;
+}
+.blog__view .info {
+    font-size: 0.8rem;
+    color: var(--black250);
+    padding: 5px 0;
+    margin-bottom: 10px;
+}
+.blog__view .contents img {
+    margin: 10px 0;
+}
+
+
+.comment__view .avata {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-image: url(../face/Calm.svg);
+    background-size: cover;
+    border: 2px solid var(--br100);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.comment__view:nth-child(2) .avata {
+    background-image: url(../face/Angry\ with\ Fang.svg);
+}
+
+.comment__view:nth-child(3) .avata {
+    background-image: url(../face/Contempt.svg);
+}
+
+.comment__view:nth-child(4) .avata {
+    background-image: url(../face/Cute.svg);
+}
+
+.comment__view:nth-child(5) .avata {
+    background-image: url(../face/Eating\ Happy.svg);
+}
+
+.comment__view .text {
+    margin-left: 60px;
+}
+
+.comment__view .text > span {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--black250);
+}
+.comment__view .text .date {
+    color: var(--black500);
+}
+
+.comment__view .text p {
+    color: var(--black250);
+    background-color: var(--br100);
+    padding: 10px;
+    border-radius: 0 10px 10px 10px;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.comment__view:nth-child(even) .avata {
+    left: auto;
+    right: 0;
+    transform: rotateY(180deg);
+}
+
+.comment__view:nth-child(even) .text {
+    text-align: right;
+    margin-right: 60px;
+}
+
+.comment__view:nth-child(even) p {
+    border-radius: 10px 0 10px 10px;
+}
+
+.comment__view .text .modify {
+    text-decoration: underline;
+    text-underline-position: under;
+}
+
+.comment__view .text .delete {
+    text-decoration: underline;
+    text-underline-position: under;
+}
+
+.comment__view .text .delete:hover,
+.comment__view .text .modify:hover {
+    color: var(--black);
+}
+
+.comment__input {
+    margin-top: 50px;
+    padding-top: 50px;
+    border-top: 1px solid var(--br100);
+}
+
+.comment__input fieldset {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.comment__input #commentName {
+    width: 49.5%;
+}
+
+.comment__input #commentPass {
+    width: 49.5%;
+}
+
+.comment__input #commentWrite {
+    width: 100%;
+    margin-top: 5px;
+}
+
+#commentWriteBtn {
+    margin-bottom: 50px;
+}
+
+#popupDelete {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 10000;
+}
+
+#popupModify {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 10000;
+}
+
+/* comment__delete */
+.comment__delete {
+    width: 400px;
+    height: 400px;
+    background-color: var(--white);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 40px;
+    border: 2px solid var(--br100);
+}
+
+.comment__delete h4 {
+    background-color: var(--black250);
+    color: var(--white);
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.comment__delete input {
+    border: 1px solid var(--br100);
+    padding: 1rem;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.comment__delete p {
+    margin-top: 10px;
+    color: var(--y100);
+}
+
+.comment__delete .btn {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+
+.comment__delete .btn button {
+    background-color: var(--black250);
+    color: var(--white);
+    padding: 5px 20px;
+    cursor: pointer;
+}
+
+/* comment__modify */
+.comment__modify {
+    width: 400px;
+    height: 400px;
+    background-color: var(--white);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 40px;
+    border: 2px solid var(--br100);
+}
+
+.comment__modify h4 {
+    background-color: var(--black250);
+    color: var(--white);
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.comment__modify textarea {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 1rem;
+    resize: none;
+    color: var(--black250);
+}
+
+.comment__modify input {
+    border: 1px solid var(--br100);
+    padding: 1rem;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.comment__modify p {
+    margin-top: 10px;
+    color: var(--y100);
+}
+
+.comment__modify .btn {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+
+.comment__modify .btn button {
+    background-color: var(--black250);
+    color: var(--white);
+    padding: 5px 20px;
+    cursor: pointer;
 }

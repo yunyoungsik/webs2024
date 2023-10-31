@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GSAP Scroll Effect07</title>
+    <title>GSAP Scroll Effect08</title>
 
     <link href="https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap" rel="stylesheet">
@@ -12,23 +13,27 @@
             margin: 0;
             padding: 0;
         }
+
         a {
             color: #fff;
             text-decoration: none;
         }
+
         body {
-            --bg-color : #222;
+            --bg-color: #222;
             background-color: var(--bg-color);
             color: #fff;
             font-family: "NexonLv1Gothic";
             font-weight: 300;
         }
+
         #parallax__title {
             position: fixed;
             left: 20px;
             top: 20px;
             z-index: 1000;
         }
+
         #parallax__title h1 {
             font-size: 30px;
             border-bottom: 1px dashed #fff;
@@ -37,17 +42,21 @@
             font-weight: 400;
             display: inline-block;
         }
+
         #parallax__title p {
             font-size: 16px;
         }
+
         #parallax__title ul {
             margin-top: 10px;
         }
+
         #parallax__title li {
             display: inline;
         }
+
         #parallax__title li a {
-            width: 20px; 
+            width: 20px;
             height: 20px;
             border-radius: 50%;
             border: 1px dashed #fff;
@@ -56,6 +65,7 @@
             line-height: 20px;
             font-size: 12px;
         }
+
         #parallax__title li.active a {
             background: #fff;
             color: #000;
@@ -65,20 +75,23 @@
         #parallax__cont {
             width: 100%;
         }
+
         .parallax__item {
             width: 100%;
             height: 100vh;
             display: flex;
-            align-items: center;    
+            align-items: center;
             justify-content: center;
             position: relative;
         }
+
         .parallax__item__num {
             position: absolute;
             right: 20px;
             bottom: 20px;
             font-size: 1vw;
         }
+
         .parallax__item__imgWrap {
             width: 50%;
             margin-right: 30%;
@@ -87,9 +100,10 @@
             position: relative;
             overflow: hidden;
         }
+
         .parallax__item__img {
             position: absolute;
-            left: -5%; 
+            left: -5%;
             top: -5%;
             width: 110%;
             height: 110%;
@@ -99,10 +113,12 @@
             filter: saturate(0%);
             transition: all 1s;
         }
+
         .parallax__item__img:hover {
             filter: saturate(100%);
             transform: scale(1.025);
         }
+
         .parallax__item__desc {
             font-size: 3vw;
             line-height: 1.4;
@@ -115,39 +131,49 @@
             top: 50%;
             word-break: keep-all;
         }
+
         #section1 .parallax__item__img {
             background-image: url(img/images01-min.jpg);
         }
+
         #section2 .parallax__item__img {
             background-image: url(img/images02-min.jpg);
         }
+
         #section3 .parallax__item__img {
             background-image: url(img/images03-min.jpg);
         }
+
         #section4 .parallax__item__img {
             background-image: url(img/images04-min.jpg);
         }
+
         #section5 .parallax__item__img {
             background-image: url(img/images05-min.jpg);
         }
+
         #section6 .parallax__item__img {
             background-image: url(img/images06-min.jpg);
         }
+
         #section7 .parallax__item__img {
             background-image: url(img/images07-min.jpg);
         }
+
         #section8 .parallax__item__img {
             background-image: url(img/images08-min.jpg);
         }
+
         #section9 .parallax__item__img {
             background-image: url(img/images09-min.jpg);
         }
+
         .parallax__item__title {
             display: none;
         }
 
         /* option */
-        .parallax__progress progress{
+        .parallax__progress progress {
             position: fixed;
             top: 0;
             left: 0;
@@ -157,21 +183,25 @@
             border: none;
             background: transparent;
         }
+
         .parallax__progress progress::-webkit-progress-bar {
             background: transparent;
         }
+
         .parallax__progress progress::-webkit-progress-value {
-            background: linear-gradient(to left, #db38b5,#01b3e3,#25ce7b,#fdc741,#ff6b01,#fc4236);
+            background: linear-gradient(to left, #db38b5, #01b3e3, #25ce7b, #fdc741, #ff6b01, #fc4236);
             background-attachment: fixed;
         }
+
         .parallax__progress progress::-moz-progress-bar {
-            background: linear-gradient(to left, #db38b5,#01b3e3,#25ce7b,#fdc741,#ff6b01,#fc4236);
+            background: linear-gradient(to left, #db38b5, #01b3e3, #25ce7b, #fdc741, #ff6b01, #fc4236);
             background-attachment: fixed;
         }
     </style>
 </head>
+
 <body>
-    
+
     <div class="parallax__progress">
         <progress max="100" value="0"></progress>
     </div>
@@ -296,9 +326,10 @@
         gsap.to("progress", {
             value: 100,
             ease: "none",
-            scrollTrigger: {scrub: 0.3}
+            scrollTrigger: { scrub: 0.3 }
         });
 
     </script>
 </body>
+
 </html>

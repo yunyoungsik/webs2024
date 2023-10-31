@@ -16,7 +16,7 @@
     $allPageCount = $pageResult -> num_rows; 
 
     // 현재 페이지
-    $pageSql2 = "SELECT * FROM FBoard WHERE blogId > '$blogId' AND fDelete = 1";
+    $pageSql2 = "SELECT * FROM FBoard WHERE blogId < '$blogId' AND fDelete = 1";
     $pageResult2 = $connect -> query($pageSql2);
     $prevPageCount = $pageResult2 -> num_rows;
 
@@ -32,12 +32,12 @@
     $boardInfo = $boardResult -> fetch_array(MYSQLI_ASSOC);
 
     // 이전글 가져오기
-    $prevBoardSql = "SELECT * FROM FBoard WHERE blogId < '$blogId' ORDER BY blogId DESC LIMIT 1";
+    $prevBoardSql = "SELECT * FROM FBoard WHERE blogId > '$blogId' ORDER BY blogId ASC LIMIT 1";
     $prevBoardResult = $connect -> query($prevBoardSql);
     $prevBoardInfo = $prevBoardResult -> fetch_array(MYSQLI_ASSOC);
 
     // 다음글 가져오기
-    $nextBoardSql = "SELECT * FROM FBoard WHERE blogId > '$blogId' ORDER BY blogId ASC LIMIT 1";
+    $nextBoardSql = "SELECT * FROM FBoard WHERE blogId < '$blogId' ORDER BY blogId DESC LIMIT 1";
     $nextBoardResult = $connect -> query($nextBoardSql);
     $nextBoardInfo = $nextBoardResult -> fetch_array(MYSQLI_ASSOC);
 
@@ -89,7 +89,6 @@
                             <tr class="trPb"><td colspan="3"></td></tr>
                             <tr>
                                 <td class="board_cotent" colspan="3">
-                                    <img src="../../assets/board/<?=$boardInfo['fImgFile']?>" alt="<?=$boardInfo['fTitle']?>">
                                     <?=$boardInfo['fContents']?>
                                 </td>
                             </tr>
@@ -101,7 +100,7 @@
                 </div>
                 <div class="board__btns">
                     <button type="submit" class="btn__style">공감</button>
-                    <a href="board.php" class="btn__style2">목록</a>
+                    <a href="board.html" class="btn__style2">목록</a>
                 </div>
                 <div class="board__pages2">
                     <ul>

@@ -2,9 +2,9 @@
     include "../connect/connect.php";
     include "../connect/session.php";
 
-    // echo "<pre>";
-    // var_dump($_SESSION);
-    // echo "</pre>";
+    echo "<pre>";
+    var_dump($_SESSION);
+    echo "</pre>";
 ?>
 
 <!DOCTYPE html>
@@ -33,17 +33,17 @@
                 <p>블로그와 관련된 글을 쓸 수 있습니다.</p>
             </div>
         </div>
-
+        
         <div class="blog__layout container">
             <div class="blog__contents">
-                <section class="blog__write">
+                <section class="blog__write board__write">
                     <form action="blogWriteSave.php" name="blogWriteSave" method="post" enctype="multipart/form-data">
                         <fieldset>
                             <legend class="blind">게시글 작성하기</legend>
                             <div>
                                 <label for="blogCategory" class="blind">카테고리</label>
                                 <select name="blogCategory" id="blogCategory">
-                                    <option value="자유글">잡담</option>
+                                    <option value="잡담">잡담</option>
                                     <option value="자격증정보">자격증정보</option>
                                     <option value="공부정보">공부정보</option>
                                 </select>
@@ -75,6 +75,9 @@
 
                 <?php include "blogIntro.php" ?>
                 <!-- //blogIntro -->
+
+                <?php include "blogWriteBtn.php" ?>
+                <!-- //blogWriteBtn -->
 
                 <?php include "blogCategory.php" ?>
                 <!-- //blogCategory -->

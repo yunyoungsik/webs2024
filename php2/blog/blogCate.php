@@ -49,51 +49,49 @@
         <div class="blog__layout container">
             <div class="blog__contents">
                 <section class="blog__card card__wrap">
-                        <h2><?=$category?></h2>
-                        <div class="card__inner column3">
+                    <h2><?=$category?></h2>
+                    <div class="card__inner column3">
 
-    <?php foreach($categoryResult as $blog){ ?>
-        <div class="card">
-            <figure class="card__img">
-                <a href="blogView.php?blogId=<?=$blog['blogId']?>">
-                    <img src="../asset/blog/<?=$blog['blogImgFile']?>" alt="<?=$blog['blogTitle']?>">
-                </a>
-            </figure>
-            <div class="card__text">
-                <h3>
-                    <a href="blogView.php?blogId=<?=$blog['blogId']?>">
-                        <span><?=$blog['blogTitle']?></span>
-                    </a>
-                </h3>
-                <p>
-                    <?=substr($blog['blogContents'], 0, 100)?>
-                </p>
-            </div>
-        </div>
-    <?php } ?>
+                        <?php foreach($categoryResult as $blog){ ?>
+                            <div class="card">
+                                <figure class="card__img">
+                                    <a href="blogView.php?blogId=<?=$blog['blogId']?>">
+                                        <img src="../asset/blog/<?=$blog['blogImgFile']?>" alt="<?=$blog['blogTitle']?>">
+                                    </a>
+                                </figure>
+                                <div class="card__text">
+                                    <h3>
+                                        <a href="blogView.php?blogId=<?=$blog['blogId']?>">
+                                            <span><?=$blog['blogTitle']?></span>
+                                        </a>
+                                    </h3>
+                                    <p>
+                                        <?=substr($blog['blogContents'], 0, 100)?>
+                                    </p>
+                                </div>
+                            </div>
+                        <?php } ?>
 
                     </div>
                 </section>
-                <section class="blog__pages">blog__pages</section>
-                <section class="blog__index">blog__index</section>
-                <section class="blog__relate">blog__relate</section>
-                <section class="blog__view">blog__view</section>
-                <section class="blog__write">blog__write</section>
             </div>
             <div class="blog__aside">
-                <?php include "blogAd.php" ?>
+                <?php include "blogAd.php"?>
                 <!-- //blog__ad -->
 
-                <?php include "blogIntro.php" ?>
+                <?php include "blogIntro.php"?>
                 <!-- //blogIntro -->
+                
+                <?php include "blogWriteBtn.php" ?>
+                <!-- //blogWriteBtn -->
 
-                <?php include "blogCategory.php" ?>
+                <?php include "blogCategory.php"?>
                 <!-- //blogCategory -->
 
-                <?php include "blogPopular.php" ?>
+                <?php include "blogPopular.php"?>
                 <!-- //blogPopular -->
                 
-                <?php include "blogComment.php" ?>
+                <?php include "blogComment.php"?>
                 <!-- //blogComment -->
             </div>
         </div>

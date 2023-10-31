@@ -79,6 +79,9 @@
                 <?php include "blogIntro.php" ?>
                 <!-- //blogIntro -->
 
+                <?php include "blogWriteBtn.php" ?>
+                <!-- //blogWriteBtn -->
+
                 <?php include "blogCategory.php" ?>
                 <!-- //blogCategory -->
 
